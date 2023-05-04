@@ -4,8 +4,8 @@ const RelatedItems = () => {
 
   return (
     <div>
-      <p>Hello World!<p/>
-    <div/>
+      <p>Hello World from Related Items!</p>
+    </div>
   )
 }
 

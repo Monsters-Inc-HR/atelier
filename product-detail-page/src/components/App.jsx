@@ -5,8 +5,8 @@ import Ratings from './ratingsAndReviews/ratings.jsx';
 const App = () => {
 
   return (
-    <RelatedItems/>
-    <Ratings />
+    <><RelatedItems/>
+    <Ratings /></>
   )
 }
 
