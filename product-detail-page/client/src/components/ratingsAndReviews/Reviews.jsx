@@ -3,7 +3,7 @@ import ReviewsSummary from './ReviewsSummary.jsx';
 
 const Reviews = () => {
   // Reviews Meta Data sample
-  // GET /reviews/meta/product_id={integer id value}
+  // GET /reviews/meta?product_id={integer id value}
   const reviewsMetaData = {
       "product_id": "37312",
       "ratings": {
