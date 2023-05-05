@@ -7,7 +7,7 @@ const QuestionsAndAnswers = () => {
     Questions and Answers div
     <Searchbar />
     <QuestionList />
-    <button>Add an answer</button>
+    <button>Add a question</button>
     </div>)
 }
 
