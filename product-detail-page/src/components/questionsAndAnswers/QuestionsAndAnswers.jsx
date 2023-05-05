@@ -1,7 +1,11 @@
 import React from "react";
+import Searchbar from "./Searchbar.jsx"
 
 const QuestionsAndAnswers = () => {
-  return (<div>Hello world from Questions And Answers</div>)
+  return (<div style={{ borderStyle: 'solid', borderColor: 'grey' }}>
+    Questions and Answers div
+    <Searchbar />
+    </div>)
 }
 
 
