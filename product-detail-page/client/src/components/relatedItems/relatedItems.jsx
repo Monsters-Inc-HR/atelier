@@ -4,10 +4,10 @@ import List from './productList.jsx';
 const RelatedItems = () => {
 
   return (
-    <div>
-      <List/>
-      <List/>
-    </div>
+    <>
+    <List/>
+    <List/>
+    </>
   )
 }
 

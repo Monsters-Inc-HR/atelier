@@ -1,20 +1,19 @@
 import React from 'react';
+import RelatedButton from './relatedButton.jsx';
 
 const Card = () => {
 
   return (
-  <li>
-    <div class="product-card">
-    <img alt="product-image"/>
 
-    <div class="container">
+    <div className="related related-container-card">
+    <RelatedButton/>
+    <img alt="product-image"/>
       <p>Category</p>
       <p>Name</p>
       <p>Price</p>
       <p>Stars</p>
     </div>
-    </div>
-  </li>
+
   )
 
 }

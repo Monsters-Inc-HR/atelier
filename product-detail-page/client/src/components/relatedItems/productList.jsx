@@ -4,14 +4,15 @@ import Card from './productCard.jsx';
 const List =  () => {
 
   return (
-    <>
+   <div>
     <h4>List Title</h4>
-    <ul>
+    <div className="related related-container-list">
       <Card/>
       <Card/>
       <Card/>
-    </ul>
-    </>
+    </div>
+    </div>
+
   )
 }
 
