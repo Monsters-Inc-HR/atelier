@@ -2,7 +2,7 @@ import React from "react";
 import Searchbar from "./Searchbar.jsx";
 import QuestionList from "./QuestionList.jsx";
 
-const apiQuestData = {
+var apiQuestData = {
   "product_id": "5",
   "results": [{
         "question_id": 37,
@@ -52,18 +52,19 @@ const apiQuestData = {
       // ...
   ]
 }
+
 //need to know the current product displayed to know which questions to display
 
 const QuestionsAndAnswers = () => {
 
-  const questions = apiQuestData.results;
-  //const questions = questionsArr.map((question) => question);
+  var questions = apiQuestData.results;
 
   return (<div style={{ borderStyle: 'solid', borderColor: 'grey' }}>
     Questions and Answers
     <QuestionList questions={questions} />
     <button>Add a question</button>
     </div>)
+
 }
 
 

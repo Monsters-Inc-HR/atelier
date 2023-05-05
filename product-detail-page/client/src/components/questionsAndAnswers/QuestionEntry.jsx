@@ -11,7 +11,7 @@ const QuestionEntry = ({question}) => {
     <div>
       <span>
         Q:{question.question_body}
-        Helpful?{question.question_helpfulness}
+        Helpful?<a href='empty'>Yes {question.question_helpfulness}</a>
         <a href='empty link'>Add Answer</a>
         <AnswerEntry answer={question.answers} />
       </span>
