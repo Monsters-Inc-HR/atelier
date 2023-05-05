@@ -3,9 +3,9 @@ const webpack = require('webpack');
 
 module.exports = {
   mode: 'development',
-  entry: path.join(__dirname, '/src/index.jsx'),
+  entry: path.join(__dirname, '/client/src/index.jsx'),
   output: {
-    path: path.join(__dirname, '/dist'),
+    path: path.join(__dirname, '/client/dist'),
     filename: 'index.bundle.js',
   },
   module: {
