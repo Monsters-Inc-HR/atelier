@@ -7,9 +7,12 @@ import QuestionsAndAnswers from './questionsAndAnswers/QuestionsAndAnswers.jsx';
 const App = () => {
 
   return (
-    <><RelatedItems/>
-    <QuestionsAndAnswers/>
-    <Ratings /></>
+    <div>
+      <RelatedItems/>
+      <QuestionsAndAnswers/>
+      <Ratings />
+      <p>hey</p>
+    </div>
   )
 }
 
