@@ -1,11 +1,15 @@
 import React from 'react';
+import Card from './productCard.jsx';
 
 const List =  () => {
 
   return (
     <>
+    <h4>List Title</h4>
     <ul>
-      List Of Products
+      <Card/>
+      <Card/>
+      <Card/>
     </ul>
     </>
   )

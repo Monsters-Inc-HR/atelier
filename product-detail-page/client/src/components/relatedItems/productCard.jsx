@@ -2,6 +2,21 @@ import React from 'react';
 
 const Card = () => {
 
+  return (
+  <li>
+    <div class="product-card">
+    <img alt="product-image"/>
+
+    <div class="container">
+      <p>Category</p>
+      <p>Name</p>
+      <p>Price</p>
+      <p>Stars</p>
+    </div>
+    </div>
+  </li>
+  )
+
 }
 
 // {
