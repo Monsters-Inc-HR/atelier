@@ -60,8 +60,7 @@ const QuestionsAndAnswers = () => {
   //const questions = questionsArr.map((question) => question);
 
   return (<div style={{ borderStyle: 'solid', borderColor: 'grey' }}>
-    Questions and Answers div
-    <Searchbar />
+    Questions and Answers
     <QuestionList questions={questions} />
     <button>Add a question</button>
     </div>)

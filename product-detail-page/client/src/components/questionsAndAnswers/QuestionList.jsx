@@ -7,11 +7,16 @@ import QuestionEntry from './QuestionEntry.jsx';
 const QuestionList = ({questions}) => {
 
 
-  console.log(questions);
+ //console.log(questions);
   return (
     <div style={{ borderStyle: 'solid', borderColor: 'blue' }}>
       {questions.map((question, index) => (
-      <QuestionEntry question={question.question_body} key={index}/>
+      <QuestionEntry
+        question={question}
+        key={index}
+
+
+      />
         ))}
 
     </div>
