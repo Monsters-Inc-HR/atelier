@@ -4,13 +4,13 @@ import QuestionEntry from './QuestionEntry.jsx';
 
 
 
-const QuestionList = ({questions}) => {
+const QuestionList = ({questions, numOfQuestions}) => {
 
 
 
   return (
     <div style={{ borderStyle: 'solid', borderColor: 'blue' }}>
-      {questions.map((question, index) => (
+      {questions.slice(0, numOfQuestions).map((question, index) => (
       <QuestionEntry
         question={question}
         key={index}

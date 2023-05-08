@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Searchbar from "./Searchbar.jsx";
 import QuestionList from "./QuestionList.jsx";
 
@@ -51,11 +51,16 @@ var apiQuestData = {
       },
       // ...
   ]
+
 }
 
 //need to know the current product displayed to know which questions to display
 
 const QuestionsAndAnswers = () => {
+
+  //sets default number of questions to display at 4
+  const [numOfQuestions, setNumOfQuestions] = useState(4);
+
 
   var questions = apiQuestData.results;
 
@@ -63,9 +68,11 @@ const QuestionsAndAnswers = () => {
   questions = questions.sort((a,b) => (b.question_helpfulness - a.question_helpfulness ));
   //questions = [];
 
+
+
   return (<div style={{ borderStyle: 'solid', borderColor: 'grey' }}>
     <p>Questions and Answers</p>
-    {questions.length ? (<><QuestionList questions={questions}/><button>More Answered Questions</button></>) : (<></>) }
+    {questions.length ? (<><QuestionList questions={questions} numOfQuestions={numOfQuestions}/><button>More Answered Questions</button></>) : (<></>) }
     <button>Add a question</button>
     </div>
     )
