@@ -10,11 +10,11 @@ const AnswerEntry = ({answer}) => {
       <p>{answer.body}</p>
       <p>
         {answer.answerer_name}
-        {' '}
+        {' | '}
         {answer.date}
-        {' Helpful? '}
+        {' | Helpful? '}
         <a href='empty'>Yes {answer.helpfulness}</a>
-        {' '}
+        {' | '}
         <a href='empty'>Report</a>
         </p>
     </div>
