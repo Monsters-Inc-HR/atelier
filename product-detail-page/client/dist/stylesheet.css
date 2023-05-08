@@ -1,0 +1,25 @@
+
+/* ==============================================================
+ Related Items
+================================================================*/
+
+.related {
+  border: 1px solid black;
+}
+
+.related-container-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.related-container-card {
+  padding: 25px 25px;
+}
+
+.related-container-button {
+
+  display: flex;
+  justify-content: right;
+
+}
