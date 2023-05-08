@@ -17,4 +17,4 @@ const BarGraph = ({star, ratings}) => {
   );
 };
 
-export default StarBar;
+export default BarGraph;
