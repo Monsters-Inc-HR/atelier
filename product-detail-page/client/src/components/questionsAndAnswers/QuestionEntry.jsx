@@ -23,7 +23,9 @@ const QuestionEntry = ({question}) => {
           <a href='empty'>Yes {question.question_helpfulness}</a>
           <a href='empty'>Add Answer</a>
         </p>
-        <AnswerEntry answer={question.answers} />
+        {answers.map((answer, index) => (
+          <AnswerEntry answer={answer} key={index} />
+        ))}
       </span>
 
     </div>
