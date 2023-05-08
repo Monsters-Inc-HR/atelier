@@ -7,6 +7,7 @@ const ReviewsList = ({ reviewsData }) => {
     <div className='rr-reviews-list'>
       <div className='rr-review-sorter'>{ reviewsData.results.length } reviews, sorted by relevance/recency</div>
       {reviewsData.results.slice(0, numOfDisplayedReviews).map(review => <Review review={ review } />)}
+
     </div>
   );
 };
