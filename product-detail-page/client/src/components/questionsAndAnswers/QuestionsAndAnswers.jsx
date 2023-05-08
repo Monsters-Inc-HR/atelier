@@ -58,7 +58,10 @@ var apiQuestData = {
 const QuestionsAndAnswers = () => {
 
   var questions = apiQuestData.results;
-  questions = [];
+
+  //sorts the array of question objects in order of helpfulness from high to low
+  questions = questions.sort((a,b) => (b.question_helpfulness - a.question_helpfulness ));
+
 
   return (<div style={{ borderStyle: 'solid', borderColor: 'grey' }}>
     <p>Questions and Answers</p>
