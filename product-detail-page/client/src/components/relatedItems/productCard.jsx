@@ -1,30 +1,21 @@
 import React from 'react';
 import RelatedButton from './relatedButton.jsx';
 
-const Card = () => {
+const Card = ({product}) => {
 
   return (
 
     <div className="related related-container-card">
     <RelatedButton/>
     <img alt="product-image"/>
-      <p>Category</p>
-      <p>Name</p>
-      <p>Price</p>
+      <p>{product.category}</p>
+      <p>{product.name}</p>
+      <p>${product.default_price}</p>
       <p>Stars</p>
     </div>
 
   )
 
 }
-
-// {
-//   "id": 1,
-//   "name": "Camo Onesie",
-//   "slogan": "Blend in to your crowd",
-//   "description": "The So Fatigues will wake you up and fit you in. This high energy camo will have you blending in to even the wildest surroundings.",
-//   "category": "Jackets",
-//   "default_price": "140"
-// },
 
 export default Card;

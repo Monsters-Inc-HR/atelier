@@ -1,16 +1,19 @@
 import React from 'react';
+import { useState } from 'react';
 import List from './productList.jsx';
+import Outfit from './outfitList.jsx';
 import comparison from './comparison.jsx';
 import itemArray from './dummyData.js';
 
 const RelatedItems = () => {
 
-  let products = itemArray;
+  const [products, setProducts] = useState(itemArray);
+  const [userProducts, setUserProducts] = useState([]);
 
   return (
     <>
     <List products={products}/>
-    <List/>
+    <Outfit userProducts={userProducts}/>
     </>
   )
 }
