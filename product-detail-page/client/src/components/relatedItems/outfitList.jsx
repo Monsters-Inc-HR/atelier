@@ -3,7 +3,7 @@ import Card from './productCard.jsx';
 
 
 
-const Outfit =  ({userProducts}) => {
+const Outfit =  ({userProducts, compare}) => {
 
 
 
@@ -12,7 +12,7 @@ const Outfit =  ({userProducts}) => {
     <h4>List Title</h4>
     <div className="related related-container-list">
       <>{userProducts.length < 1 ? <p>Add a product...</p> : products.map((product, index) => {
-        return <Card key={product.id} product={product}/>
+        return <Card key={product.id} product={product} compare={compare}/>
       })}</>
     </div>
     </div>

@@ -1,9 +1,15 @@
 import React from 'react';
 
-const Comparison = () => {
+const Comparison = ({compare}) => {
+
+const handleClick = (e) => {
+  compare();
+}
 
   return (
-    <>comparison</>
+    <div onClick={handleClick}>
+      <h4>Comparison</h4>
+    </div>
   )
 }
 

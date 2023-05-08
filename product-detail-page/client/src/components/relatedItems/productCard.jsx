@@ -1,11 +1,15 @@
 import React from 'react';
 import RelatedButton from './relatedButton.jsx';
 
-const Card = ({product}) => {
+const Card = ({product, compare}) => {
+
+  const handleClick = (e) => {
+      compare();
+  }
 
   return (
 
-    <div className="related related-container-card">
+    <div className="related related-container-card" onClick={handleClick}>
     <RelatedButton/>
     <img alt="product-image"/>
       <p>{product.category}</p>
