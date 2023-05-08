@@ -1,11 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
+import Review from './Review.jsx';
 
 const ReviewsList = ({ reviewsData }) => {
   return (
     <div className='rr-review-list'>
       <div className='rr-review-sorter'>{ reviewsData.results.length } of reviews, sorted by relevance/recency</div>
-      <div>review</div>
-      <div>review</div>
+      <Review />
+      <Review />
     </div>
   );
 };
