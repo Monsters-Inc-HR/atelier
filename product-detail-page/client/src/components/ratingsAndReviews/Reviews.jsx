@@ -3,33 +3,27 @@ import ReviewsSummary from './ReviewsSummary.jsx';
 
 const Reviews = () => {
   // Reviews Meta Data sample
-  // GET /reviews/meta/product_id={integer id value}
+  // GET /reviews/meta?product_id={integer id value}
   const reviewsMetaData = {
-    "product_id": "2",
-    "ratings": {
-      1: 10,
-      2: 1,
-      3: 1,
-      4: 2,
-    },
-    "recommended": {
-      0: 5
-    },
-    "characteristics": {
-      "Size": {
-        "id": 14,
-        "value": "4.0000"
+      "product_id": "37312",
+      "ratings": {
+          "1": "16",
+          "2": "13",
+          "3": "7",
+          "4": "3",
+          "5": "10"
       },
-      "Width": {
-        "id": 15,
-        "value": "3.5000"
+      "recommended": {
+          "false": "5",
+          "true": "44"
       },
-      "Comfort": {
-        "id": 16,
-        "value": "4.0000"
-      },
+      "characteristics": {
+          "Quality": {
+              "id": 125035,
+              "value": "3.1428571428571429"
+          }
+      }
     }
-  }
 
   return (
     <div className='ratings-and-reviews'>
