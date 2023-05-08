@@ -31,3 +31,23 @@
 .rr-content {
   display: flex;
 }
+
+.rr-summary {
+  padding: 5px 5px 5px 0;
+}
+
+.rr-reviews-list {
+  padding: 5px;
+}
+
+.rr-summary-rollup {
+  display: flex;
+}
+
+.rr-review {
+  margin-top: 10px;
+}
+
+.rr-review-summary {
+  font-weight: 700;
+}
