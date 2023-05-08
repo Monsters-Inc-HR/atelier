@@ -66,13 +66,15 @@ const QuestionsAndAnswers = () => {
 
   //sorts the array of question objects in order of helpfulness from high to low
   questions = questions.sort((a,b) => (b.question_helpfulness - a.question_helpfulness ));
+
+  //toggle for testing purposes when array of questions is empty
   //questions = [];
 
 
 
   return (<div style={{ borderStyle: 'solid', borderColor: 'grey' }}>
     <p>Questions and Answers</p>
-    {questions.length ? (<><QuestionList questions={questions} numOfQuestions={numOfQuestions}/><button>More Answered Questions</button></>) : (<></>) }
+    {questions.length ? (<><Searchbar /><QuestionList questions={questions} numOfQuestions={numOfQuestions}/><button>More Answered Questions</button></>) : (<></>) }
     <button>Add a question</button>
     </div>
     )
