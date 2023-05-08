@@ -4,7 +4,16 @@ import AnswerEntry from './AnswerEntry.jsx';
 
 const QuestionEntry = ({question}) => {
 
+  //converts object of answers to an array of answers
+  //individual answer objects still have an id property
+  var answerObject = question.answers;
+  var answers = [];
+  for (var key in answerObject) {
+    answers.push(answerObject[key]);
+  }
 
+  //sorts answers in terms of helpfulness from highest to lowest
+  answers = answers.sort((a, b) => b.helpfulness - a.helpfulness);
 
 
   return (
@@ -14,7 +23,7 @@ const QuestionEntry = ({question}) => {
           <a href='empty'>Yes {question.question_helpfulness}</a>
           <a href='empty'>Add Answer</a>
         </p>
-       <AnswerEntry answer={question.answers} />
+        <AnswerEntry answer={question.answers} />
       </span>
 
     </div>
