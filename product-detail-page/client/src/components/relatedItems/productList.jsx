@@ -1,7 +1,6 @@
 import React from 'react';
-import Card from './productCard.jsx';
 import { useState } from 'react';
-
+import Card from './productCard.jsx';
 
 
 const List =  ({products, compare}) => {
