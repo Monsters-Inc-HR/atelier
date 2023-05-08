@@ -7,7 +7,7 @@ const AnswerEntry = ({answer}) => {
 
   return (
     <div>
-      dummy answer
+        Dummy Answer
     </div>
   )
 }

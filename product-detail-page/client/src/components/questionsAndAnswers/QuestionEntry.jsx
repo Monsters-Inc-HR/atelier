@@ -10,10 +10,11 @@ const QuestionEntry = ({question}) => {
   return (
     <div>
       <span>
-        Q:{question.question_body}
-        Helpful?<a href='empty'>Yes {question.question_helpfulness}</a>
-        <a href='empty link'>Add Answer</a>
-        <AnswerEntry answer={question.answers} />
+        <p>Q: {question.question_body} Helpful?
+          <a href='empty'>Yes {question.question_helpfulness}</a>
+          <a href='empty'>Add Answer</a>
+        </p>
+       <AnswerEntry answer={question.answers} />
       </span>
 
     </div>
