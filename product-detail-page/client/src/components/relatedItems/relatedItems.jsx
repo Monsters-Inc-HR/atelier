@@ -18,15 +18,17 @@ const RelatedItems = () => {
     } else {
       setRenderComparison(false);
     }
+  }
 
-    console.log(renderComparison);
+  const closeCompare = () => {
+    setRenderComparison(false);
   }
 
   return (
     <>
     <List products={products} compare={compare}/>
     <Outfit userProducts={userProducts} compare={compare}/>
-    {renderComparison ? <Comparison compare={compare}/> : null}
+    {renderComparison ? <Comparison closeCompare={closeCompare}/> : null}
     </>
   )
 }
