@@ -58,8 +58,8 @@ var apiQuestData = {
 
 const QuestionsAndAnswers = () => {
 
-  //sets default number of questions to display at 4
-  const [numOfQuestions, setNumOfQuestions] = useState(4);
+  //sets default number of questions to display at 2
+  const [numOfQuestions, setNumOfQuestions] = useState(2);
 
 
   var questions = apiQuestData.results;
@@ -70,12 +70,18 @@ const QuestionsAndAnswers = () => {
   //toggle for testing purposes when array of questions is empty
   //questions = [];
 
+  const moreAnsweredQuestionClick = () => {setNumOfQuestions(numOfQuestions + 2)}
 
-
-  return (<div style={{ borderStyle: 'solid', borderColor: 'grey' }}>
-    <p>Questions and Answers</p>
-    {questions.length ? (<><Searchbar /><QuestionList questions={questions} numOfQuestions={numOfQuestions}/><button>More Answered Questions</button></>) : (<></>) }
-    <button>Add a question</button>
+  return (
+    <div style={{ borderStyle: 'solid', borderColor: 'grey' }}>
+      <p>Questions and Answers</p>
+      {questions.length ? (
+        <>
+          <Searchbar />
+          <QuestionList questions={questions} numOfQuestions={numOfQuestions}/>
+          <button onClick={moreAnsweredQuestionClick}>More Answered Questions</button></>
+      ) : (<></>) }
+      <button>Add a question</button>
     </div>
     )
 
