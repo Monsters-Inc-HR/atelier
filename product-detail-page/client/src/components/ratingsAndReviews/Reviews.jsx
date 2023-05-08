@@ -314,7 +314,7 @@ const Reviews = () => {
       <div className='rr-title'>RATINGS & REVIEWS</div>
       <div className='rr-content'>
         <ReviewsSummary metaData={ reviewsMetaData } />
-        <ReviewsList />
+        <ReviewsList reviewsData={ reviewsData } />
       </div>
     </div>
   )
