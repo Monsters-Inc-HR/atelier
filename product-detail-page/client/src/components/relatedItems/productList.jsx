@@ -1,11 +1,20 @@
 import React from 'react';
 import Card from './productCard.jsx';
+import { useState } from 'react';
 
 
 
 const List =  ({products, compare}) => {
 
+  const [viewCounter, setViewCounter] = useState(0);
 
+  const increaseView = () => {
+    setViewCounter(viewCounter + 1);
+  }
+
+  const decreaseView = () => {
+    setViewCounter(viewCounter - 1);
+  }
 
   return (
    <div>
@@ -15,6 +24,8 @@ const List =  ({products, compare}) => {
         return <Card key={product.id} product={product} compare={compare}/>
       })}</>
     </div>
+    {viewCounter > 0 ? <button type="left-button" onClick={decreaseView}>Left</button> : null}
+    {viewCounter < products.length ? <button type="right-button" onClick={increaseView}>Right</button>: null}
     </div>
   )
 }
