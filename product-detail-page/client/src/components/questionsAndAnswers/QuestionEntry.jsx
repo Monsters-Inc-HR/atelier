@@ -19,13 +19,18 @@ const QuestionEntry = ({question}) => {
   return (
     <div>
       <span>
-        <p>Q: {question.question_body} Helpful?
+        <p>
+          {'Q: '}
+          {question.question_body}
+          {' Helpful? '}
           <a href='empty'>Yes {question.question_helpfulness}</a>
+          {' | '}
           <a href='empty'>Add Answer</a>
         </p>
         {answers.map((answer, index) => (
           <AnswerEntry answer={answer} key={index} />
         ))}
+
       </span>
 
     </div>
