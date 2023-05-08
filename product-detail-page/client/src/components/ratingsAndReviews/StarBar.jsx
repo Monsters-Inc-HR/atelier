@@ -2,7 +2,8 @@ import React from 'react';
 
 const StarBar = ({star, ratings}) => {
   const totalNumOfRatings = Object.values(ratings).reduce((sum, countForEachStar) => sum + parseInt(countForEachStar), 0);
-  const ratioToDisplay = parseInt(ratings[star]) / totalNumOfRatings;
+  const countForStar = ratings[star] ? ratings[star] : 0; // get the count for this star; if it doesn't exist, assume it is 0
+  const ratioToDisplay = parseInt(countForStar) / totalNumOfRatings;
   const positivePercentageString = Math.round(ratioToDisplay*100) + '%';
   const negativePercentageString = Math.round((1 - ratioToDisplay)*100) + '%';
   return (
