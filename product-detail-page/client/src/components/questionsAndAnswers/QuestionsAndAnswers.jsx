@@ -58,12 +58,14 @@ var apiQuestData = {
 const QuestionsAndAnswers = () => {
 
   var questions = apiQuestData.results;
+  questions = [];
 
   return (<div style={{ borderStyle: 'solid', borderColor: 'grey' }}>
-    Questions and Answers
-    <QuestionList questions={questions} />
+    <p>Questions and Answers</p>
+    {questions.length ? (<QuestionList questions={questions}/>) : (<div></div>) }
     <button>Add a question</button>
-    </div>)
+    </div>
+    )
 
 }
 
