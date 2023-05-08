@@ -9,7 +9,7 @@ const QuestionList = ({questions, numOfQuestions}) => {
 
 
   return (
-    <div style={{ borderStyle: 'solid', borderColor: 'blue' }}>
+    <div style={{ borderStyle: 'solid', borderColor: 'grey' }}>
       {questions.slice(0, numOfQuestions).map((question, index) => (
       <QuestionEntry
         question={question}
