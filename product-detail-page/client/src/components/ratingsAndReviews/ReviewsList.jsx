@@ -7,7 +7,7 @@ const ReviewsList = ({ reviewsData }) => {
     <div className='rr-reviews-list'>
       <div className='rr-review-sorter'>{ reviewsData.results.length } reviews, sorted by relevance/recency</div>
       {reviewsData.results.slice(0, numOfDisplayedReviews).map(review => <Review review={ review } />)}
-      <button onClick={ () => setNumOfDisplayedReviews(numOfDisplayedReviews + 2)}>MORE REVIEWS</button>
+      {numOfDisplayedReviews < reviewsData.results.length && <button onClick={ () => setNumOfDisplayedReviews(numOfDisplayedReviews + 2)}>MORE REVIEWS</button>}
       <button>ADD A REVIEW  +</button>
     </div>
   );
