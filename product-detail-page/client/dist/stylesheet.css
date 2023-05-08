@@ -21,3 +21,20 @@
   display: flex;
   justify-content: right;
 }
+
+.related-comparison-modal {
+border: 1px solid black;
+display: block;
+position: fixed;
+background: beige;
+width: 50%;
+height: auto;
+top: 50%;
+left: 35%;
+}
+
+.related-comparison-title {
+  display: flex;
+  justify-content: left;
+
+}

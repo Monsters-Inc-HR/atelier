@@ -9,7 +9,7 @@ const List =  ({products, compare}) => {
 
   return (
    <div>
-    <h4>List Title</h4>
+    <h4>Related Items</h4>
     <div className="related related-container-list">
       <>{products.map((product, index) => {
         return <Card key={product.id} product={product} compare={compare}/>
