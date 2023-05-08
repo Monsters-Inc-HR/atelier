@@ -11,7 +11,7 @@ const Review = ({ review }) => {
       <div className='rr-review-summary'>{ review.summary }</div>
       <div className='rr-review-body'>{ review.body }</div>
       { review.recommend && <div className='rr-review-recommended'>✔️ I recommend this product.</div> }
-      { review.response && <div className='rr-review-seller-response'>{ review.response }</div> }
+      { review.response && <div className='rr-review-seller-response'><b>Seller response:</b><br/><br/>{ review.response }</div> }
       <div className='rr-mark-helpful'></div>
       <hr />
     </div>
