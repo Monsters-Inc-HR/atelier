@@ -3,15 +3,15 @@ import Card from './productCard.jsx';
 
 
 
-const List =  ({products, compare}) => {
+const Outfit =  ({userProducts, compare}) => {
 
 
 
   return (
    <div>
-    <h4>Related Items</h4>
+    <h4>Your Outfit</h4>
     <div className="related related-container-list">
-      <>{products.map((product, index) => {
+      <>{userProducts.length < 1 ? <p>Add a product...</p> : products.map((product, index) => {
         return <Card key={product.id} product={product} compare={compare}/>
       })}</>
     </div>
@@ -19,5 +19,5 @@ const List =  ({products, compare}) => {
   )
 }
 
-export default List;
+export default Outfit;
 
