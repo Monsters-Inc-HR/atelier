@@ -1,7 +1,10 @@
 import React from 'react';
 import Card from './productCard.jsx';
 
+
+
 const List =  () => {
+
 
   return (
    <div>
@@ -17,3 +20,4 @@ const List =  () => {
 }
 
 export default List;
+
