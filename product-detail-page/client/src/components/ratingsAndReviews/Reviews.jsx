@@ -1,5 +1,6 @@
 import React from 'react';
 import ReviewsSummary from './ReviewsSummary.jsx';
+import ReviewsList from './ReviewsList.jsx';
 
 const Reviews = () => {
   // Reviews Meta Data sample
@@ -30,7 +31,7 @@ const Reviews = () => {
       <div className='rr-title'>RATINGS & REVIEWS</div>
       <div className='rr-content'>
         <ReviewsSummary metaData={ reviewsMetaData } />
-        <div className='rr-review-list'>review list</div>
+        <ReviewsList />
       </div>
     </div>
   )

@@ -4,7 +4,7 @@ import ProductInfo from './ProductInfo.jsx';
 import StylesAndCart from './StylesAndCart.jsx';
 
 const Overview = () => {
-  productInfoData = [
+  const productInfoData = [
     {
       "id": 11,
       "name": "Air Minis 250",
