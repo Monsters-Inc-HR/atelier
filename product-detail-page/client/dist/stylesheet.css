@@ -4,41 +4,52 @@
  Related Items
 ================================================================*/
 
-body {
+/* body {
   background-color: beige;
   color: black;
 }
 
 h1, h2, h3, h4, h5 {
   color: black;
-}
+} */
 
 .related {
   border: 1px solid black;
-}
+};
 
 .related-container-list {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-}
+  flex-wrap: nowrap;
+  overflow: hidden;
+};
 
+.related-container-card {
+  height: 20rem;;
+  min-width: 33%;
+  width: 33%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 1s cubic-bezier(0.39, 0.575, 0.565, 1);
+};
+/*
 .related-container-details {
   padding: 25px 25px;
-}
+};
 
 .related-container-button {
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
-}
+  /* position: fixed; */
+  display:flex;
+}; */
 
-button {
+/* button {
   margin: 2px;
   margin-right: 2px;
   padding: 2px;
   size: 10px;
- }
+ }; */
 
 .related-comparison-modal {
 border: 1px solid black;
@@ -49,12 +60,12 @@ width: 50%;
 height: auto;
 top: 50%;
 left: 35%;
-}
+};
 
 .related-comparison-title {
   display: flex;
   justify-content: left;
-}
+};
 
 
 

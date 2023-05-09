@@ -9,7 +9,7 @@ const Card = ({product, compare}) => {
 
   return (
 
-    <div class="related">
+    <div class="related related-container-card">
     <RelatedButton/>
     <div onClick={handleClick}>
     <img alt="product-image"/>

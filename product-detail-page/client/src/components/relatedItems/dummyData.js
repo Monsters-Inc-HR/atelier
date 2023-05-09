@@ -25,6 +25,15 @@ let itemArray = [
     },
 
     {
+        "id": 5,
+        "name": "Night Joggers",
+        "slogan": "Make yourself a night person",
+        "description": "Whether you're a night person or not. Whether you're gym bound or not. Everyone looks good in joggers.",
+        "category": "Pants",
+        "default_price": "400"
+    },
+
+    {
       "id": 11,
       "name": "Air Minis 250",
       "slogan": "Full court support",
