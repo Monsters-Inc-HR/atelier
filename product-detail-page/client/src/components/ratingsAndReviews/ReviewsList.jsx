@@ -1,9 +1,10 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import Review from './Review.jsx';
 
-const ReviewsList = ({ reviewsData }) => {
-  const [results, setResults] = useState(reviewsData.results);
+const ReviewsList = ({ reviewsData, filters }) => {
+  const [results, setResults] = useState(filters.length === 0 ? reviewsData.results : reviewsData.results.filter(review => filters.includes(review.rating)));
   const [displayCount, setDisplayCount] = useState(2);
+
   return (
     <div className='rr-reviews-list'>
       <div className='rr-review-sorter'>{ results.length } reviews, sorted by relevance/recency</div>
