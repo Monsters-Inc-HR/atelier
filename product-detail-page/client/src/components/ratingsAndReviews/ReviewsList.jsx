@@ -8,7 +8,7 @@ const ReviewsList = ({ reviews }) => {
     <div className='rr-reviews-list'>
       <div className='rr-review-sorter'>{ reviews.length } reviews, <label for='sort-select'>sorted by most</label>
         <select style={{display: 'inline'}} name='sort-by' id='sort-select'>
-          <option value='relevance' selected='true'>relevant</option>
+          <option value='relevance' selected>relevant</option>
           <option value='helpfulness'>helpful</option>
           <option value='recency'>recent</option>
         </select>
