@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import QuestionEntry from './QuestionEntry.jsx';
 
 
 
 
-const QuestionList = ({questions, numOfQuestions, numOfAnswers}) => {
+const QuestionList = ({questions, numOfQuestions}) => {
 
+  //sets default number of answers to display at 2
+  const [numOfAnswers, setNumOfAnswers] = useState(2);
 
+  const handleMoreAnswersClick = () => {
+    setNumOfAnswers(numOfAnswers + 2);
+  }
 
   return (
     <div style={{ borderStyle: 'solid', borderColor: 'grey' }}>
@@ -16,6 +21,7 @@ const QuestionList = ({questions, numOfQuestions, numOfAnswers}) => {
         key={index}
         numOfAnswers={numOfAnswers}
       />))}
+      <a onClick={handleMoreAnswersClick}>See more answers</a>
     </div>
   )
 }
