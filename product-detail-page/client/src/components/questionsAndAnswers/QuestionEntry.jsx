@@ -15,10 +15,11 @@ const QuestionEntry = ({question, numOfAnswers}) => {
   //sorts answers in terms of helpfulness from highest to lowest
   answers = answers.sort((a, b) => b.helpfulness - a.helpfulness);
 
-
+  //initializes question helpfulness to value from data
   const [questionHelpfulness, setQuestionHelpfulness] = useState(question.question_helpfulness)
   const [questHelpfulClicked, setQuestHelpfulClicked] = useState(false);
 
+  //increments question helpfulness only once on user click
   const handleHelpfulQuestionClick = () => {
     if (!questHelpfulClicked) {
       setQuestionHelpfulness(questionHelpfulness + 1);
