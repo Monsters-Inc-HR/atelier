@@ -13,11 +13,11 @@ h1, h2, h3, h4, h5 {
   color: black;
 } */
 
-.related {
+.related-container {
   border: 1px solid black;
 };
 
-.related-container-list {
+/* .related-container-list {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -34,22 +34,22 @@ h1, h2, h3, h4, h5 {
   justify-content: center;
   transition: 1s cubic-bezier(0.39, 0.575, 0.565, 1);
 };
-/*
+
 .related-container-details {
   padding: 25px 25px;
 };
 
 .related-container-button {
-  /* position: fixed; */
+  position: fixed;
   display:flex;
-}; */
+};
 
-/* button {
+button {
   margin: 2px;
   margin-right: 2px;
   padding: 2px;
   size: 10px;
- }; */
+ };
 
 .related-comparison-modal {
 border: 1px solid black;
@@ -65,7 +65,7 @@ left: 35%;
 .related-comparison-title {
   display: flex;
   justify-content: left;
-};
+}; */
 
 
 
