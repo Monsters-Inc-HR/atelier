@@ -96,15 +96,31 @@ const QuestionsAndAnswers = () => {
   //sets default number of questions to display at 2
   const [numOfQuestions, setNumOfQuestions] = useState(2);
 
+
+
   var questions = apiQuestData.results;
+
+
 
   //sorts the array of question objects in order of helpfulness from high to low
   questions = questions.sort((a,b) => (b.question_helpfulness - a.question_helpfulness ));
 
   //toggle for testing purposes when array of questions is empty
   //questions = [];
+  const [questionRenderMax, setQuestionRenderMax] = useState(false);
 
-  const moreAnsweredQuestionClick = () => {setNumOfQuestions(numOfQuestions + 2)}
+  var maxNumOfQuestions = questions.length;
+
+
+  const moreAnsweredQuestionClick = () => {
+    if (numOfQuestions < maxNumOfQuestions) {
+      setNumOfQuestions(numOfQuestions + 2)
+    } else {
+      setQuestionRenderMax(true);
+    }
+    console.log('numOfQuestions', numOfQuestions)
+
+  };
 
   const [searchQuery, setSearchQuery] = useState('');
 
