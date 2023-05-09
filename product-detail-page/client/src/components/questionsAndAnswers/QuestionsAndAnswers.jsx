@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Searchbar from "./Searchbar.jsx";
 import QuestionList from "./QuestionList.jsx";
+import AddQuestionModal from "./AddQuestionModal.jsx";
 
 var apiQuestData = {
   "product_id": "37315",
@@ -92,6 +93,9 @@ var apiQuestData = {
 //need to know the current product displayed to know which questions to display
 
 const QuestionsAndAnswers = () => {
+
+
+  const [addQuestionModalShow, setAddQuestionModalShow] = useState(false);
 
   //sets default number of questions to display at 2
   const [numOfQuestions, setNumOfQuestions] = useState(2);
