@@ -8,7 +8,7 @@ import itemArray from './dummyData.js';
 const RelatedItems = () => {
 
   const [products, setProducts] = useState(itemArray);
-  const [userProducts, setUserProducts] = useState([]);
+  const [userProducts, setUserProducts] = useState([itemArray[0]]);
   const [renderComparison, setRenderComparison] = useState(false);
 
   // build a function that sets renderComparison to true

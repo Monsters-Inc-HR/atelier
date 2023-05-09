@@ -9,14 +9,16 @@ const Card = ({product, compare}) => {
 
   return (
 
-    <div className="related related-container-card" onClick={handleClick}>
+    <div className="related related-container-card">
     <RelatedButton/>
+    <div onClick={handleClick}>
     <img alt="product-image"/>
       <p>{product.category}</p>
       <p>{product.name}</p>
       <p>${product.default_price}</p>
       <p>Stars</p>
     </div>
+       </div>
 
   )
 
