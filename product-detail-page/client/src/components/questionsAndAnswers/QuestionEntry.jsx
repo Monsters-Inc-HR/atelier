@@ -31,7 +31,7 @@ const QuestionEntry = ({question, numOfAnswers}) => {
   return (
     <div>
       <span>
-        <p>
+        <p style={{ fontWeight: 'bold', fontSize: 'large'}}>
           {'Q: '}
           {question.question_body}
           {' Helpful? '}

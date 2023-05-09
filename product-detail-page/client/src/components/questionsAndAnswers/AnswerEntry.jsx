@@ -26,7 +26,7 @@ const AnswerEntry = ({answer}) => {
 
   return (
     <div>
-      <p>{answer.body}</p>
+      <p style={{ fontSize: 'large' }}>{answer.body}</p>
       <p>
         {'by '}
         {answer.answerer_name}

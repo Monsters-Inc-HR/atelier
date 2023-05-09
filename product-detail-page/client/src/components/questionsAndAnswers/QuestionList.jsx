@@ -17,6 +17,7 @@ const QuestionList = ({questions, numOfQuestions, searchQuery}) => {
     <div style={{ borderStyle: 'solid', borderColor: 'grey' }}>
       {questions.slice(0, numOfQuestions).filter((question)=>{ return question.question_body.includes(searchQuery)}).map((question, index) => (
       <QuestionEntry
+        style={{ fontWeight: 'bold' }}
         question={question}
         key={index}
         numOfAnswers={numOfAnswers}
