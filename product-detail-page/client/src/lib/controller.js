@@ -119,5 +119,3 @@ module.exports = {
       .catch((err) => console.log("there was an error getting reviews meta data: ", err))
   },
 };
-
-module.exports.getProductStyles(37315).then((result) => console.log(result));
