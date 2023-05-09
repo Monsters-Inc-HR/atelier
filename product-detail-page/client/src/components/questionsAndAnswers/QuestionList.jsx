@@ -4,7 +4,7 @@ import QuestionEntry from './QuestionEntry.jsx';
 
 
 
-const QuestionList = ({questions, numOfQuestions}) => {
+const QuestionList = ({questions, numOfQuestions, numOfAnswers}) => {
 
 
 
@@ -14,6 +14,7 @@ const QuestionList = ({questions, numOfQuestions}) => {
       <QuestionEntry
         question={question}
         key={index}
+        numOfAnswers={numOfAnswers}
       />))}
     </div>
   )

@@ -2,7 +2,7 @@ import React from 'react';
 import AnswerEntry from './AnswerEntry.jsx';
 
 
-const QuestionEntry = ({question}) => {
+const QuestionEntry = ({question, numOfAnswers}) => {
 
   //converts object of answers to an array of answers
   //individual answer objects still have an id property
@@ -27,7 +27,7 @@ const QuestionEntry = ({question}) => {
           {' | '}
           <a href='empty'>Add Answer</a>
         </p>
-        {answers.map((answer, index) => (
+        {answers.slice(0, numOfAnswers).map((answer, index) => (
           <AnswerEntry answer={answer} key={index} />
         ))}
 
