@@ -4,13 +4,14 @@
  Related Items
 ================================================================*/
 
-/* body {
+body {
   background-color: beige;
+  color: black;
 }
 
-font {
+h1, h2, h3, h4, h5 {
   color: black;
-} */
+}
 
 .related {
   border: 1px solid black;
@@ -22,14 +23,22 @@ font {
   justify-content: space-evenly;
 }
 
-.related-container-card {
+.related-container-details {
   padding: 25px 25px;
 }
 
 .related-container-button {
   display: flex;
-  justify-content: right;
+  justify-content: flex-end;
+  align-items: flex-start;
 }
+
+button {
+  margin: 2px;
+  margin-right: 2px;
+  padding: 2px;
+  size: 10px;
+ }
 
 .related-comparison-modal {
 border: 1px solid black;
@@ -45,8 +54,9 @@ left: 35%;
 .related-comparison-title {
   display: flex;
   justify-content: left;
-
 }
+
+
 
 /* ==============================================================
  Questions & Answers
