@@ -328,19 +328,19 @@ const Reviews = () => {
 
   const [filters, setFilters] = useState([]); // empty array means no filters will be applied
   const [sortBy, setSortBy] = useState('relevant'); // relevant is the default sort by option
-  const [reviewsList, setReviewsList] = useState(reviewsData.results); // all of the reviews is the default
+  const [reviewsList, setReviewsList] = useState(reviewsData.results);
 
   const filterClick = (star) => {
     let newFilters = filters;
     if (filters.includes(star)) {
-        newFilters = newFilters.filter(option => option !== star);
+        newFilters = newFilters.filter(option => option !== star);  // remove this star from the filters
     } else {
-        newFilters.push(star);
+        newFilters.push(star); // add this star to the filters
     }
     setFilters(newFilters);
-    setReviewsList(newFilters.length === 0 ? reviewsList : reviewsList.filter(review => newFilters.includes(review.rating)));
-  }
-
+    setReviewsList(newFilters.length === 0 ? reviewsData.results : reviewsData.results.filter(review => newFilters.includes(review.rating)));
+  };
+  console.log(filters);
   return (
     <div className='ratings-and-reviews'>
       <div className='rr-title'>RATINGS & REVIEWS</div>
