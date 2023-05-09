@@ -23,7 +23,7 @@ const QuestionEntry = ({question}) => {
           {'Q: '}
           {question.question_body}
           {' Helpful? '}
-          <a href='empty'>Yes {question.question_helpfulness}</a>
+          <a href='empty'>Yes ({question.question_helpfulness})</a>
           {' | '}
           <a href='empty'>Add Answer</a>
         </p>

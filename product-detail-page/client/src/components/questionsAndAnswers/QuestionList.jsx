@@ -14,11 +14,7 @@ const QuestionList = ({questions, numOfQuestions}) => {
       <QuestionEntry
         question={question}
         key={index}
-
-
-      />
-        ))}
-
+      />))}
     </div>
   )
 }

@@ -14,7 +14,7 @@ const AnswerEntry = ({answer}) => {
         {', '}
         {format(new Date(answer.date), 'MMMM d, y')}
         {' | Helpful? '}
-        <a href='empty'>Yes {answer.helpfulness}</a>
+        <a href='empty'>Yes ({answer.helpfulness})</a>
         {' | '}
         <a href='empty'>Report</a>
         </p>
