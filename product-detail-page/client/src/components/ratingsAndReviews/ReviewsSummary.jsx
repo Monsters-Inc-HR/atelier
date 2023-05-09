@@ -3,7 +3,7 @@ import BarGraph from './BarGraph.jsx';
 import calculateStars from '../../lib/calculateStars.js';
 import calculatePercentage from '../../lib/calculatePercentage.js';
 
-const ReviewsSummary = ({ metaData }) => {
+const ReviewsSummary = ({ metaData, filterClick }) => {
   return (
     <div className='rr-summary'>
       <div className='rr-summary-rollup'>
@@ -12,11 +12,11 @@ const ReviewsSummary = ({ metaData }) => {
       </div>
       <div className='rr-filter-list'>
         <div className='rr-filter-message'>filtering by... remove filters</div>
-        <BarGraph star={ 5 } ratings={ metaData.ratings }/>
-        <BarGraph star={ 4 } ratings={ metaData.ratings }/>
-        <BarGraph star={ 3 } ratings={ metaData.ratings }/>
-        <BarGraph star={ 2 } ratings={ metaData.ratings }/>
-        <BarGraph star={ 1 } ratings={ metaData.ratings }/>
+        <BarGraph filterClick={ filterClick } star={ 5 } ratings={ metaData.ratings }/>
+        <BarGraph filterClick={ filterClick } star={ 4 } ratings={ metaData.ratings }/>
+        <BarGraph filterClick={ filterClick } star={ 3 } ratings={ metaData.ratings }/>
+        <BarGraph filterClick={ filterClick } star={ 2 } ratings={ metaData.ratings }/>
+        <BarGraph filterClick={ filterClick } star={ 1 } ratings={ metaData.ratings }/>
       </div>
       <div className='rr-percentage-recommended'>{calculatePercentage(metaData)}% of reviews recommend this product</div>
       <div className='rr-scale-component'>scale from 1-5</div>

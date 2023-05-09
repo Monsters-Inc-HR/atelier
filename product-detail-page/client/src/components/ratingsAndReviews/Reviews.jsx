@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReviewsSummary from './ReviewsSummary.jsx';
 import ReviewsList from './ReviewsList.jsx';
 
@@ -326,11 +326,25 @@ const Reviews = () => {
       ]
     }
 
+  const [filters, setFilters] = useState([]);
+  const [sortBy, setSortBy] = useState('relevant'); // relevant is the default sort by option
+
+  const filterClick = (star) => {
+    if (filters.includes(star)) {
+        setFilters(filters.filter(option => option !== star));
+    } else {
+        let newFilters = filters;
+        newFilters.push(star);
+        setFilters(newFilters);
+    }
+    console.log(newFilters);
+  }
+
   return (
     <div className='ratings-and-reviews'>
       <div className='rr-title'>RATINGS & REVIEWS</div>
       <div className='rr-content'>
-        <ReviewsSummary metaData={ reviewsMetaData } />
+        <ReviewsSummary metaData={ reviewsMetaData } filterClick={ filterClick }/>
         <ReviewsList reviewsData={ reviewsData } />
       </div>
     </div>
