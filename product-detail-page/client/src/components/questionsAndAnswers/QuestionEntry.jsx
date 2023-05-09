@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import AnswerEntry from './AnswerEntry.jsx';
 
 
@@ -16,6 +16,17 @@ const QuestionEntry = ({question, numOfAnswers}) => {
   answers = answers.sort((a, b) => b.helpfulness - a.helpfulness);
 
 
+  const [questionHelpfulness, setQuestionHelpfulness] = useState(question.question_helpfulness)
+  const [questHelpfulClicked, setQuestHelpfulClicked] = useState(false);
+
+  const handleHelpfulQuestionClick = () => {
+    if (!questHelpfulClicked) {
+      setQuestionHelpfulness(questionHelpfulness + 1);
+      setQuestHelpfulClicked(true);
+    }
+  };
+
+
   return (
     <div>
       <span>
@@ -23,7 +34,7 @@ const QuestionEntry = ({question, numOfAnswers}) => {
           {'Q: '}
           {question.question_body}
           {' Helpful? '}
-          <a>Yes ({question.question_helpfulness})</a>
+          <a onClick={handleHelpfulQuestionClick}>Yes ({questionHelpfulness})</a>
           {' | '}
           <a>Add Answer</a>
         </p>
