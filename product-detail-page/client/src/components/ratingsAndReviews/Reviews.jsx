@@ -340,12 +340,18 @@ const Reviews = () => {
     setFilters(newFilters);
     setReviewsList(newFilters.length === 0 ? reviewsData.results : reviewsData.results.filter(review => newFilters.includes(review.rating)));
   };
-  console.log(filters);
+
+  const removeFilters = () => {
+    console.log('hello');
+    setFilters([]);
+    setReviewsList(reviewsData.results);
+  }
+
   return (
     <div className='ratings-and-reviews'>
       <div className='rr-title'>RATINGS & REVIEWS</div>
       <div className='rr-content'>
-        <ReviewsSummary metaData={ reviewsMetaData } filterClick={ filterClick } />
+        <ReviewsSummary metaData={ reviewsMetaData } filterClick={ filterClick } removeFilters={ removeFilters }/>
         <ReviewsList reviews={ reviewsList } />
       </div>
     </div>
