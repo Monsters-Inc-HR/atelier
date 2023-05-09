@@ -11,7 +11,9 @@ const ReviewsSummary = ({ metaData, filterClick, removeFilters }) => {
         <div className='rr-star-component'>***</div>
       </div>
       <div className='rr-filter-list'>
-        <div className='rr-filter-message'>filtering by... <span onClick={ removeFilters }>remove filters</span></div>
+        <div className='rr-filter-message'>filtering by
+          <span className='rr-remove-filters-link' onClick={ removeFilters }>remove filters</span>
+        </div>
         <BarGraph filterClick={ filterClick } star={ 5 } ratings={ metaData.ratings }/>
         <BarGraph filterClick={ filterClick } star={ 4 } ratings={ metaData.ratings }/>
         <BarGraph filterClick={ filterClick } star={ 3 } ratings={ metaData.ratings }/>
