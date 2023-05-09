@@ -4,7 +4,7 @@ import QuestionEntry from './QuestionEntry.jsx';
 
 
 
-const QuestionList = ({questions, numOfQuestions}) => {
+const QuestionList = ({questions, numOfQuestions, searchQuery}) => {
 
   //sets default number of answers to display at 2
   const [numOfAnswers, setNumOfAnswers] = useState(2);
@@ -27,3 +27,5 @@ const QuestionList = ({questions, numOfQuestions}) => {
 }
 
 export default QuestionList
+
+//.filter((question)=>{question.question_body.includes(searchQuery)})

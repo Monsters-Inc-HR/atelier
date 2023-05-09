@@ -76,13 +76,15 @@ const QuestionsAndAnswers = () => {
 
   const moreAnsweredQuestionClick = () => {setNumOfQuestions(numOfQuestions + 2)}
 
+  const [searchQuery, setSearchQuery] = useState('');
+
   return (
     <div style={{ borderStyle: 'solid', borderColor: 'grey' }}>
       <p>Questions and Answers</p>
       {questions.length ? (
         <>
-          <Searchbar />
-          <QuestionList questions={questions} numOfQuestions={numOfQuestions} />
+          <Searchbar searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>
+          <QuestionList questions={questions} numOfQuestions={numOfQuestions} searchQuery={searchQuery} />
           <button onClick={moreAnsweredQuestionClick}>More Answered Questions</button></>
       ) : (<></>) }
       <button>Add a question</button>
