@@ -342,7 +342,6 @@ const Reviews = () => {
   };
 
   const removeFilters = () => {
-    console.log('hello');
     setFilters([]);
     setReviewsList(reviewsData.results);
   }
@@ -351,7 +350,7 @@ const Reviews = () => {
     <div className='ratings-and-reviews'>
       <div className='rr-title'>RATINGS & REVIEWS</div>
       <div className='rr-content'>
-        <ReviewsSummary metaData={ reviewsMetaData } filterClick={ filterClick } removeFilters={ removeFilters }/>
+        <ReviewsSummary metaData={ reviewsMetaData } filters={ filters } filterClick={ filterClick } removeFilters={ removeFilters }/>
         <ReviewsList reviews={ reviewsList } />
       </div>
     </div>
