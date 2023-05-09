@@ -3,7 +3,7 @@ import { format } from 'date-fns';
 
 const AnswerEntry = ({answer}) => {
 
-  console.log(answer);
+  //console.log(answer);
 
   return (
     <div>
