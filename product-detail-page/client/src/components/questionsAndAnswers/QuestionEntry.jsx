@@ -28,6 +28,7 @@ const QuestionEntry = ({question, numOfAnswers}) => {
   };
 
 
+
   return (
     <div>
       <span>
