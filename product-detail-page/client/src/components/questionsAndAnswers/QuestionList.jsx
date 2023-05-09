@@ -15,7 +15,7 @@ const QuestionList = ({questions, numOfQuestions, searchQuery}) => {
 
   return (
     <div style={{ borderStyle: 'solid', borderColor: 'grey' }}>
-      {questions.slice(0, numOfQuestions).map((question, index) => (
+      {questions.slice(0, numOfQuestions).filter((question)=>{ return question.question_body.includes(searchQuery)}).map((question, index) => (
       <QuestionEntry
         question={question}
         key={index}
@@ -27,5 +27,3 @@ const QuestionList = ({questions, numOfQuestions, searchQuery}) => {
 }
 
 export default QuestionList
-
-//.filter((question)=>{question.question_body.includes(searchQuery)})

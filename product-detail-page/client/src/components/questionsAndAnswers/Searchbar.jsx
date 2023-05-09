@@ -10,12 +10,8 @@ const Searchbar = ({searchQuery, setSearchQuery}) => {
   //};
 
   const handleSearchInput = (e) => {
-    console.log(e.target.value);
-    console.log(e.target.value.length);
     if (e.target.value.length >= 3) {
       setSearchQuery(e.target.value);
-      console.log('should search for ', searchQuery)
-
     } else {
       setSearchQuery('');
     }
