@@ -61,8 +61,7 @@ const QuestionsAndAnswers = () => {
   //sets default number of questions to display at 2
   const [numOfQuestions, setNumOfQuestions] = useState(2);
 
-    //sets default number of answers to display at 2
-    const [numOfAnswers, setNumOfAnswers] = useState(2);
+
 
 
 
@@ -83,7 +82,7 @@ const QuestionsAndAnswers = () => {
       {questions.length ? (
         <>
           <Searchbar />
-          <QuestionList questions={questions} numOfQuestions={numOfQuestions} numOfAnswers={numOfAnswers}/>
+          <QuestionList questions={questions} numOfQuestions={numOfQuestions} />
           <button onClick={moreAnsweredQuestionClick}>More Answered Questions</button></>
       ) : (<></>) }
       <button>Add a question</button>

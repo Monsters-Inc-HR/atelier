@@ -23,9 +23,9 @@ const QuestionEntry = ({question, numOfAnswers}) => {
           {'Q: '}
           {question.question_body}
           {' Helpful? '}
-          <a href='empty'>Yes ({question.question_helpfulness})</a>
+          <a>Yes ({question.question_helpfulness})</a>
           {' | '}
-          <a href='empty'>Add Answer</a>
+          <a>Add Answer</a>
         </p>
         {answers.slice(0, numOfAnswers).map((answer, index) => (
           <AnswerEntry answer={answer} key={index} />
