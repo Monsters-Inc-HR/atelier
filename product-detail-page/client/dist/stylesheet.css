@@ -15,11 +15,15 @@
 
 .related-container-card {
   padding: 25px 25px;
+  font-size: small;
 }
 
 .related-container-button {
   display: flex;
   justify-content: right;
+  margin: 0px;
+  padding: 2px;
+
 }
 
 .related-comparison-modal {
