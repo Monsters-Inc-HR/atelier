@@ -3,7 +3,7 @@ import RelatedButton from './relatedButton.jsx';
 
 const Card = ({product, compare, images}) => {
 
-  console.log('images:', images);
+  // console.log('images:', images);
 
   const handleClick = (e) => {
       compare();
