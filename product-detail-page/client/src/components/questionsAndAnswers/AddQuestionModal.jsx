@@ -49,11 +49,11 @@ const AddQuestionModal = ({open, onClose}) => {
   const handleSubmit = () => {
     console.log(userQuestion, nickname, email);
     if (userQuestion === '') {
-      alert('please enter a valid question');
+      alert('You must enter the following: question');
     } else if (nickname === '') {
-      alert('please enter a valid nickname');
+      alert('You must enter the following: nickname');
     } else if (email === '' || email.indexOf('@') === -1) {
-      alert('please enter a valid email')
+      alert('You must enter the following: email')
     } else {
       //TODO handle data submission
 
@@ -69,15 +69,18 @@ const AddQuestionModal = ({open, onClose}) => {
         <h2 style = {{color: "black"}}>Ask Your Question</h2>
         <h3 style = {{color: "black"}}>About the **product name**</h3>
         <br></br>
-        <label>Your Question</label>
-        <input type="text" id="question" required onChange={questionChange}/><br></br>
-        <label>Nickname</label>
-        <input type="text" id="nickname" onChange={nicknameChange}/><br></br>
-        <label>Email</label>
-        <input type="email" id="email" onChange={emailChange}/><br></br>
-        <input type="button" value="x" onClick={onClose}/>
+        <label>Your Question*</label>
+        <input style={{height: "200px", width: "400px"}} type="text" id="question" onChange={questionChange}/><br></br>
+        <label>Nickname*</label>
+        <input type="text" id="nickname" placeholder='Example: jackson11!' onChange={nicknameChange}/><br></br>
+        <label>Email*</label>
+        <input type="email" id="email" onChange={emailChange}/>
+        <p>For authentication reasons, you will not be emailed</p>
+        <br></br>
+
       </form>
       <button onClick={handleSubmit}>Submit</button>
+      <button onClick={onClose}>Exit</button>
 
     </div>
     </div>
