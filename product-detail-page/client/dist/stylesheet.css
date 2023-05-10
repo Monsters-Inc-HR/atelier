@@ -117,3 +117,8 @@ left: 35%;
 .rr-star-bar-negative {
   background: lightgray;
 }
+
+.rr-remove-filters-link {
+  text-decoration: underline;
+  color: #0076d1;
+}
