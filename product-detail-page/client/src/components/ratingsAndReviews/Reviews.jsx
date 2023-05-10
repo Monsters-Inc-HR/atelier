@@ -327,7 +327,7 @@ const Reviews = () => {
     }
 
   const [filters, setFilters] = useState([]); // empty array means no filters will be applied
-  const [sortBy, setSortBy] = useState('relevant'); // relevant is the default sort by option
+  const [sortBy, setSortBy] = useState('relevance'); // relevant is the default sort by option
   const [reviewsList, setReviewsList] = useState(reviewsData.results);
 
   const filterClick = (star) => {
@@ -346,12 +346,36 @@ const Reviews = () => {
     setReviewsList(reviewsData.results);
   }
 
+  const sortList = (criteria) => {
+    if (criteria !== sortBy) {
+        setSortBy(criteria);
+        let newReviewsList = sortReviews(reviewsList, criteria);
+        setReviewsList(newReviewsList);
+        console.log('hello');
+    }
+  }
+
+  const sortReviews = (reviews, criteria) => {
+    // criteria = relevance, recency, helpfulness
+    switch (criteria) {
+        case 'relevance':
+            return reviews.toSorted((a, b) => a.helpfulness - b.helpfulness);
+            break;
+        case 'recency':
+            return reviews.toSorted((a, b) => new Date(b.date) - new Date(a.date));  // sort descending by date
+            break;
+        case 'helpfulness':
+            return reviews.toSorted((a, b) => b.helpfulness - a.helpfulness);  // sort descending by helpfulness
+            break;
+    }
+  }
+
   return (
     <div className='ratings-and-reviews'>
       <div className='rr-title'>RATINGS & REVIEWS</div>
       <div className='rr-content'>
         <ReviewsSummary metaData={ reviewsMetaData } filters={ filters } filterClick={ filterClick } removeFilters={ removeFilters }/>
-        <ReviewsList reviews={ reviewsList } />
+        <ReviewsList reviews={ reviewsList } sortList={ sortList } />
       </div>
     </div>
   )
