@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Searchbar from "./Searchbar.jsx";
 import QuestionList from "./QuestionList.jsx";
 import AddQuestionModal from "./AddQuestionModal.jsx";
+import AddAnswerModal from "./AddAnswerModal.jsx";
 
 var apiQuestData = {
   "product_id": "37315",
@@ -147,7 +148,7 @@ const QuestionsAndAnswers = () => {
           <button onClick={moreAnsweredQuestionClick}>More Answered Questions</button>
         </>
       ) : (<></>) }
-      <AddQuestionModal open={addQuestionModalShow} onClose={addQuestionModalClose}/>
+      <AddAnswerModal open={addQuestionModalShow} onClose={addQuestionModalClose}/>
       <button onClick={()=>{setAddQuestionModalShow(true)}}>Add a question</button>
     </div>
     )

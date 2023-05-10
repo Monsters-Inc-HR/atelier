@@ -23,19 +23,19 @@ const OVERLAY_STYLES = {
 }
 
 
-const AddQuestionModal = ({open, onClose}) => {
+const AddAnswerModal = ({open, onClose}) => {
 
   if (!open) {
     return (null);
   }
 
-  const [userQuestion, setUserQuestion] = useState('');
+  const [userAnswer, setUserAnswer] = useState('');
   const [nickname, setNickname] = useState('');
   const [email, setEmail] = useState('');
 
 
-  const questionChange = (e) => {
-    setUserQuestion(e.target.value);
+  const AnswerChange = (e) => {
+    setUserAnswer(e.target.value);
   };
 
   const nicknameChange = (e) => {
@@ -47,10 +47,10 @@ const AddQuestionModal = ({open, onClose}) => {
   };
 
   const handleSubmit = () => {
-    console.log(userQuestion, nickname, email);
+    console.log(userAnswer, nickname, email);
 
-    if (userQuestion === '') {
-      alert('You must enter the following: question');
+    if (userAnswer === '') {
+      alert('You must enter the following: answer');
     } else if (nickname === '') {
       alert('You must enter the following: nickname');
     } else if (email === '' || email.indexOf('@') === -1) {
@@ -69,21 +69,22 @@ const AddQuestionModal = ({open, onClose}) => {
     <div style={OVERLAY_STYLES}>
     <div style={MODAL_STYLES}>
       <form>
-        <h2 style = {{color: "black"}}>Ask Your Question</h2>
-        <h3 style = {{color: "black"}}>About the **product name**</h3>
+        <h2 style = {{color: "black"}}>Submit your Answer</h2>
+        <h3 style = {{color: "black"}}>**Product Name : Question Body**</h3>
         <br></br>
-        <label>Your Question*</label>
-        <textarea type="text" id="userQuestion" maxLength="1000" onChange={questionChange}></textarea><br></br>
+        <label>Your Answer*</label>
+        <textarea type="text" id="userAnswer" maxLength="1000" onChange={AnswerChange}></textarea>
+        <br></br>
         <label>Nickname*</label>
-        <input type="text" id="nickname" placeholder='Example: jackson11!' maxLength="60" onChange={nicknameChange}/>
-        <p>For privacy reasons, do not use your full name or email address</p>
-        <br></br>
+        <input type="text" id="nickname" placeholder='Example: jack543!' maxLength="60" onChange={nicknameChange}/>
+        <p>For privacy reasons, do not use your full name or email address</p><br></br>
         <label>Email*</label>
-        <input type="email" id="email" maxLength="60" placeholder="Example: jack@email.com" onChange={emailChange}/>
+        <input type="email" id="email" maxLength="60" placeholder="jack@email.com" onChange={emailChange}/>
         <p>For authentication reasons, you will not be emailed</p>
         <br></br>
 
       </form>
+      <button>Upload Photos</button>
       <button onClick={handleSubmit}>Submit</button>
       <button onClick={onClose}>Exit</button>
 
@@ -92,7 +93,7 @@ const AddQuestionModal = ({open, onClose}) => {
   )
 }
 
-export default AddQuestionModal
+export default AddAnswerModal
 
 //<button onClick={onClose}>Submit</button>
 //
