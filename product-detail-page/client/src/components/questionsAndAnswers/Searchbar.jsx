@@ -21,7 +21,7 @@ const Searchbar = ({searchQuery, setSearchQuery}) => {
 
   return (
     <div>
-      <input placeholder='Have a question? Search for answers…' onChange={(e) => {handleSearchInput(e)}} />
+      <input style={{width: "300px"}}placeholder='Have a question? Search for answers…' onChange={(e) => {handleSearchInput(e)}} />
     </div>
   )
 }

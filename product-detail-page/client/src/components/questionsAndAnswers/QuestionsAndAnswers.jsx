@@ -148,7 +148,7 @@ const QuestionsAndAnswers = () => {
           <button onClick={moreAnsweredQuestionClick}>More Answered Questions</button>
         </>
       ) : (<></>) }
-      <AddAnswerModal open={addQuestionModalShow} onClose={addQuestionModalClose}/>
+      <AddQuestionModal open={addQuestionModalShow} onClose={addQuestionModalClose}/>
       <button onClick={()=>{setAddQuestionModalShow(true)}}>Add a question</button>
     </div>
     )
