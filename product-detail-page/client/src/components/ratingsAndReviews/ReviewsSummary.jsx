@@ -1,5 +1,6 @@
 import React from 'react';
 import BarGraph from './BarGraph.jsx';
+import StarBar from './StarBar.jsx';
 import calculateStars from '../../lib/calculateStars.js';
 import calculatePercentage from '../../lib/calculatePercentage.js';
 import makeFilterMessage from '../../lib/makeFilterMessage.js';
@@ -9,7 +10,7 @@ const ReviewsSummary = ({ metaData, filters, filterClick, removeFilters }) => {
     <div className='rr-summary'>
       <div className='rr-summary-rollup'>
         <div className='rr-number-of-stars'>{calculateStars(metaData)}</div>
-        <div className='rr-star-component'>***</div>
+        <StarBar rating={ 4 } />
       </div>
       <div className='rr-filter-list'>
         {filters.length > 0 &&
