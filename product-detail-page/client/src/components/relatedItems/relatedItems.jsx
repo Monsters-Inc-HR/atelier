@@ -5,12 +5,14 @@ import List from './productList.jsx';
 import Outfit from './outfitList.jsx';
 import Comparison from './comparison.jsx';
 import itemArray from './dummyData.js';
+const Controller = require('./controller.js');
 
 
 const RelatedItems = () => {
 
-  const [products, setProducts] = useState([]);
-  const [userProducts, setUserProducts] = useState([]);
+  const [productIds, setProductIds] = useState([])
+  const [products, setProducts] = useState(itemArray);
+  const [userProducts, setUserProducts] = useState(itemArray);
   const [renderComparison, setRenderComparison] = useState(false);
 
   // build a function that sets renderComparison to true
@@ -27,15 +29,14 @@ const RelatedItems = () => {
   }
 
   useEffect(() => {
-    axios(`http://localhost:3000/products?page=1&count=5`)
-    .then((res) => {
-      setProducts(res.data);
-      setUserProducts([res.data[0]])
+    Controller.getRelatedProducts()
+    .then((data) => {
+      setProductIds(data);
     })
     .catch((err) => {
-      console.log(err)
+      console.log(err);
     })
-  },[])
+  },[]);
 
 
   return (

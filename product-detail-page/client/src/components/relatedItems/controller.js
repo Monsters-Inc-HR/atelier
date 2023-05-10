@@ -1,14 +1,17 @@
 const axios = require('axios');
 
-module.exports = {
 
-  getProducts: (page = 1, count = 5) => {
-    axios(`http://localhost:3000/products?page=${page}&count=${count}`)
+
+  module.exports = {
+    getRelatedProducts: (productID = '37311') => {
+    return axios(`http://localhost:3000/relatedProducts?id=${productID}`)
     .then((products) => {
-      return products;
+      return products.data;
     })
     .catch((err) => {
       console.log(err);
     })
   }
 }
+
+
