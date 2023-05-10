@@ -48,6 +48,7 @@ const AddQuestionModal = ({open, onClose}) => {
 
   const handleSubmit = () => {
     console.log(userQuestion, nickname, email);
+    console.log(userQuestion.length)
     if (userQuestion === '') {
       alert('You must enter the following: question');
     } else if (nickname === '') {
@@ -55,6 +56,8 @@ const AddQuestionModal = ({open, onClose}) => {
     } else if (email === '' || email.indexOf('@') === -1) {
       alert('You must enter the following: email')
     } else {
+
+
       //TODO handle data submission
 
       onClose();
@@ -70,11 +73,11 @@ const AddQuestionModal = ({open, onClose}) => {
         <h3 style = {{color: "black"}}>About the **product name**</h3>
         <br></br>
         <label>Your Question*</label>
-        <input style={{height: "200px", width: "400px"}} type="text" id="question" onChange={questionChange}/><br></br>
+        <input style={{height: "200px", width: "400px"}} type="text" id="question" maxLength="1000" onChange={questionChange}/><br></br>
         <label>Nickname*</label>
-        <input type="text" id="nickname" placeholder='Example: jackson11!' onChange={nicknameChange}/><br></br>
+        <input type="text" id="nickname" placeholder='Example: jackson11!' maxLength="60" onChange={nicknameChange}/><br></br>
         <label>Email*</label>
-        <input type="email" id="email" onChange={emailChange}/>
+        <input type="email" id="email" maxLength="60" onChange={emailChange}/>
         <p>For authentication reasons, you will not be emailed</p>
         <br></br>
 
