@@ -40,7 +40,11 @@ left: 35%;
 .related-comparison-title {
   display: flex;
   justify-content: left;
+}
 
+.img {
+  width: 250;
+  height: 500;
 }
 
 /* ==============================================================

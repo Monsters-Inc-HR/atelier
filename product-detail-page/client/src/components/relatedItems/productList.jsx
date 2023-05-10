@@ -19,7 +19,6 @@ useEffect(() => {
   productStyles.map((product) => {
     // console.log(product);
 
-    // define boolean to check wether has default or not
     let hasDefault = false;
 
     for (var i = 0; i < product.results.length; i++) {
@@ -27,7 +26,7 @@ useEffect(() => {
 
       if (currentProduct['default?']) {
         hasDefault = true;
-        images[product.product_id] = {photos: currentProduct.photos}
+        images[product.product_id] = currentProduct.photos;
       }
     }
 
@@ -49,7 +48,8 @@ useEffect(() => {
     <h4>Related Items</h4>
     <div className="related related-container-list">
       <>{products.map((product, index) => {
-        return <Card key={product.id} productImages={productImages} product={product} compare={compare}/>
+        let images = productImages[product.id];
+        return <Card key={product.id} images={images} product={product} compare={compare}/>
       })}</>
     </div>
     </div>
