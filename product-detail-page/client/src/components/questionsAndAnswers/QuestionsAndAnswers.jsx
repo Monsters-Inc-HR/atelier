@@ -97,6 +97,7 @@ const QuestionsAndAnswers = () => {
 
   const [addQuestionModalShow, setAddQuestionModalShow] = useState(false);
 
+
   //sets default number of questions to display at 2
   const [numOfQuestions, setNumOfQuestions] = useState(2);
 
@@ -123,8 +124,11 @@ const QuestionsAndAnswers = () => {
       setQuestionRenderMax(true);
     }
     console.log('numOfQuestions', numOfQuestions)
-
   };
+
+  const addQuestionModalClose = () => {
+    setAddQuestionModalShow(false)
+  }
 
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -138,10 +142,7 @@ const QuestionsAndAnswers = () => {
           <button onClick={moreAnsweredQuestionClick}>More Answered Questions</button>
         </>
       ) : (<></>) }
-      <AddQuestionModal open={addQuestionModalShow} onClose={()=>setAddQuestionModalShow(false)}>
-        fancy modal
-
-      </AddQuestionModal>
+      <AddQuestionModal open={addQuestionModalShow} onClose={addQuestionModalClose} />
       <button onClick={()=>{setAddQuestionModalShow(true)}}>Add a question</button>
     </div>
     )
