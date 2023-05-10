@@ -326,10 +326,10 @@ const Reviews = () => {
         }
       ]
     }
-
-  const [filters, setFilters] = useState([]); // empty array means no filters will be applied
-  const [sortBy, setSortBy] = useState('relevance'); // relevant is the default sort by option
-  const [reviewsList, setReviewsList] = useState(reviewsData.results);
+  const defaultSort = 'relevance';  // relevant is the default sort by option
+  const [filters, setFilters] = useState([]);  // empty array means no filters will be applied
+  const [sortBy, setSortBy] = useState(defaultSort);
+  const [reviewsList, setReviewsList] = useState(sortReviews(reviewsData.results, defaultSort));  // sort initial data by default sort
 
   const filterClick = (star) => {
     let newFilters = filters;
