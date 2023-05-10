@@ -3,9 +3,9 @@ import Card from './productCard.jsx';
 
 
 
-const List =  ({products, compare}) => {
+const List =  ({products, compare, productStyles}) => {
 
-
+console.log(productStyles)
 
   return (
    <div>

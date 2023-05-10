@@ -11,7 +11,7 @@ const Controller = require('./controller.js');
 const RelatedItems = () => {
 
   const [productIds, setProductIds] = useState([])
-  const [products, setProducts] = useState(itemArray);
+  const [products, setProducts] = useState([]);
   const [productStyles, setProductStyles] = useState([]);
   const [userProducts, setUserProducts] = useState(itemArray);
   const [renderComparison, setRenderComparison] = useState(false);
@@ -39,7 +39,36 @@ const RelatedItems = () => {
     })
   },[]);
 
-  // need to use effect to get array of related products now
+
+  useEffect(() => {
+    let isMounted = true;
+    let fetchedProducts = [];
+
+    const getProducts = async () => {
+      try {
+        const stylesArray = await Promise.all(productIds.map((id) => {
+          return Controller.getProductDetails(id)
+          .catch((err) => {
+            console.log('Error getting styles', err);
+            return null;
+          });
+        }));
+
+        if (isMounted) {
+          fetchedProducts = stylesArray.filter((styles) => styles !== null);
+          setProducts(fetchedProducts);
+        }
+      } catch (err) {
+        console.log('Error getting product styles', err);
+      }
+    };
+    getProducts();
+
+    return () => {
+      isMounted = false;
+    };
+  }, [productIds]);
+
   useEffect(() => {
     let isMounted = true;
     let fetchedProducts = [];
@@ -69,11 +98,10 @@ const RelatedItems = () => {
     };
   }, [productIds]);
 
-  console.log(productStyles);
 
   return (
     <>
-    <List products={products} compare={compare}/>
+    <List products={products} productStyles={productStyles} compare={compare}/>
     <Outfit userProducts={userProducts} compare={compare}/>
     {renderComparison ? <Comparison closeCompare={closeCompare}/> : null}
     </>
