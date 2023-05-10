@@ -102,6 +102,8 @@ const QuestionsAndAnswers = () => {
   const [numOfQuestions, setNumOfQuestions] = useState(2);
 
 
+  const [searchQuery, setSearchQuery] = useState('');
+
 
   var questions = apiQuestData.results;
 
@@ -127,10 +129,13 @@ const QuestionsAndAnswers = () => {
   };
 
   const addQuestionModalClose = () => {
+    //console.log(userQuestion);
     setAddQuestionModalShow(false)
   }
 
-  const [searchQuery, setSearchQuery] = useState('');
+
+
+
 
   return (
     <div style={{ borderStyle: 'solid', borderColor: 'grey' }}>
@@ -142,7 +147,7 @@ const QuestionsAndAnswers = () => {
           <button onClick={moreAnsweredQuestionClick}>More Answered Questions</button>
         </>
       ) : (<></>) }
-      <AddQuestionModal open={addQuestionModalShow} onClose={addQuestionModalClose} />
+      <AddQuestionModal open={addQuestionModalShow} onClose={addQuestionModalClose}/>
       <button onClick={()=>{setAddQuestionModalShow(true)}}>Add a question</button>
     </div>
     )
@@ -151,3 +156,4 @@ const QuestionsAndAnswers = () => {
 
 
 export default QuestionsAndAnswers
+

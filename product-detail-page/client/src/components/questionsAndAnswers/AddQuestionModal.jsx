@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 //import ReactDom from 'react-dom'
 
 const MODAL_STYLES = {
@@ -28,21 +28,45 @@ const AddQuestionModal = ({open, onClose}) => {
   if (!open) {
     return (null);
   }
+
+  const [userQuestion, setUserQuestion] = useState('');
+  const [nickname, setNickname] = useState('');
+  const [email, setEmail] = useState('');
+
+
+  const questionChange = (e) => {
+    setUserQuestion(e.target.value);
+  };
+
+  const nicknameChange = (e) => {
+    setNickname(e.target.value);
+  };
+
+  const emailChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handleSecretButtonClick = () => {
+    console.log(userQuestion, nickname, email);
+  };
+
   return (
     <div style={OVERLAY_STYLES}>
     <div style={MODAL_STYLES}>
       <form>
+        <input type="button" value="x" onClick={onClose}/>
         <h2 style = {{color: "black"}}>Ask Your Question</h2>
         <h3 style = {{color: "black"}}>About the **product name**</h3>
         <br></br>
         <label>Your Question</label>
-        <input type="text" id="question"/><br></br>
+        <input type="text" id="question" onChange={questionChange}/><br></br>
         <label>Nickname</label>
-        <input type="text" id="nickname"/><br></br>
+        <input type="text" id="nickname" onChange={nicknameChange}/><br></br>
         <label>Email</label>
-        <input type="text" id="email"/><br></br>
-        <input type="button" value="Submit" onClick={onClose}/>
+        <input type="text" id="email" onChange={emailChange}/><br></br>
+
       </form>
+      <button onClick={handleSecretButtonClick}>Secret Button</button>
 
     </div>
     </div>
