@@ -28,4 +28,5 @@ const Card = ({product, compare, images}) => {
 
 }
 
+// add on sale rendering feature
 export default Card;
