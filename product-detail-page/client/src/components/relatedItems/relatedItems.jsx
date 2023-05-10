@@ -38,6 +38,10 @@ const RelatedItems = () => {
     })
   },[]);
 
+  // need to use effect to get array of related products now
+  // also use effect to get array of current product images
+  // this also means that controller methods will need to get added
+
 
   return (
     <>
