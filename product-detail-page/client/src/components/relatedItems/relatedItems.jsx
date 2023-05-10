@@ -70,9 +70,6 @@ const RelatedItems = () => {
   }, [productIds]);
 
   console.log(productStyles);
-  // also use effect to get array of current product images
-  // this also means that controller methods will need to get added
-
 
   return (
     <>
