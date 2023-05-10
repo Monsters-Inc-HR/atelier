@@ -46,27 +46,38 @@ const AddQuestionModal = ({open, onClose}) => {
     setEmail(e.target.value);
   };
 
-  const handleSecretButtonClick = () => {
+  const handleSubmit = () => {
     console.log(userQuestion, nickname, email);
+    if (userQuestion === '') {
+      alert('please enter a valid question');
+    } else if (nickname === '') {
+      alert('please enter a valid nickname');
+    } else if (email === '' || email.indexOf('@') === -1) {
+      alert('please enter a valid email')
+    } else {
+      //TODO handle data submission
+
+      onClose();
+    }
   };
+
 
   return (
     <div style={OVERLAY_STYLES}>
     <div style={MODAL_STYLES}>
       <form>
-        <input type="button" value="x" onClick={onClose}/>
         <h2 style = {{color: "black"}}>Ask Your Question</h2>
         <h3 style = {{color: "black"}}>About the **product name**</h3>
         <br></br>
         <label>Your Question</label>
-        <input type="text" id="question" onChange={questionChange}/><br></br>
+        <input type="text" id="question" required onChange={questionChange}/><br></br>
         <label>Nickname</label>
         <input type="text" id="nickname" onChange={nicknameChange}/><br></br>
         <label>Email</label>
-        <input type="text" id="email" onChange={emailChange}/><br></br>
-
+        <input type="email" id="email" onChange={emailChange}/><br></br>
+        <input type="button" value="x" onClick={onClose}/>
       </form>
-      <button onClick={handleSecretButtonClick}>Secret Button</button>
+      <button onClick={handleSubmit}>Submit</button>
 
     </div>
     </div>
@@ -76,3 +87,4 @@ const AddQuestionModal = ({open, onClose}) => {
 export default AddQuestionModal
 
 //<button onClick={onClose}>Submit</button>
+//
