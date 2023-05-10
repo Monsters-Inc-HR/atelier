@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ReviewsSummary from './ReviewsSummary.jsx';
 import ReviewsList from './ReviewsList.jsx';
+import sortReviews from '../../lib/sortReviews.js';
 
 const Reviews = () => {
   // Reviews Meta Data sample
@@ -351,24 +352,26 @@ const Reviews = () => {
         setSortBy(criteria);
         let newReviewsList = sortReviews(reviewsList, criteria);
         setReviewsList(newReviewsList);
-        console.log('hello');
     }
   }
 
-  const sortReviews = (reviews, criteria) => {
-    // criteria = relevance, recency, helpfulness
-    switch (criteria) {
-        case 'relevance':
-            return reviews.toSorted((a, b) => a.helpfulness - b.helpfulness);
-            break;
-        case 'recency':
-            return reviews.toSorted((a, b) => new Date(b.date) - new Date(a.date));  // sort descending by date
-            break;
-        case 'helpfulness':
-            return reviews.toSorted((a, b) => b.helpfulness - a.helpfulness);  // sort descending by helpfulness
-            break;
-    }
-  }
+//   const sortReviews = (reviews, criteria) => {
+//     // criteria = relevance, recency, helpfulness
+//     switch (criteria) {
+//         case 'relevance':
+//             return reviews.toSorted((a, b) => {
+//                 aRelevance =
+//                 return bRelevance - aRelevance;
+//             });
+//             break;
+//         case 'recency':
+//             return reviews.toSorted((a, b) => new Date(b.date) - new Date(a.date));  // sort descending by date
+//             break;
+//         case 'helpfulness':
+//             return reviews.toSorted((a, b) => b.helpfulness - a.helpfulness);  // sort descending by helpfulness
+//             break;
+//     }
+//   }
 
   return (
     <div className='ratings-and-reviews'>
