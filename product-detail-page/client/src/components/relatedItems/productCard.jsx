@@ -1,9 +1,10 @@
 import React from 'react';
 import RelatedButton from './relatedButton.jsx';
 
-const Card = ({product, compare, images}) => {
+const Card = ({product, compare, images, salePrices}) => {
 
   // console.log('images:', images);
+  console.log('sale prices:', salePrices)
 
   const handleClick = (e) => {
       compare();
