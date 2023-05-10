@@ -19,7 +19,7 @@ const Outfit =  ({userProducts, compare}) => {
   return (
    <div>
     <h4>Your Outfit</h4>
-    <div className="related-container">
+    <div className="related-container-list">
       <>{userProducts.length < 1 ? <p>Add a product...</p> : userProducts.map((product, index) => {
         return <Card key={product.id} product={product} compare={compare}/>
       })}</>

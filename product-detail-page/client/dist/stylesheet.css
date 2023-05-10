@@ -13,11 +13,12 @@ h1, h2, h3, h4, h5 {
   color: black;
 } */
 
-.related-container {
+.related {
   border: 1px solid black;
 };
 
-/* .related-container-list {
+
+.related-container-list {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -65,7 +66,7 @@ left: 35%;
 .related-comparison-title {
   display: flex;
   justify-content: left;
-}; */
+};
 
 
 
