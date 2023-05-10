@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReviewsSummary from './ReviewsSummary.jsx';
 import ReviewsList from './ReviewsList.jsx';
+import sortReviews from '../../lib/sortReviews.js';
 
 const Reviews = () => {
   // Reviews Meta Data sample
@@ -325,16 +326,44 @@ const Reviews = () => {
         }
       ]
     }
+  const defaultSort = 'relevance';  // relevant is the default sort by option
+  const [filters, setFilters] = useState([]);  // empty array means no filters will be applied
+  const [sortBy, setSortBy] = useState(defaultSort);
+  const [reviewsList, setReviewsList] = useState(sortReviews(reviewsData.results, defaultSort));  // sort initial data by default sort
+
+  const filterClick = (star) => {
+    let newFilters = filters;
+    if (filters.includes(star)) {
+        newFilters = newFilters.filter(option => option !== star);  // remove this star from the filters
+    } else {
+        newFilters.push(star); // add this star to the filters
+    }
+    setFilters(newFilters);
+    setReviewsList(newFilters.length === 0 ? reviewsData.results : reviewsData.results.filter(review => newFilters.includes(review.rating)));
+  };
+
+  const removeFilters = () => {
+    setFilters([]);
+    setReviewsList(reviewsData.results);
+  }
+
+  const sortList = (criteria) => {
+    if (criteria !== sortBy) {
+        setSortBy(criteria);
+        let newReviewsList = sortReviews(reviewsList, criteria);
+        setReviewsList(newReviewsList);
+    }
+  }
 
   return (
     <div className='ratings-and-reviews'>
       <div className='rr-title'>RATINGS & REVIEWS</div>
       <div className='rr-content'>
-        <ReviewsSummary metaData={ reviewsMetaData } />
-        <ReviewsList reviewsData={ reviewsData } />
+        <ReviewsSummary metaData={ reviewsMetaData } filters={ filters } filterClick={ filterClick } removeFilters={ removeFilters }/>
+        <ReviewsList reviews={ reviewsList } sortList={ sortList } />
       </div>
     </div>
   )
-}
+};
 
 export default Reviews;
