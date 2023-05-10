@@ -109,8 +109,6 @@ const RelatedItems = () => {
     };
   }, [productIds]);
 
-  console.log(productIds);
-
 
   return (
     <>
