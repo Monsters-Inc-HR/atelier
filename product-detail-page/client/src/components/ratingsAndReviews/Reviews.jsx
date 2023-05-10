@@ -355,24 +355,6 @@ const Reviews = () => {
     }
   }
 
-//   const sortReviews = (reviews, criteria) => {
-//     // criteria = relevance, recency, helpfulness
-//     switch (criteria) {
-//         case 'relevance':
-//             return reviews.toSorted((a, b) => {
-//                 aRelevance =
-//                 return bRelevance - aRelevance;
-//             });
-//             break;
-//         case 'recency':
-//             return reviews.toSorted((a, b) => new Date(b.date) - new Date(a.date));  // sort descending by date
-//             break;
-//         case 'helpfulness':
-//             return reviews.toSorted((a, b) => b.helpfulness - a.helpfulness);  // sort descending by helpfulness
-//             break;
-//     }
-//   }
-
   return (
     <div className='ratings-and-reviews'>
       <div className='rr-title'>RATINGS & REVIEWS</div>
@@ -382,6 +364,6 @@ const Reviews = () => {
       </div>
     </div>
   )
-}
+};
 
 export default Reviews;
