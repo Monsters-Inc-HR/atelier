@@ -113,7 +113,7 @@ const RelatedItems = () => {
   return (
     <>
     <List products={products} productStyles={productStyles} compare={compare}/>
-    {/* <Outfit userProducts={userProducts} compare={compare}/> */}
+    <Outfit userProducts={userProducts} compare={compare}/>
     {renderComparison ? <Comparison closeCompare={closeCompare}/> : null}
     </>
   )
