@@ -7,12 +7,12 @@ import { getPageOfReviews, getReviewsMetaData } from './controllerReviews.js';
 
 const Reviews = () => {
   const productID = 37312;
-  const [reviewsMetaData, setReviewsMetaData] = useState({});
+  const [reviewsMetaData, setReviewsMetaData] = useState(undefined);  // no data to display until it is fetched
   const [reviewsData, setReviewsData] = useState({});
   const defaultSort = 'relevant';  // relevant is the default sort option
   const [filters, setFilters] = useState([]);  // empty array means no filters will be applied
   const [sortBy, setSortBy] = useState(defaultSort);
-  const [reviewsList, setReviewsList] = useState([]);  // sort initial data by default sort
+  const [reviewsList, setReviewsList] = useState(undefined);  // no data to display until it is fetched
 
   useEffect(() => {
     getReviewsMetaData(productID)
@@ -23,10 +23,10 @@ const Reviews = () => {
       .then(totalReviewsCount => getPageOfReviews(productID, 1, totalReviewsCount, defaultSort))
       .then(data => {
         setReviewsData(data);
-        setReviewsList(data);
+        setReviewsList(data.results);
       })
       .catch(err => console.log('there was an error getting the reviews-related data. msg: ', err));
-  }, []);
+  }, [productID]);
 
   const filterClick = (star) => {
     let newFilters = filters;
@@ -56,8 +56,12 @@ const Reviews = () => {
     <div className='ratings-and-reviews'>
       <div className='rr-title'>RATINGS & REVIEWS</div>
       <div className='rr-content'>
-        <ReviewsSummary metaData={ reviewsMetaData } filters={ filters } filterClick={ filterClick } removeFilters={ removeFilters }/>
-        <ReviewsList reviews={ reviewsList } sortList={ sortList } />
+        {/*
+          metaDataIsSet and reviewsAreIn prevent rendering until we have data
+          otherwise, the subcomponents will cause errors
+        */}
+        {reviewsMetaData && <ReviewsSummary metaData={ reviewsMetaData } filters={ filters } filterClick={ filterClick } removeFilters={ removeFilters }/>}
+        {reviewsList && <ReviewsList reviews={ reviewsList } sortList={ sortList } />}
       </div>
     </div>
   )

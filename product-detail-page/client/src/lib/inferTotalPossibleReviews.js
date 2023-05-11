@@ -5,7 +5,8 @@
 // for the product
 
 export default function(reviewsMetaData) {
-  const totalRatings = reviewsMetaData.ratings.values.reduce((sum, count) => sum + parseInt(count), 0);
+  const ratingsCounts = Object.values(reviewsMetaData.ratings);
+  const totalRatingsCount = ratingsCounts.reduce((sum, count) => sum + parseInt(count), 0);
   const totalRecsAndNonRecs = parseInt(reviewsMetaData.recommended.false) + parseInt(reviewsMetaData.recommended.true);
-  return (totalRatings > totalRecsAndNonRecs) ? totalRatings : totalRecsAndNonRecs;
+  return (totalRatingsCount > totalRecsAndNonRecs) ? totalRatingsCount : totalRecsAndNonRecs;
 }
