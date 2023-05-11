@@ -3,7 +3,7 @@ import AnswerEntry from './AnswerEntry.jsx';
 import AddAnswerModal from "./AddAnswerModal.jsx";
 
 
-const QuestionEntry = ({question, numOfAnswers}) => {
+const QuestionEntry = ({question}) => {
 
   //converts object of answers to an array of answers
   //individual answer objects still have an id property
@@ -15,6 +15,22 @@ const QuestionEntry = ({question, numOfAnswers}) => {
 
   //sorts answers in terms of helpfulness from highest to lowest
   answers = answers.sort((a, b) => b.helpfulness - a.helpfulness);
+
+  //sets default number of answers to display at 2
+  const [numOfAnswers, setNumOfAnswers] = useState(2);
+
+  const handleMoreAnswersClick = () => {
+    setNumOfAnswers(numOfAnswers + 2);
+  }
+
+  const [maxAnswersDisplayed, setMaxAnswersDisplayed] = useState(false);
+
+  // const handleCollapseAnswersClick = () => {
+
+  //   //console.log('clicked');
+  //   setNumOfAnswers(2);
+  //   setMaxAnswersDisplayed(false);
+  // }
 
   //initializes question helpfulness to value from data
   const [questionHelpfulness, setQuestionHelpfulness] = useState(question.question_helpfulness)
@@ -51,11 +67,13 @@ const QuestionEntry = ({question, numOfAnswers}) => {
         {answers.slice(0, numOfAnswers).map((answer, index) => (
           <AnswerEntry answer={answer} key={index} />
         ))}
-
       </span>
+      {maxAnswersDisplayed ? (<a onClick={handleCollapseAnswersClick}>Collapse Answers</a>) : (<a onClick={handleMoreAnswersClick}>See more answers</a>)}
 
     </div>
   )
 }
 
 export default QuestionEntry
+
+//

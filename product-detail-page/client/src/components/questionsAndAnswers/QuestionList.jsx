@@ -7,12 +7,7 @@ import QuestionsAndAnswers from "./QuestionsAndAnswers.jsx";
 
 const QuestionList = ({questions, numOfQuestions, searchQuery}) => {
 
-  //sets default number of answers to display at 2
-  const [numOfAnswers, setNumOfAnswers] = useState(2);
 
-  const handleMoreAnswersClick = () => {
-    setNumOfAnswers(numOfAnswers + 2);
-  }
 
   const [maxAnswersDisplayed, setMaxAnswersDisplayed] = useState(false);
 
@@ -29,11 +24,13 @@ const QuestionList = ({questions, numOfQuestions, searchQuery}) => {
       <QuestionEntry
         question={question}
         key={index}
-        numOfAnswers={numOfAnswers}
-      />))}
-      {maxAnswersDisplayed ? (<a onClick={handleCollapseAnswersClick}>Collapse Answers</a>) : (<a onClick={handleMoreAnswersClick}>See more answers</a>)}
+      />
+      ))}
+
     </div>
   )
 }
 
 export default QuestionList
+
+//{maxAnswersDisplayed ? (<a onClick={handleCollapseAnswersClick}>Collapse Answers</a>) : (<a onClick={handleMoreAnswersClick}>See more answers</a>)}
