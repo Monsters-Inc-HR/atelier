@@ -9,18 +9,51 @@
 
 .related-container-list {
   display: flex;
+  align-items: stretch;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  overflow: hidden;
+
+}
+
+/* .related-container-list::-webkit-scrollbar { display: hidden !important }; */
+
+/* .related-container-card {
+  padding: 25px 25px;
+  font-size: small;
+} */
+
+.product-card {
+box-shadow: 0 4px 8px rgba(0,0,0, 0.2);
+transition: 0.3s;
+height: 400px;
+width: 300px;
+position: relative;
+margin: 10px;
+}
+
+.related-product-img {
+  width: 100%;
+  height: auto;
+  }
+
+.product-card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
 .related-container-card {
-  padding: 25px 25px;
   font-size: small;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }
 
-.related-container-button {
-  display: flex;
-  justify-content: right;
+.related-compare-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
   margin: 0px;
   padding: 2px;
 
@@ -42,10 +75,7 @@ left: 35%;
   justify-content: left;
 }
 
-.img {
-  width: 250;
-  height: 500;
-}
+
 
 /* ==============================================================
  Questions & Answers
@@ -94,50 +124,31 @@ left: 35%;
   padding: 15px;
 }
 
-.rr-bar-graph {
+.rr-star-bar {
   display: flex;
   align-items: center;
 }
 
-.rr-bar-graph-text {
+.rr-star-bar-text {
   width: 100px;
 }
 
-.rr-bar-graph-100 {
+.rr-star-bar-100 {
   display: flex;
   height: 10px;
   width: 100%;
   border: 1px solid black;
 }
 
-.rr-bar-graph-positive {
+.rr-star-bar-positive {
   background: green;
 }
 
-.rr-bar-graph-negative {
+.rr-star-bar-negative {
   background: lightgray;
 }
 
 .rr-remove-filters-link {
   text-decoration: underline;
   color: #0076d1;
-}
-
-/* ==============================================================
- Star bar
-
- 1/4 star = 65% clipped; otherwise the filled in chunk is too small
- 3/4 star = 35% clipped; otherwise the empty chunk is too small
-
-================================================================*/
-.rr-star-filled-1-4 > path {
-  clip-path: inset(0 65% 0 0);
-}
-
-.rr-star-filled-2-4 > path {
-  clip-path: inset(0 50% 0 0);
-}
-
-.rr-star-filled-3-4 > path {
-  clip-path: inset(0 35% 0 0);
 }
