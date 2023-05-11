@@ -9,7 +9,8 @@
     ]
   ],
   "plugins": [
-    "babel-plugin-styled-components"
+    "babel-plugin-styled-components",
+    "macros"
     //"react-refresh/babel"
   ]
 }
