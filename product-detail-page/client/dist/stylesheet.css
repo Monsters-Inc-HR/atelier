@@ -30,6 +30,9 @@ height: 400px;
 width: 300px;
 position: relative;
 margin: 10px;
+font-size: small;
+justify-content: center;
+
 }
 
 .related-product-img {
@@ -42,7 +45,7 @@ margin: 10px;
 }
 
 .related-container-card {
-  font-size: small;
+
   position: relative;
   display: flex;
   justify-content: center;
@@ -64,15 +67,24 @@ border: 1px solid black;
 display: block;
 position: fixed;
 background: beige;
-width: 50%;
-height: auto;
+width: 30%;
+height: 300px;
 top: 50%;
 left: 35%;
 }
 
+.related-comparison-table {
+border-collapse: collapse;
+border-spacing: 0;
+width: 100%;
+overflow: hidden;
+overflow-y: scroll;
+}
+
 .related-comparison-title {
   display: flex;
-  justify-content: left;
+  justify-content: center;
+  top: 0;
 }
 
 
