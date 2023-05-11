@@ -13,16 +13,24 @@ const [salePrices, setSalePrices] = useState({});
 // take advantage of this function to also set sale prices
 useEffect(() => {
  let isMounted = true;
- let images = {}
+ let images = {};
+ let sales = {}
 
  if (isMounted) {
   productStyles.map((product) => {
-    // console.log(product);
 
     let hasDefault = false;
+    let onSale = false;
 
     for (var i = 0; i < product.results.length; i++) {
       let currentProduct = product.results[i];
+
+
+      if (currentProduct.sale_price) {
+        if (sales[product.product_id] > currentProduct.sale_price || !sales[product.product_id]) {
+          sales[product.product_id] = currentProduct.sale_price;
+        }
+      }
 
       if (currentProduct['default?']) {
         hasDefault = true;
@@ -32,10 +40,12 @@ useEffect(() => {
 
     if (!hasDefault) {
       images[product.product_id] = product.results[0].photos;
+
     }
   })
  };
  setProductImages(images);
+ setSalePrices(sales);
 
  return () => {
   isMounted = false;
@@ -48,8 +58,12 @@ useEffect(() => {
     <h4>Related Items</h4>
     <div className="related related-container-list">
       <>{products.map((product, index) => {
-        let images = productImages[product.id];
-        return <Card key={product.id} images={images} product={product} compare={compare}/>
+        if (product) {
+          let images = productImages[product.id];
+          let salePrice = salePrices[product.id];
+          return <Card key={product.id} images={images}
+            salePrice={salePrice} product={product} compare={compare}/>
+        }
       })}</>
     </div>
     </div>
