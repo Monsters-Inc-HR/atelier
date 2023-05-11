@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import AnswerEntry from './AnswerEntry.jsx';
+import AddAnswerModal from "./AddAnswerModal.jsx";
 
 
 const QuestionEntry = ({question, numOfAnswers}) => {
@@ -27,19 +28,26 @@ const QuestionEntry = ({question, numOfAnswers}) => {
     }
   };
 
+  const [addAnswerModalShow, setAddAnswerModalShow] = useState(false);
+
+  const addAnswerModalClose = () => {
+    //console.log(userQuestion);
+    setAddAnswerModalShow(false)
+  }
 
 
   return (
     <div>
       <span>
-        <p style={{ fontWeight: 'bold', fontSize: 'large'}}>
+        <div style={{ fontWeight: 'bold', fontSize: 'large'}}>
           {'Q: '}
           {question.question_body}
           {' Helpful? '}
           <a onClick={handleHelpfulQuestionClick}>Yes ({questionHelpfulness})</a>
           {' | '}
-          <a>Add Answer</a>
-        </p>
+          <AddAnswerModal open={addAnswerModalShow} onClose={addAnswerModalClose}/>
+          <a onClick={()=>{setAddAnswerModalShow(true)}}>Add Answer</a>
+        </div>
         {answers.slice(0, numOfAnswers).map((answer, index) => (
           <AnswerEntry answer={answer} key={index} />
         ))}
