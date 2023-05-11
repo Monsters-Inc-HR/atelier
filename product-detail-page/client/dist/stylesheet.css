@@ -152,3 +152,20 @@ left: 35%;
   text-decoration: underline;
   color: #0076d1;
 }
+
+/* ==============================================================
+ Star bar
+ 1/4 star = 65% clipped; otherwise the filled in chunk is too small
+ 3/4 star = 35% clipped; otherwise the empty chunk is too small
+================================================================*/
+.rr-star-filled-1-4 > path {
+  clip-path: inset(0 65% 0 0);
+}
+
+.rr-star-filled-2-4 > path {
+  clip-path: inset(0 50% 0 0);
+}
+
+.rr-star-filled-3-4 > path {
+  clip-path: inset(0 35% 0 0);
+}
