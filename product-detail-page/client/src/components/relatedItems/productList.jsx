@@ -58,9 +58,12 @@ useEffect(() => {
     <h4>Related Items</h4>
     <div className="related related-container-list">
       <>{products.map((product, index) => {
-        let images = productImages[product.id];
-        return <Card key={product.id} images={images}
-          salePrices={salePrices} product={product} compare={compare}/>
+        if (product) {
+          let images = productImages[product.id];
+          let salePrice = salePrices[product.id];
+          return <Card key={product.id} images={images}
+            salePrice={salePrice} product={product} compare={compare}/>
+        }
       })}</>
     </div>
     </div>

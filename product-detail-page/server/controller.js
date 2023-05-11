@@ -64,7 +64,6 @@ module.exports = {
   // Get related products
   // takes product ID
   getRelatedProducts: (productID) => {
-    console.log(process.env.API_KEY)
     if (productID === undefined) {
       console.log('Please input a valid Product ID');
     }
