@@ -1,31 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReviewsSummary from './ReviewsSummary.jsx';
 import ReviewsList from './ReviewsList.jsx';
 import sortReviews from '../../lib/sortReviews.js';
+import { getPageOfReviews, getReviewsMetaData } from './controllerReviews.js';
 
 const Reviews = () => {
   // Reviews Meta Data sample
   // GET /reviews/meta?product_id={integer id value}
-  const reviewsMetaData = {
-      "product_id": "37312",
-      "ratings": {
-          "1": "16",
-          "2": "13",
-          "3": "7",
-          "4": "3",
-          "5": "10"
-      },
-      "recommended": {
-          "false": "5",
-          "true": "44"
-      },
-      "characteristics": {
-          "Quality": {
-              "id": 125035,
-              "value": "3.1428571428571429"
-          }
-      }
-    }
+//   const reviewsMetaData = {
+//       "product_id": "37312",
+//       "ratings": {
+//           "1": "16",
+//           "2": "13",
+//           "3": "7",
+//           "4": "3",
+//           "5": "10"
+//       },
+//       "recommended": {
+//           "false": "5",
+//           "true": "44"
+//       },
+//       "characteristics": {
+//           "Quality": {
+//               "id": 125035,
+//               "value": "3.1428571428571429"
+//           }
+//       }
+//     }
 
   // Reviews Data sample with all reviews for one item
   // GET /reviews?page={1}&count={ count of ratings or recommended }&sort={newest/helpful/relevant}&product_id={integer id value}
@@ -326,10 +327,19 @@ const Reviews = () => {
         }
       ]
     }
+  const productID = 37312;
+  const [reviewsMetaData, setReviewsMetaData] = useState({});
   const defaultSort = 'relevance';  // relevant is the default sort by option
   const [filters, setFilters] = useState([]);  // empty array means no filters will be applied
   const [sortBy, setSortBy] = useState(defaultSort);
   const [reviewsList, setReviewsList] = useState(sortReviews(reviewsData.results, defaultSort));  // sort initial data by default sort
+
+  useEffect(() => {
+    getReviewsMetaData(productID)
+        .then(metaData => {
+            setReviewsMetaData(metaData);
+        })
+  }, []);
 
   const filterClick = (star) => {
     let newFilters = filters;
