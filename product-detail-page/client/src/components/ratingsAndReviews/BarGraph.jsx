@@ -8,10 +8,10 @@ const BarGraph = ({ star, ratings, filterClick }) => {
   const negativePercentageString = Math.round((1 - ratioToDisplay)*100) + '%';
   return (
     <div onClick={() => filterClick(star)} className='rr-star-bar'>
-      <div className='rr-star-bar-text'>{star} star{star > 1 && 's'}</div>
-      <div className='rr-star-bar-100'>
-        <div className='rr-star-bar-positive' style={{width: positivePercentageString}}></div>
-        <div className='rr-star-bar-negative' style={{width: negativePercentageString}}></div>
+      <div className='rr-bar-graph-text'>{star} star{star > 1 && 's'}</div>
+      <div className='rr-bar-graph-100'>
+        <div className='rr-bar-graph-positive' style={{width: positivePercentageString}}></div>
+        <div className='rr-bar-graph-negative' style={{width: negativePercentageString}}></div>
       </div>
     </div>
   );
