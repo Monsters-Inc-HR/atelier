@@ -29,31 +29,31 @@ const AddAnswerModal = ({open, onClose}) => {
     return (null);
   }
 
-  const [userAnswer, setUserAnswer] = useState('');
-  const [nickname, setNickname] = useState('');
-  const [email, setEmail] = useState('');
+  const [aaAnswer, setAaAnswer] = useState('');
+  const [aaNickname, setAaNickname] = useState('');
+  const [aaEmail, setAaEmail] = useState('');
 
 
-  const AnswerChange = (e) => {
-    setUserAnswer(e.target.value);
+  const aaAnswerChange = (e) => {
+    setAaAnswer(e.target.value);
   };
 
-  const nicknameChange = (e) => {
-    setNickname(e.target.value);
+  const aaNicknameChange = (e) => {
+    setAaNickname(e.target.value);
   };
 
-  const emailChange = (e) => {
-    setEmail(e.target.value);
+  const aaEmailChange = (e) => {
+    setAaEmail(e.target.value);
   };
 
   const handleSubmit = () => {
-    console.log(userAnswer, nickname, email);
+    console.log(aaAnswer, aaNickname, aaEmail);
 
-    if (userAnswer === '') {
+    if (aaAnswer === '') {
       alert('You must enter the following: answer');
-    } else if (nickname === '') {
+    } else if (aaNickname === '') {
       alert('You must enter the following: nickname');
-    } else if (email === '' || email.indexOf('@') === -1) {
+    } else if (aaEmail === '' || aaEmail.indexOf('@') === -1) {
       alert('You must enter the following: email')
     } else {
 
@@ -73,13 +73,13 @@ const AddAnswerModal = ({open, onClose}) => {
         <h3 style = {{color: "black"}}>**Product Name : Question Body**</h3>
         <br></br>
         <label>Your Answer*</label>
-        <textarea type="text" id="userAnswer" maxLength="1000" onChange={AnswerChange}></textarea>
+        <textarea type="text" id="aaAnswer" maxLength="1000" onChange={aaAnswerChange}></textarea>
         <br></br>
         <label>Nickname*</label>
-        <input type="text" id="nickname" placeholder='Example: jack543!' maxLength="60" onChange={nicknameChange}/>
+        <input type="text" id="aaNickname" placeholder='Example: jack543!' maxLength="60" onChange={aaNicknameChange}/>
         <p>For privacy reasons, do not use your full name or email address</p><br></br>
         <label>Email*</label>
-        <input type="email" id="email" maxLength="60" placeholder="jack@email.com" onChange={emailChange}/>
+        <input type="email" id="aaEmail" maxLength="60" placeholder="jack@email.com" onChange={aaEmailChange}/>
         <p>For authentication reasons, you will not be emailed</p>
         <br></br>
 
