@@ -6,7 +6,7 @@ import inferTotalPossibleReviews from '../../lib/inferTotalPossibleReviews.js';
 import { getPageOfReviews, getReviewsMetaData } from './controllerReviews.js';
 
 const Reviews = () => {
-  const productID = 37312;
+  const productID = 37311;
   const [reviewsMetaData, setReviewsMetaData] = useState(undefined);  // no data to display until it is fetched
   const [reviewsData, setReviewsData] = useState({});
   const defaultSort = 'relevant';  // relevant is the default sort option
@@ -57,7 +57,7 @@ const Reviews = () => {
       <div className='rr-title'>RATINGS & REVIEWS</div>
       <div className='rr-content'>
         {/*
-          metaDataIsSet and reviewsAreIn prevent rendering until we have data
+          prevent rendering until we have data
           otherwise, the subcomponents will cause errors
         */}
         {reviewsMetaData && <ReviewsSummary metaData={ reviewsMetaData } filters={ filters } filterClick={ filterClick } removeFilters={ removeFilters }/>}
