@@ -12,7 +12,7 @@ const Card = ({product, compare, images, salePrice}) => {
   return (
 
     <div className="product-card">
-      <img alt="product-image"
+      <img alt="product-image" className="related-product-img"
         src={images ? images[0].url : "https://tinyurl.com/2utv43j5"}/>
        <RelatedButton compare={compare}/>
      <div className='related related-container-card'>
