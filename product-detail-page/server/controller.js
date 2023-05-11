@@ -1,6 +1,8 @@
 const axios = require('axios');
 require('dotenv').config();
 
+
+
 module.exports = {
   getProducts: (page, count) => {
     return axios({
@@ -55,7 +57,7 @@ module.exports = {
         return productStyles.data;
       })
       .catch((err) => {
-        console.log(err);
+        console.log(err.data);
       });
   },
 
@@ -74,7 +76,7 @@ module.exports = {
         return productStyles.data;
       })
       .catch((err) => {
-        console.log(err);
+        console.log('There was an error getting related products', err.response.status);
       });
   },
 
@@ -99,7 +101,7 @@ module.exports = {
       }
     })
       .then(results => results.data)
-      .catch((err) => console.log("there was an error getting reviews meta data: ", err))
+      .catch((err) => console.log("there was an error getting reviews meta data: "))
   },
 
   // Get the reviews metadata for a specific product
@@ -116,6 +118,6 @@ module.exports = {
       }
     })
       .then(results => results.data)
-      .catch((err) => console.log("there was an error getting reviews meta data: ", err))
+      .catch((err) => console.log("there was an error getting reviews meta data: "))
   },
 };

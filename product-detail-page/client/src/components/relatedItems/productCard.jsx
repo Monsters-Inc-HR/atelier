@@ -1,9 +1,11 @@
 import React from 'react';
 import RelatedButton from './relatedButton.jsx';
 
-const Card = ({product, compare, images}) => {
+const Card = ({product, compare, images, salePrice}) => {
 
-  console.log('images:', images);
+  // console.log('images:', images);
+  // console.log('sale prices:', salePrices)
+  // console.log('product', product);
 
   const handleClick = (e) => {
       compare();
@@ -20,7 +22,9 @@ const Card = ({product, compare, images}) => {
 
       <p>{product.category}</p>
       <p>{product.name}</p>
-      <p>${product.default_price}</p>
+      {salePrice ? <><p style={{color: 'red'}}>${salePrice}</p>
+      <p style={{textDecoration: 'line-through'}}>
+      ${product.default_price}</p></> : <p>${product.default_price}</p>}
       <p>Stars</p>
     </div>
 
@@ -28,4 +32,5 @@ const Card = ({product, compare, images}) => {
 
 }
 
+// add on sale rendering feature
 export default Card;

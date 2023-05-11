@@ -5,13 +5,13 @@ import List from './productList.jsx';
 import Outfit from './outfitList.jsx';
 import Comparison from './comparison.jsx';
 import itemArray from './dummyData.js';
-const Controller = require('./controller.js');
+import Controller from './controller.js';
 
 
 const RelatedItems = () => {
 
   const [productIds, setProductIds] = useState([])
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState(itemArray);
   const [productStyles, setProductStyles] = useState([]);
   const [userProducts, setUserProducts] = useState(itemArray);
   const [renderComparison, setRenderComparison] = useState(false);
@@ -30,14 +30,25 @@ const RelatedItems = () => {
   }
 
   useEffect(() => {
-    Controller.getRelatedProducts()
-    .then((data) => {
-      setProductIds(data);
-    })
-    .catch((err) => {
-      console.log(err);
-    })
-  },[]);
+    let isMounted = true;
+
+    const getRelatedProducts = async () => {
+      try {
+        const data = await Controller.getRelatedProducts();
+        if (isMounted) {
+          setProductIds(data);
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    getRelatedProducts();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
 
   useEffect(() => {
