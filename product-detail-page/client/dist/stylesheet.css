@@ -122,3 +122,7 @@ left: 35%;
   text-decoration: underline;
   color: #0076d1;
 }
+
+.rr-star-filled-25 > path {
+  clip-path: inset(0 25% 0 0);
+}
