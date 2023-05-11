@@ -1,6 +1,6 @@
 import React from 'react';
 import Card from './productCard.jsx';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 
 
@@ -8,6 +8,20 @@ const List =  ({products, compare, productStyles}) => {
 
 const [productImages, setProductImages] = useState({});
 const [salePrices, setSalePrices] = useState({});
+const [viewCounter, setViewCounter] = useState(0);
+
+const containerRef = useRef(null);
+
+
+const increaseView = () => {
+  setViewCounter(viewCounter + 1);
+  containerRef.current.scrollLeft += 250;
+}
+
+const decreaseView = () => {
+  setViewCounter(viewCounter - 1);
+  containerRef.current.scrollLeft -= 250;
+}
 
 
 // take advantage of this function to also set sale prices
@@ -53,22 +67,44 @@ useEffect(() => {
 }, [productStyles])
 
 
-  return (
-   <div>
+return (
+  <div>
     <h4>Related Items</h4>
-    <div className="related related-container-list">
-      <>{products.map((product, index) => {
+    <div
+      className="related-container-list"
+      ref={containerRef}
+      style={{ overflowX: 'scroll' }}
+    >
+      {products.map((product, index) => {
         if (product) {
           let images = productImages[product.id];
           let salePrice = salePrices[product.id];
-          return <Card key={product.id} images={images}
-            salePrice={salePrice} product={product} compare={compare}/>
+          return (
+            <Card
+              key={product.id}
+              images={images}
+              salePrice={salePrice}
+              product={product}
+              compare={compare}
+            />
+          );
         }
-      })}</>
+      })}
     </div>
-    </div>
-  )
-}
+    {viewCounter > 0 ? (
+      <button className="left-button" onClick={decreaseView}>
+        Left
+      </button>
+    ) : null}
+    {viewCounter < products.length ? (
+      <button className="right-button" onClick={increaseView}>
+        Right
+      </button>
+    ) : null}
+  </div>
+);
+
+    };
 
 export default List;
 

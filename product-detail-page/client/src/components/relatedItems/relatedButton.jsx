@@ -1,9 +1,13 @@
 import React from 'react';
 
-const RelatedButton = () => {
+const RelatedButton = ({compare}) => {
+
+  const handleClick = (e) => {
+    compare();
+  }
 
   return (
-    <button className="related related-container-button">
+    <button className="related-compare-button" onClick={handleClick}>
       ⭐
     </button>
   )
