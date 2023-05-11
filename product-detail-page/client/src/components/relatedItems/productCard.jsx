@@ -7,15 +7,13 @@ const Card = ({product, compare, images, salePrice}) => {
   // console.log('sale prices:', salePrices)
   // console.log('product', product);
 
-  const handleClick = (e) => {
-      compare();
-  }
+
 
   return (
 
-    <div className="related related-container-card" onClick={handleClick}>
+    <div className="related related-container-card" >
      <div className='related related-container-card-top'>
-        <RelatedButton/>
+        <RelatedButton compare={compare}/>
         <img alt="product-image"
         src={images ? images[0].url : "https://tinyurl.com/2utv43j5"} />
     </div>

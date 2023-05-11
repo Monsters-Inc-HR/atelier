@@ -8,7 +8,15 @@ const List =  ({products, compare, productStyles}) => {
 
 const [productImages, setProductImages] = useState({});
 const [salePrices, setSalePrices] = useState({});
+const [viewCounter, setViewCounter] = useState(0);
 
+const increaseView = () => {
+  setViewCounter(viewCounter + 1);
+}
+
+const decreaseView = () => {
+  setViewCounter(viewCounter - 1);
+}
 
 // take advantage of this function to also set sale prices
 useEffect(() => {
@@ -66,6 +74,8 @@ useEffect(() => {
         }
       })}</>
     </div>
+    {viewCounter > 0 ? <button type="left-button" className="left-button" onClick={decreaseView}>Left</button> : null}
+    {viewCounter < products.length ? <button type="right-button" className="right-button" onClick={increaseView}>Right</button>: null}
     </div>
   )
 }
