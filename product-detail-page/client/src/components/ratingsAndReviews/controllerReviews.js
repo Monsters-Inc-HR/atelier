@@ -9,16 +9,16 @@ module.exports = {
 
     return axios.get('http://localhost:3000/reviews', {
       params: {
-        product_id: productID,
-        page: page,
-        count: count
+        'product_id': productID,
+        'page': page,
+        'count': count
       }
     })
     .then((reviews) => {
       return reviews.data;
     })
     .catch((err) => {
-      console.log(err);
+      return err;
     })
   },
   getReviewsMetaData: (productID = 37311) => {
@@ -26,14 +26,14 @@ module.exports = {
     if (typeof productID !== 'number' || typeof parseInt(productID) !== number) productID = 37311;
     return axios.get('http://localhost:3000/reviews/meta', {
       params: {
-        product_id: productID,
+        'product_id': productID,
       }
     })
     .then((reviewsMeta) => {
       return reviewsMeta.data;
     })
     .catch((err) => {
-      console.log(err);
+      return err;
     })
   }
 };
