@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from './productCard.jsx';
 import { useState, useEffect, useRef } from 'react';
+import StarBar from '../ratingsAndReviews/StarBar.jsx';
 
 
 const List =  ({products, compare, productStyles}) => {

@@ -1,5 +1,6 @@
 import React from 'react';
 import RelatedButton from './relatedButton.jsx';
+import StarBar from '../ratingsAndReviews/StarBar.jsx';
 
 const Card = ({product, compare, images, salePrice}) => {
 
@@ -16,7 +17,7 @@ const Card = ({product, compare, images, salePrice}) => {
       {salePrice ? <><p style={{color: 'red'}}>${salePrice}</p>
       <p style={{textDecoration: 'line-through'}}>
       ${product.default_price}</p></> : <p>${product.default_price}</p>}
-      <p>Stars</p>
+      <StarBar rating={3}/>
     </div>
     </div>
   )
