@@ -13,6 +13,7 @@
   flex-direction: row;
   justify-content: space-between;
   overflow: hidden;
+  overflow-x: scroll;
 }
 
 /* .related-container-card {
@@ -121,50 +122,31 @@ left: 35%;
   padding: 15px;
 }
 
-.rr-bar-graph {
+.rr-star-bar {
   display: flex;
   align-items: center;
 }
 
-.rr-bar-graph-text {
+.rr-star-bar-text {
   width: 100px;
 }
 
-.rr-bar-graph-100 {
+.rr-star-bar-100 {
   display: flex;
   height: 10px;
   width: 100%;
   border: 1px solid black;
 }
 
-.rr-bar-graph-positive {
+.rr-star-bar-positive {
   background: green;
 }
 
-.rr-bar-graph-negative {
+.rr-star-bar-negative {
   background: lightgray;
 }
 
 .rr-remove-filters-link {
   text-decoration: underline;
   color: #0076d1;
-}
-
-/* ==============================================================
- Star bar
-
- 1/4 star = 65% clipped; otherwise the filled in chunk is too small
- 3/4 star = 35% clipped; otherwise the empty chunk is too small
-
-================================================================*/
-.rr-star-filled-1-4 > path {
-  clip-path: inset(0 65% 0 0);
-}
-
-.rr-star-filled-2-4 > path {
-  clip-path: inset(0 50% 0 0);
-}
-
-.rr-star-filled-3-4 > path {
-  clip-path: inset(0 35% 0 0);
 }

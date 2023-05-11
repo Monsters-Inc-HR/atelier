@@ -3,11 +3,6 @@ import RelatedButton from './relatedButton.jsx';
 
 const Card = ({product, compare, images, salePrice}) => {
 
-  // console.log('images:', images);
-  // console.log('sale prices:', salePrices)
-  // console.log('product', product);
-
-
 
   return (
 
