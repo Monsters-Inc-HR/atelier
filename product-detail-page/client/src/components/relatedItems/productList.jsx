@@ -1,5 +1,4 @@
 import React from 'react';
-import { useState } from 'react';
 import Card from './productCard.jsx';
 import { useState, useEffect } from 'react';
 
