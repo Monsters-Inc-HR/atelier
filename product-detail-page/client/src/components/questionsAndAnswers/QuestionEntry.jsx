@@ -27,14 +27,11 @@ const QuestionEntry = ({question}) => {
     if (numOfAnswers >= answers.length - 2) {
       setMaxAnswersDisplayed(true);
     }
-    console.log(numOfAnswers);
   }
 
   const [maxAnswersDisplayed, setMaxAnswersDisplayed] = useState(false);
 
   const handleCollapseAnswersClick = () => {
-
-    //console.log('clicked');
     setNumOfAnswers(0);
     setMaxAnswersDisplayed(false);
   }
@@ -51,10 +48,10 @@ const QuestionEntry = ({question}) => {
     }
   };
 
+  //sets a boolean to show/hide add answer modal
   const [addAnswerModalShow, setAddAnswerModalShow] = useState(false);
 
   const addAnswerModalClose = () => {
-    //console.log(userQuestion);
     setAddAnswerModalShow(false)
   }
 
@@ -69,14 +66,14 @@ const QuestionEntry = ({question}) => {
           <a onClick={handleHelpfulQuestionClick}>Yes ({questionHelpfulness})</a>
           {' | '}
           <AddAnswerModal open={addAnswerModalShow} onClose={addAnswerModalClose}/>
-          <a onClick={()=>{setAddAnswerModalShow(true)}}>Add Answer</a>
+          <a onClick={()=>{setAddAnswerModalShow(true)}}>Add Answer</a><br></br>
         </div>
-        {answers.slice(0, numOfAnswers).map((answer, index) => (
+          {answers.slice(0, numOfAnswers).map((answer, index) => (
           <AnswerEntry answer={answer} key={index} />
         ))}
       </span>
       {maxAnswersDisplayed ? (<a onClick={handleCollapseAnswersClick}>Collapse Answers</a>) : (<a onClick={handleMoreAnswersClick}>See more answers</a>)}
-
+      <hr/>
     </div>
   )
 }

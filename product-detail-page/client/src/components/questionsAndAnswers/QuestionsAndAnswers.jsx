@@ -95,14 +95,10 @@ var apiQuestData = {
 
 const QuestionsAndAnswers = () => {
 
-  const [addQuestionModalShow, setAddQuestionModalShow] = useState(false);
-
   //sets default number of questions to display at 2
   const [numOfQuestions, setNumOfQuestions] = useState(2);
 
-
   const [searchQuery, setSearchQuery] = useState('');
-
 
   var questions = apiQuestData.results;
 
@@ -123,25 +119,24 @@ const QuestionsAndAnswers = () => {
     }
   };
 
+  //sets a boolean to show/hide add question modal
+  const [addQuestionModalShow, setAddQuestionModalShow] = useState(false);
+
   const addQuestionModalClose = () => {
     setAddQuestionModalShow(false)
   }
 
-
-
-
-
   return (
     <div style={{ borderStyle: 'solid', borderColor: 'grey' }}>
-      <p>Questions and Answers</p>
+      <h2>Questions and Answers</h2><br></br>
       {questions.length ? (
-        <>
-          <Searchbar searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>
+        <div>
+          <Searchbar searchQuery={searchQuery} setSearchQuery={setSearchQuery}/><br></br>
           <QuestionList questions={questions} numOfQuestions={numOfQuestions} searchQuery={searchQuery} />
           { (questionRenderMax || maxNumOfQuestions <= 2)? null : <button onClick={moreAnsweredQuestionClick}>More Answered Questions</button>}
-        </>
+        </div>
       ) : null }
-      <AddQuestionModal open={addQuestionModalShow} onClose={addQuestionModalClose}/>
+      <AddQuestionModal open={addQuestionModalShow} onClose={addQuestionModalClose} questions={questions}/>
       <button onClick={()=>{setAddQuestionModalShow(true)}}>Add a question</button>
     </div>
     )
@@ -150,4 +145,6 @@ const QuestionsAndAnswers = () => {
 
 
 export default QuestionsAndAnswers
+
+//
 

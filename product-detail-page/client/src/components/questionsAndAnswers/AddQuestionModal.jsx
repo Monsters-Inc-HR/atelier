@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-//import ReactDom from 'react-dom'
 
 const MODAL_STYLES = {
   position: 'fixed',
@@ -23,7 +22,7 @@ const OVERLAY_STYLES = {
 }
 
 
-const AddQuestionModal = ({open, onClose}) => {
+const AddQuestionModal = ({open, onClose, questions}) => {
 
   if (!open) {
     return (null);
@@ -47,8 +46,6 @@ const AddQuestionModal = ({open, onClose}) => {
   };
 
   const handleSubmit = () => {
-    console.log(aqQuestion, aqNickname, aqEmail);
-
     if (aqQuestion === '') {
       alert('You must enter the following: question');
     } else if (aqNickname === '') {
@@ -56,10 +53,7 @@ const AddQuestionModal = ({open, onClose}) => {
     } else if (aqEmail === '' || aqEmail.indexOf('@') === -1) {
       alert('You must enter the following: email')
     } else {
-
-
       //TODO handle data submission
-
       onClose();
     }
   };
@@ -82,17 +76,12 @@ const AddQuestionModal = ({open, onClose}) => {
         <input type="email" id="aqEmail" maxLength="60" placeholder="Example: jack@email.com" onChange={aqEmailChange}/>
         <p>For authentication reasons, you will not be emailed</p>
         <br></br>
-
       </form>
       <button onClick={handleSubmit}>Submit</button>
       <button onClick={onClose}>Exit</button>
-
     </div>
     </div>
   )
 }
 
 export default AddQuestionModal
-
-//<button onClick={onClose}>Submit</button>
-//

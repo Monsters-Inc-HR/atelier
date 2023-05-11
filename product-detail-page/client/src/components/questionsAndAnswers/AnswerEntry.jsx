@@ -3,9 +3,7 @@ import { format } from 'date-fns';
 
 const AnswerEntry = ({answer}) => {
 
-  //console.log(answer);
-
-  //initialized answer helpfulness to value from data
+  //initializes answer helpfulness to value from data
   const [answerHelpfulness, setAnswerHelpfulness] = useState(answer.helpfulness);
   const [helpfulAnswerClicked, setHelpfulAnswerClicked] = useState(false);
 
@@ -21,7 +19,6 @@ const AnswerEntry = ({answer}) => {
 
   const handleReportClick = () => {
     setReported(true);
-
   };
 
   return (
@@ -40,7 +37,6 @@ const AnswerEntry = ({answer}) => {
     </div>
   )
 }
-
 
 export default AnswerEntry
 
