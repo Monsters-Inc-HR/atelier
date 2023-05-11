@@ -1,10 +1,56 @@
 import React from 'react';
 import Card from './productCard.jsx';
+import { useState, useEffect } from 'react';
 
 
 
-const List =  ({products, compare}) => {
+const List =  ({products, compare, productStyles}) => {
 
+const [productImages, setProductImages] = useState({});
+const [salePrices, setSalePrices] = useState({});
+
+
+// take advantage of this function to also set sale prices
+useEffect(() => {
+ let isMounted = true;
+ let images = {};
+ let sales = {}
+
+ if (isMounted) {
+  productStyles.map((product) => {
+
+    let hasDefault = false;
+    let onSale = false;
+
+    for (var i = 0; i < product.results.length; i++) {
+      let currentProduct = product.results[i];
+
+
+      if (currentProduct.sale_price) {
+        if (sales[product.product_id] > currentProduct.sale_price || !sales[product.product_id]) {
+          sales[product.product_id] = currentProduct.sale_price;
+        }
+      }
+
+      if (currentProduct['default?']) {
+        hasDefault = true;
+        images[product.product_id] = currentProduct.photos;
+      }
+    }
+
+    if (!hasDefault) {
+      images[product.product_id] = product.results[0].photos;
+
+    }
+  })
+ };
+ setProductImages(images);
+ setSalePrices(sales);
+
+ return () => {
+  isMounted = false;
+ };
+}, [productStyles])
 
 
   return (
@@ -12,7 +58,12 @@ const List =  ({products, compare}) => {
     <h4>Related Items</h4>
     <div className="related related-container-list">
       <>{products.map((product, index) => {
-        return <Card key={product.id} product={product} compare={compare}/>
+        if (product) {
+          let images = productImages[product.id];
+          let salePrice = salePrices[product.id];
+          return <Card key={product.id} images={images}
+            salePrice={salePrice} product={product} compare={compare}/>
+        }
       })}</>
     </div>
     </div>
