@@ -9,7 +9,6 @@ or not they share features. Refer to diagram for details
 
 const Comparison = ({closeCompare}) => {
 
-  console.log(itemArray);
 
 const handleClick = (e) => {
   closeCompare();

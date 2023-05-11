@@ -11,13 +11,11 @@ const Card = ({product, compare, images, salePrice}) => {
 
   return (
 
-    <div className="related related-container-card" >
-     <div className='related related-container-card-top'>
-        <RelatedButton compare={compare}/>
-        <img alt="product-image"
-        src={images ? images[0].url : "https://tinyurl.com/2utv43j5"} />
-    </div>
-
+    <div className="product-card">
+      <img alt="product-image"
+        src={images ? images[0].url : "https://tinyurl.com/2utv43j5"}/>
+       <RelatedButton compare={compare}/>
+     <div className='related related-container-card'>
       <p>{product.category}</p>
       <p>{product.name}</p>
       {salePrice ? <><p style={{color: 'red'}}>${salePrice}</p>
@@ -25,7 +23,7 @@ const Card = ({product, compare, images, salePrice}) => {
       ${product.default_price}</p></> : <p>${product.default_price}</p>}
       <p>Stars</p>
     </div>
-
+    </div>
   )
 
 }

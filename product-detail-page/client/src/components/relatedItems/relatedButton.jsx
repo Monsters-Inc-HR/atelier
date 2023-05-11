@@ -7,7 +7,7 @@ const RelatedButton = ({compare}) => {
   }
 
   return (
-    <button className="related related-container-button" onClick={handleClick}>
+    <button className="related-compare-button" onClick={handleClick}>
       ⭐
     </button>
   )
