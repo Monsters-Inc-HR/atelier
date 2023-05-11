@@ -20,17 +20,24 @@ const QuestionEntry = ({question}) => {
   const [numOfAnswers, setNumOfAnswers] = useState(2);
 
   const handleMoreAnswersClick = () => {
-    setNumOfAnswers(numOfAnswers + 2);
+    if (!maxAnswersDisplayed) {
+      setNumOfAnswers(numOfAnswers + 2);
+    }
+
+    if (numOfAnswers >= answers.length - 2) {
+      setMaxAnswersDisplayed(true);
+    }
+    console.log(numOfAnswers);
   }
 
   const [maxAnswersDisplayed, setMaxAnswersDisplayed] = useState(false);
 
-  // const handleCollapseAnswersClick = () => {
+  const handleCollapseAnswersClick = () => {
 
-  //   //console.log('clicked');
-  //   setNumOfAnswers(2);
-  //   setMaxAnswersDisplayed(false);
-  // }
+    //console.log('clicked');
+    setNumOfAnswers(0);
+    setMaxAnswersDisplayed(false);
+  }
 
   //initializes question helpfulness to value from data
   const [questionHelpfulness, setQuestionHelpfulness] = useState(question.question_helpfulness)
