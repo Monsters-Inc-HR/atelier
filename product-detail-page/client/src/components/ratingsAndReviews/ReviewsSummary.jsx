@@ -9,8 +9,8 @@ const ReviewsSummary = ({ metaData, filters, filterClick, removeFilters }) => {
   return (
     <div className='rr-summary'>
       <div className='rr-summary-rollup'>
-        <div className='rr-number-of-stars'>{calculateStars(metaData)}</div>
-        <StarBar rating={ 4 } />
+        <div className='rr-number-of-stars'>{ calculateStars(metaData, 1) }</div>
+        <StarBar rating={ calculateStars(metaData, 2) } />
       </div>
       <div className='rr-filter-list'>
         {filters.length > 0 &&

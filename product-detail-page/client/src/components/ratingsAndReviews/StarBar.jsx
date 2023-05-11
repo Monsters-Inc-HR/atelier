@@ -3,29 +3,25 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
 
 const StarBar = ({ rating }) => {
+  let fullStars = Math.floor(rating);
+  let quarterStars = Math.round((rating - fullStars) / .25);  // get decimal part of rating. see how many .25s fit in it, rounded to nearest integer.
+  if (quarterStars === 4) {  // account for ratings like 2.9, which will yield 2 full stars and 4 quarter stars. convert 4 quarter stars into 1 full star.
+    fullStars += 1;
+    quarterStars = 0;
+  }
+
   const stars = Array(5);
-  stars.fill(<FontAwesomeIcon icon={ icon({name: 'star', style: 'solid'}) } />, 0, rating);  // fill from 0 up to rating index with solid stars
-  stars.fill(<FontAwesomeIcon className='rr-star-filled-25' icon={ icon({name: 'star', style: 'regular'}) } />, rating);   // fill from rating index to end with empty stars
-
-  // useEffect(() => {
-  //   const clip = document.createElementNS('http://www.w3.org/2000/svg', 'clipPath');
-  //   clip.id = 'rr-clipper-1';
-  //   const rect = document.createElement('rect');
-  //   rect.setAttribute('x', 0);
-  //   rect.setAttribute('y', 0);
-  //   rect.setAttribute('width', '75%');
-  //   rect.setAttribute('height', '100%');
-  //   clip.appendChild(rect);
-
-  //   // const use = document.createElement('use');
-  //   // use.setAttribute('clip-path', 'url(#rr-clipper-1)');
-  //   // use.setAttribute('href', '1')
-
-  //   const targetSVG = document.getElementById('1');
-  //   targetSVG.querySelector('path').setAttribute('clip-path', 'url(#rr-clipper-1)');
-  //   targetSVG.appendChild(clip);
-  //   //targetSVG.appendChild(use);
-  // }, []);
+  stars.fill(<FontAwesomeIcon icon={ icon({name: 'star', style: 'solid'}) } />, 0, fullStars);  // fill from 0 up to rating index with solid stars
+  // if there are quarter stars, add a layered icon; otherwise, add an empty star
+  stars[fullStars] = (quarterStars > 0) ? (
+    <span className='fa-layers fa-fw'>
+      <FontAwesomeIcon icon={ icon({name: 'star', style: 'regular'}) } />
+      <FontAwesomeIcon className={`rr-star-filled-${quarterStars}-4`} icon={ icon({name: 'star', style: 'solid'}) } />
+    </span>
+  ) : (
+    <FontAwesomeIcon icon={ icon({name: 'star', style: 'regular'}) } />
+  )
+  stars.fill(<FontAwesomeIcon icon={ icon({name: 'star', style: 'regular'}) } />, fullStars + 1);   // fill remaining spots with empty stars
 
   return (
     <div className='rr-star-bar'>
