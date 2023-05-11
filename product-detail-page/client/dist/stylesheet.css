@@ -38,6 +38,7 @@ h1, h2, h3, h4, h5 {
 
 .related-container-details {
   padding: 25px 25px;
+<<<<<<< HEAD
 };
 
 .related-container-button {
@@ -51,6 +52,18 @@ button {
   padding: 2px;
   size: 10px;
  };
+=======
+  font-size: small;
+}
+
+.related-container-button {
+  display: flex;
+  justify-content: right;
+  margin: 0px;
+  padding: 2px;
+
+}
+>>>>>>> be879b2e067c9a84f4cd972c30d4ee61418d7796
 
 .related-comparison-modal {
 border: 1px solid black;
@@ -66,9 +79,18 @@ left: 35%;
 .related-comparison-title {
   display: flex;
   justify-content: left;
+<<<<<<< HEAD
 };
 
 
+=======
+}
+
+.img {
+  width: 250;
+  height: 500;
+}
+>>>>>>> be879b2e067c9a84f4cd972c30d4ee61418d7796
 
 /* ==============================================================
  Questions & Answers
@@ -139,4 +161,9 @@ left: 35%;
 
 .rr-star-bar-negative {
   background: lightgray;
+}
+
+.rr-remove-filters-link {
+  text-decoration: underline;
+  color: #0076d1;
 }
