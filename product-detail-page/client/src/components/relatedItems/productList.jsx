@@ -8,7 +8,12 @@ const List =  ({products, compare, productStyles}) => {
 
 const [productImages, setProductImages] = useState({});
 const [salePrices, setSalePrices] = useState({});
+const [viewCounter, setViewCounter] = useState(0);
 
+
+  const increaseView = () => {
+    setViewCounter(viewCounter + 1);
+  }
 
   const decreaseView = () => {
     setViewCounter(viewCounter - 1);
