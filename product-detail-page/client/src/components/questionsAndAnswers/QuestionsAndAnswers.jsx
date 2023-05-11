@@ -95,9 +95,7 @@ var apiQuestData = {
 
 const QuestionsAndAnswers = () => {
 
-
   const [addQuestionModalShow, setAddQuestionModalShow] = useState(false);
-
 
   //sets default number of questions to display at 2
   const [numOfQuestions, setNumOfQuestions] = useState(2);
@@ -108,8 +106,6 @@ const QuestionsAndAnswers = () => {
 
   var questions = apiQuestData.results;
 
-
-
   //sorts the array of question objects in order of helpfulness from high to low
   questions = questions.sort((a,b) => (b.question_helpfulness - a.question_helpfulness ));
 
@@ -119,18 +115,15 @@ const QuestionsAndAnswers = () => {
 
   var maxNumOfQuestions = questions.length;
 
-
   const moreAnsweredQuestionClick = () => {
     if (numOfQuestions < maxNumOfQuestions) {
       setNumOfQuestions(numOfQuestions + 2)
     } else {
       setQuestionRenderMax(true);
     }
-    console.log('numOfQuestions', numOfQuestions)
   };
 
   const addQuestionModalClose = () => {
-    //console.log(userQuestion);
     setAddQuestionModalShow(false)
   }
 
@@ -145,9 +138,9 @@ const QuestionsAndAnswers = () => {
         <>
           <Searchbar searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>
           <QuestionList questions={questions} numOfQuestions={numOfQuestions} searchQuery={searchQuery} />
-          <button onClick={moreAnsweredQuestionClick}>More Answered Questions</button>
+          { (questionRenderMax || maxNumOfQuestions <= 2)? null : <button onClick={moreAnsweredQuestionClick}>More Answered Questions</button>}
         </>
-      ) : (<></>) }
+      ) : null }
       <AddQuestionModal open={addQuestionModalShow} onClose={addQuestionModalClose}/>
       <button onClick={()=>{setAddQuestionModalShow(true)}}>Add a question</button>
     </div>
