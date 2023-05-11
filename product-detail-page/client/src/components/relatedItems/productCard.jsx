@@ -22,7 +22,9 @@ const Card = ({product, compare, images, salePrice}) => {
 
       <p>{product.category}</p>
       <p>{product.name}</p>
-      {salePrice ? <><p className="on-sale">${salePrice}</p> <p style={{textDecoration: 'line-through'}}>${product.default_price}</p></> : <p>${product.default_price}</p>}
+      {salePrice ? <><p style={{color: 'red'}}>${salePrice}</p>
+      <p style={{textDecoration: 'line-through'}}>
+      ${product.default_price}</p></> : <p>${product.default_price}</p>}
       <p>Stars</p>
     </div>
 
