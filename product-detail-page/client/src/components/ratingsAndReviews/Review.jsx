@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import StarBar from './StarBar.jsx';
 import { format } from 'date-fns';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
@@ -9,7 +10,7 @@ const Review = ({ review }) => {
   return (
     <div className='rr-review'>
       <div className='rr-review-header'>
-        <div className='rr-stars'>rating: { review.rating }</div>
+        <StarBar rating={ Number.parseFloat(review.rating).toFixed(2) } />
         <div className='rr-review-user-date'> {review.reviewer_name}, {format(new Date(review.date), 'MMMM d, y')} </div>
       </div>
       <div className='rr-review-summary'>{ review.summary }</div>
