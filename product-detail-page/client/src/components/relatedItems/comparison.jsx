@@ -7,8 +7,10 @@ and display their information side to side depending on wether
 or not they share features. Refer to diagram for details
 */
 
-const Comparison = ({closeCompare}) => {
+const Comparison = ({closeCompare, focusedItem, focusedID, productID}) => {
 
+  console.log('focusedItem', focusedItem);
+  console.log('focusedID', productID);
 
 const handleClick = (e) => {
   closeCompare();

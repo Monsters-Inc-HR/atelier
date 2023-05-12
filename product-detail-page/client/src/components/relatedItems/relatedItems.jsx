@@ -14,20 +14,23 @@ const RelatedItems = () => {
   const [products, setProducts] = useState(itemArray);
   const [productStyles, setProductStyles] = useState([]);
   const [userProducts, setUserProducts] = useState(itemArray);
-  const [renderComparison, setRenderComparison] = useState(false);
 
-  // build a function that sets renderComparison to true
-  const compare = () => {
-    if (renderComparison === false) {
-      setRenderComparison(true);
-    } else {
-      setRenderComparison(false);
-    }
-  }
 
-  const closeCompare = () => {
-    setRenderComparison(false);
-  }
+  const focusedItem = {item: 'item'};
+
+
+  // // build a function that sets renderComparison to true
+  // const compare = () => {
+  //   if (renderComparison === false) {
+  //     setRenderComparison(true);
+  //   } else {
+  //     setRenderComparison(false);
+  //   }
+  // }
+
+  // const closeCompare = () => {
+  //   setRenderComparison(false);
+  // }
 
   useEffect(() => {
     let isMounted = true;
@@ -112,14 +115,11 @@ const RelatedItems = () => {
 
   return (
     <>
-    <List products={products} productStyles={productStyles} compare={compare}/>
-    <Outfit userProducts={userProducts} compare={compare}/>
-    {renderComparison ? <Comparison closeCompare={closeCompare}/> : null}
+    <List products={products} productStyles={productStyles} focusedItem={focusedItem} />
+    <Outfit userProducts={userProducts}/>
     </>
   )
 }
-
-//comment
 
 export default RelatedItems;
 
