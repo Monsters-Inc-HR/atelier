@@ -9,9 +9,9 @@ const ReviewsList = ({ reviews, sortList }) => {
       <div className='rr-review-sorter'>
         { reviews.length } reviews, <label htmlFor='rr-sort-select'>sorted by most</label>
         <select onChange={ (e) => sortList(e.target.value) } style={{display: 'inline'}} name='sort-by' id='rr-sort-select'>
-          <option value='relevance' defaultValue>relevant</option>
-          <option value='helpfulness'>helpful</option>
-          <option value='recency'>recent</option>
+          <option value='relevant' defaultValue>relevant</option>
+          <option value='helpful'>helpful</option>
+          <option value='recent'>recent</option>
         </select>
       </div>
       {reviews.slice(0, displayCount)

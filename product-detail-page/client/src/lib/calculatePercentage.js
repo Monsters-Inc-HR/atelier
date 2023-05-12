@@ -24,8 +24,13 @@
   // }
 
 export default function(data) {
-  const nonRecommendersCount = parseInt(data.recommended.false);
-  const recommendersCount = parseInt(data.recommended.true);
-  const percentage = 100 * (recommendersCount / (nonRecommendersCount + recommendersCount));
-  return Math.round(percentage);
+  if (Object.keys(data).length !== 0) {
+    console.log(data);
+    const nonRecommendersCount = parseInt(data.recommended.false);
+    const recommendersCount = parseInt(data.recommended.true);
+    const percentage = 100 * (recommendersCount / (nonRecommendersCount + recommendersCount));
+    return Math.round(percentage);
+  } else {
+    return undefined;
+  }
 }
