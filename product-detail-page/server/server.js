@@ -78,8 +78,8 @@ app.get('/reviews/meta', (req, res) => {
     .catch(err => res.send(err));
 })
 
-app.listen(3001, () => {
-  console.log('Server listening on port 3001')
+app.listen(3000, () => {
+  console.log('Server listening on port 3000')
 });
 
 
