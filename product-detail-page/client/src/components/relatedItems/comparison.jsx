@@ -15,9 +15,28 @@ const handleClick = (e) => {
 }
 
   return (
-    <div onClick={handleClick}>
-      <section className="related-comparison-modal">
+    <div onClick={handleClick} className="related-comparison-modal">
+      <section>
       <h5 className="related-comparison-title">Comparing</h5>
+      <table className="related-comparison-table">
+        <tr>
+            <th>Product 1</th>
+            <th>Features</th>
+            <th>Product 2</th>
+        </tr>
+        <tr>
+            <td>Feature1</td>
+            <td>Feature1</td>
+            <td>Feature1</td>
+            <td>Feature1</td>
+        </tr>
+        <tr>
+            <td>Feature1</td>
+            <td>Feature1</td>
+            <td>Feature1</td>
+            <td>Feature1</td>
+        </tr>
+      </table>
       </section>
     </div>
   )
