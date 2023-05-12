@@ -13,7 +13,6 @@ const App = () => {
       <RelatedItems/>
       <QuestionsAndAnswers/>
       <Reviews />
-      <p>hey</p>
     </div>
   )
 }

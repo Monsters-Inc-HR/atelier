@@ -1,30 +1,28 @@
 import React from 'react';
 import RelatedButton from './relatedButton.jsx';
+import StarBar from '../ratingsAndReviews/StarBar.jsx';
 
-const Card = () => {
+const Card = ({product, compare, images, salePrice}) => {
+
 
   return (
 
-    <div className="related related-container-card">
-    <RelatedButton/>
-    <img alt="product-image"/>
-      <p>Category</p>
-      <p>Name</p>
-      <p>Price</p>
-      <p>Stars</p>
+    <div className="product-card">
+      <img alt="product-image" className="related-product-img"
+        src={images ? images[0].url : "https://tinyurl.com/2utv43j5"}/>
+       <RelatedButton compare={compare}/>
+     <div className='related related-container-card'>
+      <p>{product.category}</p>
+      <p>{product.name}</p>
+      {salePrice ? <><p style={{color: 'red'}}>${salePrice}</p>
+      <p style={{textDecoration: 'line-through'}}>
+      ${product.default_price}</p></> : <p>${product.default_price}</p>}
+      <StarBar rating={3}/>
     </div>
-
+    </div>
   )
 
 }
 
-// {
-//   "id": 1,
-//   "name": "Camo Onesie",
-//   "slogan": "Blend in to your crowd",
-//   "description": "The So Fatigues will wake you up and fit you in. This high energy camo will have you blending in to even the wildest surroundings.",
-//   "category": "Jackets",
-//   "default_price": "140"
-// },
-
+// add on sale rendering feature
 export default Card;
