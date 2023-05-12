@@ -1,4 +1,4 @@
-// calculates and returns the average number of stars for a product, rounded to 1 decimal point
+// calculates and returns the average number of stars for a product, rounded to n decimal places
 
 // INPUT - Reviews Meta Data API response: e.g.,
   // GET /reviews/meta?product_id={integer id value}
@@ -23,7 +23,7 @@
   //   }
   // }
 
-export default function(data) {
+export default function(data, decimalPlaces) {
   const ratings = data.ratings;
   let totalCount = 0;
   let totalStars = 0;
@@ -32,5 +32,5 @@ export default function(data) {
     totalCount += count;
     totalStars += parseInt(starKey) * count;
   }
-  return Number.parseFloat(totalStars / totalCount).toFixed(1); // return average to one decimal place
+  return Number.parseFloat(totalStars / totalCount).toFixed(decimalPlaces); // return average to one decimal place
 }
