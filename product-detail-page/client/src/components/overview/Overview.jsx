@@ -2,67 +2,74 @@ import React from "react";
 import ImageGallery from './ImageGallery.jsx';
 import ProductInfo from './ProductInfo.jsx';
 import StylesAndCart from './StylesAndCart.jsx';
+import ProductDescription from './ProductDescription.jsx';
 
 const Overview = () => {
-  productInfoData = [
-    {
-      "id": 11,
-      "name": "Air Minis 250",
-      "slogan": "Full court support",
-      "description": "This optimized air cushion pocket reduces impact but keeps a perfect balance underfoot.",
-      "category": "Basketball Shoes",
-      "default_price": "0",
-      "features": [
-      {
-        "feature": "Sole",
-        "value": "Rubber"
-      },
-      {
-        "feature": "Material",
-        "value": "FullControlSkin"
-      }
-      ]
-    },
-    {
-      "id": 11,
-      "name": "Air Minis 250",
-      "slogan": "Full court support",
-      "description": "This optimized air cushion pocket reduces impact but keeps a perfect balance underfoot.",
-      "category": "Basketball Shoes",
-      "default_price": "0",
-      "features": [
-      {
-        "feature": "Sole",
-        "value": "Rubber"
-      },
-      {
-        "feature": "Material",
-        "value": "FullControlSkin"
-      }
-      ]
-    }
-  ]
+//   let productInfoData = [
+//     {
+//         "id": 37311,
+//         "campus": "hr-rfe",
+//         "name": "Camo Onesie",
+//         "slogan": "Blend in to your crowd",
+//         "description": "The So Fatigues will wake you up and fit you in. This high energy camo will have you blending in to even the wildest surroundings.",
+//         "category": "Jackets",
+//         "default_price": "140.00",
+//         "created_at": "2021-08-13T14:37:33.145Z",
+//         "updated_at": "2021-08-13T14:37:33.145Z"
+//     },
+//     {
+//         "id": 37312,
+//         "campus": "hr-rfe",
+//         "name": "Bright Future Sunglasses",
+//         "slogan": "You've got to wear shades",
+//         "description": "Where you're going you might not need roads, but you definitely need some shades. Give those baby blues a rest and let the future shine bright on these timeless lenses.",
+//         "category": "Accessories",
+//         "default_price": "69.00",
+//         "created_at": "2021-08-13T14:37:33.145Z",
+//         "updated_at": "2021-08-13T14:37:33.145Z"
+//     },
+//     {
+//         "id": 37313,
+//         "campus": "hr-rfe",
+//         "name": "Morning Joggers",
+//         "slogan": "Make yourself a morning person",
+//         "description": "Whether you're a morning person or not.  Whether you're gym bound or not.  Everyone looks good in joggers.",
+//         "category": "Pants",
+//         "default_price": "40.00",
+//         "created_at": "2021-08-13T14:37:33.145Z",
+//         "updated_at": "2021-08-13T14:37:33.145Z"
+//     },
+//     {
+//         "id": 37314,
+//         "campus": "hr-rfe",
+//         "name": "Slacker's Slacks",
+//         "slogan": "Comfortable for everything, or nothing",
+//         "description": "I'll tell you how great they are after I nap for a bit.",
+//         "category": "Pants",
+//         "default_price": "65.00",
+//         "created_at": "2021-08-13T14:37:33.145Z",
+//         "updated_at": "2021-08-13T14:37:33.145Z"
+//     },
+//     {
+//         "id": 37315,
+//         "campus": "hr-rfe",
+//         "name": "Heir Force Ones",
+//         "slogan": "A sneaker dynasty",
+//         "description": "Now where da boxes where I keep mine? You should peep mine, maybe once or twice but never three times. I'm just a sneaker pro, I love Pumas and shell toes, but can't nothin compare to a fresh crispy white pearl",
+//         "category": "Kicks",
+//         "default_price": "99.00",
+//         "created_at": "2021-08-13T14:37:33.145Z",
+//         "updated_at": "2021-08-13T14:37:33.145Z"
+//     }
+// ]
 
   return (
     <div>
       <div>site-wide announcement message! - Sale/Discount Offer - new product highlight</div>
-      <ImageGallery/>
-      <ProductInfo/>
-      <StylesAndCart/>
-      <h5>Product Slogan. Pithy Description Or Catchphrase.</h5>
-      <p>
-        You should buy everything on this cite because i said so.
-        I just want to be rich and have all the worlds money.
-        Tell everyone you come across to buy my clothes.
-        Its not wortht the price but i dont care i just care about getting all of your money.
-        Your gonna do it because you are not gonna be concisered cool if you dont wear mt clothes.
-      </p>
-      <div>
-        LIST OF PRODUCT INFO
-        LIST OF PRODUCT INFO
-        LIST OF PRODUCT INFO
-        LIST OF PRODUCT INFO
-      </div>
+      <ImageGallery />
+      <ProductInfo />
+      <StylesAndCart />
+      <ProductDescription />
       <p>_________________________________________________________________</p>
     </div>
   )

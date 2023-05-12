@@ -1,6 +1,6 @@
 import React from "react";
 
-const ProductInfo = () => {
+const ProductDescription = () => {
   let productInfoData = {
     "id": 37311,
     "campus": "hr-rfe",
@@ -14,13 +14,17 @@ const ProductInfo = () => {
   }
   return (
     <div>
-      <div>* * * * *</div>
-      <a>Read all reviews</a>
-      <h3>{productInfoData.category}</h3>
-      <h1>{productInfoData.name}</h1>
+      <h5>{productInfoData.slogan}</h5>
+      <p>{productInfoData.description}</p>
+      <div>
+        LIST OF PRODUCT INFO
+        LIST OF PRODUCT INFO
+        LIST OF PRODUCT INFO
+        LIST OF PRODUCT INFO
+      </div>
     </div>
   )
 }
 
 
-export default ProductInfo
+export default ProductDescription
