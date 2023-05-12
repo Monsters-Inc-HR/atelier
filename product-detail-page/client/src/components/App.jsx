@@ -4,7 +4,7 @@ import Reviews from './ratingsAndReviews/reviews.jsx';
 import QuestionsAndAnswers from './questionsAndAnswers/QuestionsAndAnswers.jsx';
 import Overview from './overview/Overview.jsx';
 
-
+//
 const App = () => {
 
   return (
