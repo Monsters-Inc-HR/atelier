@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import QuestionEntry from './QuestionEntry.jsx';
 
 const MODAL_STYLES = {
   position: 'fixed',
@@ -52,6 +53,7 @@ const AddAnswerModal = ({open, onClose}) => {
     } else if (aaEmail === '' || aaEmail.indexOf('@') === -1) {
       alert('You must enter the following: email')
     } else {
+      console.log(answers)
       //TODO handle data submission
       onClose();
     }

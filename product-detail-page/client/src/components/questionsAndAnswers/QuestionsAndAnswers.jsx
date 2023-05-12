@@ -123,6 +123,7 @@ const QuestionsAndAnswers = () => {
   const [addQuestionModalShow, setAddQuestionModalShow] = useState(false);
 
   const addQuestionModalClose = () => {
+    setNumOfQuestions(numOfQuestions + 1)
     setAddQuestionModalShow(false)
   }
 
@@ -133,7 +134,7 @@ const QuestionsAndAnswers = () => {
         <div>
           <Searchbar searchQuery={searchQuery} setSearchQuery={setSearchQuery}/><br></br>
           <QuestionList questions={questions} numOfQuestions={numOfQuestions} searchQuery={searchQuery} />
-          { (questionRenderMax || maxNumOfQuestions <= 2)? null : <button onClick={moreAnsweredQuestionClick}>More Answered Questions</button>}
+          { (questions.length <= 2 || !questionRenderMax) ? null : <button onClick={moreAnsweredQuestionClick}>More Answered Questions</button>}
         </div>
       ) : null }
       <AddQuestionModal open={addQuestionModalShow} onClose={addQuestionModalClose} questions={questions}/>
@@ -146,5 +147,5 @@ const QuestionsAndAnswers = () => {
 
 export default QuestionsAndAnswers
 
-//
+//questionRenderMax
 
