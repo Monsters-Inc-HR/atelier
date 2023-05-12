@@ -75,7 +75,7 @@ return (
       ref={containerRef}
       style={{ overflowX: 'scroll' }}
     >
-      {products.map((product, index) => {
+      {products.map((product) => {
         if (product) {
           let images = productImages[product.id];
           let salePrice = salePrices[product.id];
