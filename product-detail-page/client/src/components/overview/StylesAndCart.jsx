@@ -432,9 +432,9 @@ const StylesAndCart = () => {
 
   const [sizeVal, setSizeVal] = useState(sizeVal)
   const [qty, setQty] = useState(qty)
+  const [selectStyle, setSelectStyle] = useState('select style')
 
   let handleSizeVal = function(event) {
-
     setSizeVal(event.target.value)
     for (var i in productStylesData.skus) {
       if (productStylesData.skus[i].size === event.target.value) {
@@ -442,6 +442,12 @@ const StylesAndCart = () => {
       }
     }
   }
+
+//   let handleSelectStyle = function() {
+//     console.log(style.style_id)
+//     console.log('hello worlds and aliens')
+//   }
+
   console.log(qty)
   var qtyArr = []
   var num = 1
@@ -454,7 +460,6 @@ const StylesAndCart = () => {
     qtyArr.push(num)
     num++
   }
-  console.log(qtyArr)
 
   // for (var i in productStylesData.skus) {
   //   if (productStylesData.skus[i].size === sizeVal) {
@@ -488,7 +493,7 @@ const StylesAndCart = () => {
       <p>style > selected style</p>
       <ul>
         {stylesData.map((style, index) => (
-          <StylesImage style={style} key={index}/>
+          <StylesImage style={style} key={style.style_id}/>
         ))}
       </ul>
       <label>
