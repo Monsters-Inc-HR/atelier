@@ -16,28 +16,24 @@ const handleClick = (e) => {
   closeCompare();
 }
 
+
   return (
     <div onClick={handleClick} className="related-comparison-modal">
       <section>
       <h5 className="related-comparison-title">Comparing</h5>
       <table className="related-comparison-table">
         <tr>
-            <th>Product 1</th>
-            <th>Features</th>
-            <th>Product 2</th>
+            <th>{focusedItem.name}</th>
+            <th>{product.name}</th>
         </tr>
-        <tr>
-            <td>Feature1</td>
-            <td>Feature1</td>
-            <td>Feature1</td>
-            <td>Feature1</td>
-        </tr>
-        <tr>
-            <td>Feature1</td>
-            <td>Feature1</td>
-            <td>Feature1</td>
-            <td>Feature1</td>
-        </tr>
+          <tbody>
+            {focusedItem.features.map((feature, index) => {
+              return <td key={index}>{feature.value}</td>
+            })}
+            {product.features.map((feature, index) => {
+              return <td key={10 * index}>{feature.value}</td>
+            })}
+          </tbody>
       </table>
       </section>
     </div>
