@@ -176,6 +176,10 @@ overflow-y: scroll;
   margin: 10px;
 }
 
+.rr-review-seller-response-title {
+  font-weight: bold;
+}
+
 .rr-scale-bars-and-slider {
   position: relative;
 }
