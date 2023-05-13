@@ -1,4 +1,5 @@
 import React from 'react';
+// import { useState, useEffect } from 'react';
 import itemArray from './dummyData.js';
 
 /*
@@ -7,13 +8,45 @@ and display their information side to side depending on wether
 or not they share features. Refer to diagram for details
 */
 
-const Comparison = ({closeCompare, focusedItem, productID, product}) => {
+const Comparison = ({closeCompare, focusedItem, product, productID}) => {
 
-  console.log('product', product);
-  console.log('focusedItem', focusedItem);
+  // console.log('product', product);
+  // console.log('focusedItem', focusedItem);
 
 const handleClick = (e) => {
   closeCompare();
+}
+
+// const compareFeatures = {
+//     left: focusedItem.features,
+//     right: product.features,
+//     length:
+//         focusedItem.features.length > product.features.length ?
+//         focusedItem.features.length : product.features.length
+//     };
+
+// const compareFeatures;
+
+const renderTable = () => {
+  let compareFeatures = new Set();
+
+  let length = focusedItem.features.length > product.features.length ?
+               focusedItem.features.length : product.features.length;
+
+  for (var i = 0; i < length; i++) {
+    compareFeatures[focusedItem.features[i].feature] = [focusedItem.features[i].value];
+
+    if (compareFeatures[product.features[i].feature]) {
+      compareFeatures[product.features[i].feature].push(product.features[i].value);
+    } else {
+      compareFeatures[product.features[i].feature] = [product.features[i].value]
+    }
+  }
+
+  return compareFeatures.forEach((feature, key) => {
+    return <th>Hi</th>
+  })
+
 }
 
 
@@ -22,18 +55,19 @@ const handleClick = (e) => {
       <section>
       <h5 className="related-comparison-title">Comparing</h5>
       <table className="related-comparison-table">
-        <tr>
+        <thead>
+          <tr>
             <th>{focusedItem.name}</th>
+            <th>Feature</th>
             <th>{product.name}</th>
-        </tr>
-          <tbody>
-            {focusedItem.features.map((feature, index) => {
-              return <td key={index}>{feature.value}</td>
-            })}
-            {product.features.map((feature, index) => {
-              return <td key={10 * index}>{feature.value}</td>
-            })}
-          </tbody>
+          </tr>
+        </thead>
+        <tbody>
+          {renderTable()}
+        </tbody>
+        <tbody>
+
+        </tbody>
       </table>
       </section>
     </div>
