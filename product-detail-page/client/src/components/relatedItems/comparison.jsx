@@ -43,9 +43,7 @@ const renderTable = () => {
     }
   }
 
-  return compareFeatures.forEach((feature, key) => {
-    return <th>Hi</th>
-  })
+  console.log(compareFeatures);
 
 }
 
