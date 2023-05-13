@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import StarBar from './StarBar.jsx';
+import ReviewPhotos from './ReviewPhotos.jsx';
 import { format } from 'date-fns';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
@@ -25,13 +26,10 @@ const Review = ({ review }) => {
         { review.body.length > maxCollapsedChars &&
         <button className='rr-review-show-more' onClick={ () => setCollapsed(!collapsed) }>
           { collapsed ? 'SHOW MORE' : 'SHOW LESS' }
-        </button>
-        }
+        </button> }
       </div>
       { review.recommend && <div className='rr-review-recommended'><FontAwesomeIcon icon={ icon({name: 'check', style: 'solid'}) } /> I recommend this product.</div> }
-      <div className='rr-review-photos'>
-        { sortedPhotos.map(p => <img className='rr-review-img' key={p.id} src={`${p.url}`} alt='a user provided photo' />) }
-      </div>
+      { review.photos.length > 0 && <ReviewPhotos photos={ sortedPhotos } /> }
       { review.response && <div className='rr-review-seller-response'><b>Seller response:</b><br/><br/>{ review.response }</div> }
       <div className='rr-mark-helpful'></div>
       <hr />
