@@ -22,9 +22,14 @@ const AnswerEntry = ({answer}) => {
   };
 
   return (
-    <div>
-      <p style={{ fontSize: 'large' }}>{answer.body}</p>
-      <p>
+    <div >
+      <div className="qa-answer-entry">
+        <p>A: {answer.body}</p>
+      </div>
+      <div className="qa-answer-entry-body">
+        <p></p>
+      </div>
+      <div className="qa-answer-answerer">
         {'by '}
         {answer.answerer_name}
         {', '}
@@ -33,10 +38,11 @@ const AnswerEntry = ({answer}) => {
         <a onClick={handleHelpfulAnswerClick}>Yes ({answerHelpfulness})</a>
         {' | '}
         {reported ? (<>Reported</>) : (<a onClick={handleReportClick}>Report</a>) }
-        </p>
+      </div>
     </div>
   )
 }
 
 export default AnswerEntry
 
+//className="qa-answer-entry"

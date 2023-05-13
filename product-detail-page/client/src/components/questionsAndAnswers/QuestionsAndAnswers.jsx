@@ -128,8 +128,9 @@ const QuestionsAndAnswers = () => {
   }
 
   return (
-    <div style={{ borderStyle: 'solid', borderColor: 'grey' }}>
-      <h2>Questions and Answers</h2><br></br>
+    <div className="qa-questions-and-answers">
+      <hr></hr>
+      <p>Questions and Answers</p>
       {questions.length ? (
         <div>
           <Searchbar searchQuery={searchQuery} setSearchQuery={setSearchQuery}/><br></br>
@@ -147,5 +148,5 @@ const QuestionsAndAnswers = () => {
 
 export default QuestionsAndAnswers
 
-//questionRenderMax
+
 

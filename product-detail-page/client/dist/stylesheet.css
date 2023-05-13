@@ -94,6 +94,43 @@ overflow-y: scroll;
 ================================================================*/
 
 
+.qa-questions-and-answers {
+  border-style: solid;
+  border-color: grey;
+}
+
+
+.qa-question-entry {
+  font-weight: bold;
+  font-size: large;
+
+}
+
+.qa-question-helpful {
+  float: right;
+  font-weight: normal;
+  font-size: normal;
+}
+
+.qa-answer-entry {
+  font-size: large;
+}
+
+.qa-answer-entry-body {
+  float: inline-end;
+}
+
+.qa-answer-answerer {
+  font-size: normal;
+  padding-left: 20px;
+}
+
+#qa-searchbar-input {
+  font-size: large;
+  width: 350px;
+
+}
+
 
 
 /* ==============================================================

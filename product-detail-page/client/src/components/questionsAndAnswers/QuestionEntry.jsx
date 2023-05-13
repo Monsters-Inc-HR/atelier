@@ -58,15 +58,17 @@ const QuestionEntry = ({question}) => {
 
   return (
     <div>
-      <span>
-        <div style={{ fontWeight: 'bold', fontSize: 'large'}}>
+      <span >
+        <div className="qa-question-entry">
           {'Q: '}
           {question.question_body}
-          {' Helpful? '}
-          <a onClick={handleHelpfulQuestionClick}>Yes ({questionHelpfulness})</a>
-          {' | '}
-          <AddAnswerModal open={addAnswerModalShow} onClose={addAnswerModalClose}/>
-          <a onClick={()=>{setAddAnswerModalShow(true)}}>Add Answer</a><br></br>
+          <div className="qa-question-helpful">
+            {' Helpful? '}
+            <a onClick={handleHelpfulQuestionClick}>Yes ({questionHelpfulness})</a>
+            {' | '}
+            <AddAnswerModal open={addAnswerModalShow} onClose={addAnswerModalClose}/>
+            <a onClick={()=>{setAddAnswerModalShow(true)}}>Add Answer</a><br></br>
+          </div>
         </div>
           {answers.slice(0, numOfAnswers).map((answer, index) => (
           <AnswerEntry answer={answer} key={index} />
@@ -80,4 +82,5 @@ const QuestionEntry = ({question}) => {
 }
 
 export default QuestionEntry
+
 

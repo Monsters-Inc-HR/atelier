@@ -21,7 +21,7 @@ const Searchbar = ({searchQuery, setSearchQuery}) => {
 
   return (
     <div>
-      <input style={{width: "300px"}}placeholder='Have a question? Search for answers…' onChange={(e) => {handleSearchInput(e)}} />
+      <input id="qa-searchbar-input" placeholder='Have a question? Search for answers…' onChange={(e) => {handleSearchInput(e)}} />
     </div>
   )
 }
@@ -29,3 +29,5 @@ const Searchbar = ({searchQuery, setSearchQuery}) => {
 
 
 export default Searchbar
+
+//style={{width: "300px"}}
