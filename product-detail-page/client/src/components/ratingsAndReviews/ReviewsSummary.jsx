@@ -1,6 +1,7 @@
 import React from 'react';
 import BarGraph from './BarGraph.jsx';
 import StarBar from './StarBar.jsx';
+import Scale from './Scale.jsx';
 import calculateStars from '../../lib/calculateStars.js';
 import calculatePercentage from '../../lib/calculatePercentage.js';
 import makeFilterMessage from '../../lib/makeFilterMessage.js';
@@ -25,8 +26,7 @@ const ReviewsSummary = ({ metaData, filters, filterClick, removeFilters }) => {
         <BarGraph filterClick={ filterClick } star={ 1 } ratings={ metaData.ratings }/>
       </div>
       <div className='rr-percentage-recommended'>{calculatePercentage(metaData)}% of reviews recommend this product</div>
-      <div className='rr-scale-component'>scale from 1-5</div>
-      <div className='rr-scale-component'>scale from 1-5</div>
+      <Scale name={'test'} value={ 5 } lowLabel={'low'} highLabel={'high'} />
     </div>
   )
 };
