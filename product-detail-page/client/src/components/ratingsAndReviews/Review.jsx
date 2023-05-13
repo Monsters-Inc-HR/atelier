@@ -30,7 +30,7 @@ const Review = ({ review }) => {
       </div>
       { review.recommend && <div className='rr-review-recommended'><FontAwesomeIcon icon={ icon({name: 'check', style: 'solid'}) } /> I recommend this product.</div> }
       <div className='rr-review-photos'>
-        { sortedPhotos.map(p => <img className='rr-review-img' key={p.id} src={`${p.url}`} />) }
+        { sortedPhotos.map(p => <img className='rr-review-img' key={p.id} src={`${p.url}`} alt='a user provided photo' />) }
       </div>
       { review.response && <div className='rr-review-seller-response'><b>Seller response:</b><br/><br/>{ review.response }</div> }
       <div className='rr-mark-helpful'></div>
