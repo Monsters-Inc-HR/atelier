@@ -82,6 +82,7 @@ module.exports = {
   // getProductImages: (productID) => {
   //   return 'Sorry this function is not operational yet';
   // },
+
   getQuestions: (productID, page, count) => {
     if (!productID) {
       console.log('Please enter a product id');
