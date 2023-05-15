@@ -20,6 +20,8 @@ const Outfit = ({ userProducts}) => {
     containerRef.current.scrollLeft -= 250;
   }
 
+  console.log('userProducts', userProducts);
+
   const Internal = false;
 
   return (

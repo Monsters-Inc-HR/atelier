@@ -13,7 +13,7 @@ const RelatedItems = () => {
   const [productIds, setProductIds] = useState([])
   const [products, setProducts] = useState(itemArray);
   const [productStyles, setProductStyles] = useState([]);
-  const [userProducts, setUserProducts] = useState([products[0]]);
+  const [userProducts, setUserProducts] = useState([]);
   const [focusedItem, setFocusedItem] = useState({});
 
   useEffect(() => {
@@ -55,6 +55,8 @@ const RelatedItems = () => {
         if (isMounted) {
           fetchedProducts = stylesArray.filter((styles) => styles !== null);
           setProducts(fetchedProducts);
+          console.log('fetched Products:', fetchedProducts);
+          setUserProducts([fetchedProducts[0]]);
         }
       } catch (err) {
         console.log('Error getting product styles', err);
@@ -119,6 +121,7 @@ const RelatedItems = () => {
     })
 
   }, [productStyles]);
+
 
 
   return (
