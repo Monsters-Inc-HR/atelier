@@ -1,9 +1,9 @@
 import React from 'react';
 
-const DeleteButton = ({userProducts}) => {
+const DeleteButton = ({userProducts, filterUserProducts, productID}) => {
 
 const handleClick = (e) => {
-  console.log('Boink')
+  filterUserProducts(productID)
 }
 
 // console.log(userProducts);

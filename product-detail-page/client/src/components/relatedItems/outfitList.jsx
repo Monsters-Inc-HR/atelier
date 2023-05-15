@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 
 
 
-const Outfit = ({ userProducts, productStyles }) => {
+const Outfit = ({ userProducts, productStyles, filterUserProducts }) => {
 
   const [productImages, setProductImages] = useState({});
   const [salePrices, setSalePrices] = useState({});
@@ -67,13 +67,13 @@ const Outfit = ({ userProducts, productStyles }) => {
 
   return (
     <div>
-      <h4>Related Items</h4>
+      <h4>Your Outfit</h4>
       <div
         className="related-container-list"
         ref={containerRef}
         style={{ overflowX: 'scroll' }}
       >
-        {userProducts.map((product) => {
+        { userProducts.length > 0 ? userProducts.map((product) => {
           if (product) {
             let images = productImages[product.id];
             let salePrice = salePrices[product.id];
@@ -84,10 +84,11 @@ const Outfit = ({ userProducts, productStyles }) => {
                 salePrice={salePrice}
                 product={product}
                 Internal={Internal}
+                filterUserProducts={filterUserProducts}
               />
-            );
+            )
           }
-        })}
+        }) : <h4>Add a product...</h4> }
       </div>
       {viewCounter > 0 ? (
         <button className="left-button" onClick={decreaseView}>

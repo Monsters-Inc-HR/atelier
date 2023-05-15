@@ -51,11 +51,17 @@ const RelatedItems = () => {
 
   }, []);
 
+  const filterUserProducts = (productID) => {
+    setUserProducts(userProducts.filter((product, index) => {
+       return userProducts[index].id !== productID
+    }))
+  }
+
 
   return (
     <>
       <List products={products} productStyles={productStyles} focusedItem={focusedItem}/>
-      <Outfit userProducts={userProducts} productStyles={productStyles}/>
+      <Outfit userProducts={userProducts} productStyles={productStyles} filterUserProducts={filterUserProducts}/>
     </>
   );
 };
