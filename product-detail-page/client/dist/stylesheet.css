@@ -161,6 +161,20 @@ overflow-y: scroll;
   background: lightgray;
 }
 
+.rr-reviews-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.rr-reviews-list-all-reviews {
+  overflow-y: scroll;
+  scroll-snap-type: y proximity;
+}
+
+.rr-review {
+  scroll-snap-align: start;
+}
+
 .rr-remove-filters-link, .rr-mark-helpful-link {
   text-decoration: underline;
   color: #0076d1;
