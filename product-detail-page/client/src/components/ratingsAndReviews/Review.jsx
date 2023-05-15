@@ -31,7 +31,12 @@ const Review = ({ review }) => {
       { review.recommend && <div className='rr-review-recommended'><FontAwesomeIcon icon={ icon({name: 'check', style: 'solid'}) } /> I recommend this product.</div> }
       { review.photos.length > 0 && <ReviewPhotos photos={ sortedPhotos } /> }
       { review.response && <div className='rr-review-seller-response'><p className='rr-review-seller-response-title'>Seller response:</p><p>{ review.response }</p></div> }
-      <div className='rr-mark-helpful'></div>
+      <div className='rr-mark-helpful'>
+        {'Helpful? '}
+        <span className='rr-mark-helpful-link'>Yes ({'3'})</span>
+        {' | '}
+        <span className='rr-mark-helpful-link'>Report</span>
+      </div>
       <hr />
     </div>
   );
