@@ -197,9 +197,74 @@ overflow-y: scroll;
   background: lightgray;
 }
 
-.rr-remove-filters-link {
+.rr-remove-filters-link, .rr-mark-helpful-link {
   text-decoration: underline;
   color: #0076d1;
+}
+
+.rr-review-photos {
+  display: flex;
+  overflow: auto;
+  justify-content: flex-start;
+}
+
+.rr-review-img {
+  width: 30%;
+  margin: 10px;
+}
+
+.rr-full-screen-modal-image-close-container {
+  display: flex;
+  justify-content: center;
+}
+
+.rr-full-screen-modal-image-close {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+  height: 30px;
+  background-color: lightgray;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+.rr-full-screen-modal-image-close > * {
+  margin: 3px;
+}
+
+.rr-review-seller-response-title {
+  font-weight: bold;
+}
+
+.rr-scale-bars-and-slider {
+  position: relative;
+}
+
+.rr-scale-slider-position {
+  position: absolute;
+  z-index: 1;
+}
+
+.rr-scale-slider {
+  position: relative;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 15px solid black;
+}
+
+.rr-scale-bar-container, .rr-scale-label-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rr-scale-bar {
+  width: 32%;
+  height: 10px;
+  background-color: lightgray;
 }
 
 /* ==============================================================
