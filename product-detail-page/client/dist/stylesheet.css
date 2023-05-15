@@ -71,6 +71,7 @@ width: 30%;
 height: 300px;
 top: 50%;
 left: 35%;
+z-index: 1;
 }
 
 .related-comparison-table {

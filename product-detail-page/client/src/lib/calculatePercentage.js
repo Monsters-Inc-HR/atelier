@@ -25,7 +25,7 @@
 
 export default function(data) {
   if (Object.keys(data).length !== 0) {
-    console.log(data);
+    // console.log(data);
     const nonRecommendersCount = parseInt(data.recommended.false);
     const recommendersCount = parseInt(data.recommended.true);
     const percentage = 100 * (recommendersCount / (nonRecommendersCount + recommendersCount));
