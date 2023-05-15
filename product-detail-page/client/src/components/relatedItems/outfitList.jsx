@@ -4,7 +4,7 @@ import { useState, useRef } from 'react';
 
 
 
-const Outfit = ({ userProducts, compare }) => {
+const Outfit = ({ userProducts}) => {
 
   const [viewCounter, setViewCounter] = useState(0);
 
@@ -28,7 +28,7 @@ const Outfit = ({ userProducts, compare }) => {
       <div className="related-container-list"
       ref={containerRef} style={{overflowX: 'scroll'}}>
         <>{userProducts.length < 1 ? <p>Add a product...</p> : userProducts.map((product, index) => {
-          return <Card key={product.id} product={product} compare={compare} Internal={Internal}/>
+          return <Card key={product.id} product={product} Internal={Internal}/>
         })}</>
       </div>
       {viewCounter > 0 ? <button type="left-button"

@@ -23,6 +23,7 @@ const decreaseView = () => {
 }
 
 const Internal = true;
+// console.log(products);
 
 useEffect(() => {
  let isMounted = true;

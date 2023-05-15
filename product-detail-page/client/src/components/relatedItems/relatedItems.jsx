@@ -13,7 +13,7 @@ const RelatedItems = () => {
   const [productIds, setProductIds] = useState([])
   const [products, setProducts] = useState(itemArray);
   const [productStyles, setProductStyles] = useState([]);
-  const [userProducts, setUserProducts] = useState(itemArray);
+  const [userProducts, setUserProducts] = useState([products[0]]);
   const [focusedItem, setFocusedItem] = useState({});
 
   useEffect(() => {
@@ -66,6 +66,16 @@ const RelatedItems = () => {
       isMounted = false;
     };
   }, [productIds]);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    setUserProducts([products[0]]);
+
+    return () => {
+      isMounted = false;
+    }
+  }, [])
 
   useEffect(() => {
     let isMounted = true;
