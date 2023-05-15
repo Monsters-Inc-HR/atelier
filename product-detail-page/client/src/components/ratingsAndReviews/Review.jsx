@@ -26,7 +26,7 @@ const Review = ({ review }) => {
   const report = () => {
     if (!reported) {
       setReported(true);
-      // make api call too;
+      updateReview(review.review_id, 'report');
     }
   }
 

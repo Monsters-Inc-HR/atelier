@@ -84,6 +84,12 @@ app.put('/reviews/helpful', (req, res) => {
     .catch(err => res.send(err));
 });
 
+app.put('/reviews/report', (req, res) => {
+  controller.reportReview(req.body.review_id)
+    .then(data => res.send(data))
+    .catch(err => res.send(err));
+});
+
 app.listen(3000, () => {
   console.log('Server listening on port 3000')
 });

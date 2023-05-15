@@ -130,5 +130,18 @@ module.exports = {
     })
       .then(res => res.data)
       .catch(err => console.log("there was an error marking the review as helpful: ", err));
+  },
+
+  reportReview: (reviewID) => {
+    if (!reviewID) {
+      console.log('Please enter a review id');
+    }
+    return axios({
+      method: 'put',
+      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews/${reviewID}/report`,
+      headers: { 'authorization': process.env.API_KEY }
+    })
+      .then(res => res.data)
+      .catch(err => console.log("there was an error reporting the review: ", err));
   }
 };
