@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Searchbar from "./Searchbar.jsx";
 import QuestionList from "./QuestionList.jsx";
 import AddQuestionModal from "./AddQuestionModal.jsx";
 import AddAnswerModal from "./AddAnswerModal.jsx";
+//import { getQuestions } from "product-detail-page/server/controller.js";
 
 var apiQuestData = {
   "product_id": "37315",
@@ -95,10 +96,26 @@ var apiQuestData = {
 
 const QuestionsAndAnswers = () => {
 
+  let productID2 = 37315;
+
+  const [questions2, setQuestions2] = useState({})
+
+  // useEffect(() => {
+  //   getQuestions(productID2)
+  //     .then(questData => {
+  //       //console.log(questData);
+  //       //setQuestions2(questData);
+  //     })
+  //     .catch(err => console.log('there was an error getting the questions data ', err));
+  // }, []);
+  //productID
+
   //sets default number of questions to display at 2
   const [numOfQuestions, setNumOfQuestions] = useState(2);
 
   const [searchQuery, setSearchQuery] = useState('');
+
+  //questions = questions.results;
 
   var questions = apiQuestData.results;
 

@@ -23,9 +23,11 @@ const AnswerEntry = ({answer}) => {
 
   return (
     <div >
+
       <div className="qa-answer-entry">
         <p>A: {answer.body}</p>
       </div>
+
       <div className="qa-answer-entry-body">
         <p></p>
       </div>
@@ -39,6 +41,7 @@ const AnswerEntry = ({answer}) => {
         {' | '}
         {reported ? (<>Reported</>) : (<a onClick={handleReportClick}>Report</a>) }
       </div>
+
     </div>
   )
 }
