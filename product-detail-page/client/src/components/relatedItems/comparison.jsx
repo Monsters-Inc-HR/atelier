@@ -1,6 +1,7 @@
 import React from 'react';
 // import { useState, useEffect } from 'react';
 import itemArray from './dummyData.js';
+import _, { map } from 'underscore';
 
 /*
 This component will need the product details of two products
@@ -28,23 +29,32 @@ const handleClick = (e) => {
 // const compareFeatures;
 
 const renderTable = () => {
-  let compareFeatures = new Set();
+  let compareFeatures = {};
 
-  let length = focusedItem.features.length > product.features.length ?
-               focusedItem.features.length : product.features.length;
+  let length = Math.max(focusedItem.features.length, product.features.length);
 
-  for (var i = 0; i < length; i++) {
-    compareFeatures[focusedItem.features[i].feature] = [focusedItem.features[i].value];
+  for (let i = 0; i < length; i++) {
+    let featureLeft = focusedItem.features[i];
+    let featureRight = product.features[i];
 
-    if (compareFeatures[product.features[i].feature]) {
-      compareFeatures[product.features[i].feature].push(product.features[i].value);
-    } else {
-      compareFeatures[product.features[i].feature] = [product.features[i].value]
+    if (featureLeft && featureLeft.feature) {
+      if (!compareFeatures[featureLeft.feature]) {
+        compareFeatures[featureLeft.feature] = [];
+      }
+      compareFeatures[featureLeft.feature][0] = featureLeft.value;
+    }
+
+    if (featureRight && featureRight.feature) {
+      if (!compareFeatures[featureRight.feature]) {
+        compareFeatures[featureRight.feature] = [];
+      }
+      compareFeatures[featureRight.feature][1] = featureRight.value;
     }
   }
 
-  console.log(compareFeatures);
-
+ return _.map(compareFeatures, (values, feature) => {
+  return <tr><td>{values[0]}</td><td>{feature}</td><td>{values[1]}</td></tr>
+ })
 }
 
 

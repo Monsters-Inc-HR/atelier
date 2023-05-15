@@ -16,7 +16,8 @@
     "@fortawesome/fontawesome-svg-core": "*",
     "@fortawesome/free-solid-svg-icons": "*",
     "@fortawesome/free-regular-svg-icons": "*",
-    "@fortawesome/react-fontawesome": "*"
+    "@fortawesome/react-fontawesome": "*",
+    "underscore": "^1.13.1"
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",
