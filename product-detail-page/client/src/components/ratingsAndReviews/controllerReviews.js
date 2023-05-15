@@ -37,5 +37,15 @@ module.exports = {
     .catch((err) => {
       return err;
     })
+  },
+
+  updateReview: (reviewID, update) => {
+    if (typeof reviewID !== 'number' || typeof parseInt(reviewID) !== 'number') {
+      console.log("you need to provide a review id to be able to mark it as helpful");
+      return undefined;
+    }
+    return axios.put(`http://localhost:3000/reviews/${update}`,
+        {'review_id': reviewID}
+      );
   }
 };
