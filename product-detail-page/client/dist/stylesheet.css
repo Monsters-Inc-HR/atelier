@@ -100,7 +100,6 @@ overflow-y: scroll;
   border-color: grey;
 }
 
-
 .qa-question-entry {
   font-weight: bold;
   font-size: large;
@@ -130,6 +129,11 @@ overflow-y: scroll;
   font-size: large;
   width: 350px;
 }
+
+#aaNickname, #aaEmail, #aqNickname, #aqEmail {
+  width: 300px;
+}
+
 
 
 

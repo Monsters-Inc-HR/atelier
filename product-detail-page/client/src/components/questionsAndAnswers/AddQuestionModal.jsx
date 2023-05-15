@@ -5,8 +5,9 @@ const MODAL_STYLES = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  backgroundColor: '#FFF',
-  color: 'black',
+  backgroundColor: '#237687',
+  color: 'white',
+  fontSize: 'large',
   padding: '50px',
   zIndex: 1000
 }
@@ -73,19 +74,19 @@ const AddQuestionModal = ({open, onClose, questions}) => {
     <div style={OVERLAY_STYLES}>
     <div style={MODAL_STYLES}>
       <form>
-        <h2 style = {{color: "black"}}>Ask Your Question</h2>
-        <h3 style = {{color: "black"}}>About the **product name**</h3>
+        <h2>Ask Your Question</h2>
+        <h3>About the **product name**</h3>
         <br></br>
         <label>Your Question*</label>
         <textarea type="text" id="aqQuestion" maxLength="1000" onChange={aqQuestionChange}></textarea><br></br>
         <label>Nickname*</label>
         <input type="text" id="aqNickname" placeholder='Example: jackson11!' maxLength="60" onChange={aqNicknameChange}/>
-        <p>For privacy reasons, do not use your full name or email address</p>
-        <br></br>
+        <small>For privacy reasons, do not use your full name or email address</small>
+        <br></br><br></br>
         <label>Email*</label>
         <input type="email" id="aqEmail" maxLength="60" placeholder="Example: jack@email.com" onChange={aqEmailChange}/>
-        <p>For authentication reasons, you will not be emailed</p>
-        <br></br>
+        <small>For authentication reasons, you will not be emailed</small>
+        <br></br><br></br>
       </form>
       <button onClick={handleSubmit}>Submit</button>
       <button onClick={onClose}>Exit</button>
