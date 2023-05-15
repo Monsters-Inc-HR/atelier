@@ -3,7 +3,6 @@ import Review from './Review.jsx';
 
 const ReviewsList = ({ reviews, sortList }) => {
   const [displayCount, setDisplayCount] = useState(2);
-
   return (
     <div className='rr-reviews-list'>
       <div className='rr-review-sorter'>

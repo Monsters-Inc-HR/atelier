@@ -1,11 +1,22 @@
 import React from 'react';
 import BarGraph from './BarGraph.jsx';
 import StarBar from './StarBar.jsx';
+import Scale from './Scale.jsx';
 import calculateStars from '../../lib/calculateStars.js';
 import calculatePercentage from '../../lib/calculatePercentage.js';
 import makeFilterMessage from '../../lib/makeFilterMessage.js';
 
+const possibleCharacteristics = [
+  {name: 'Size', lowLabel: 'too small', highLabel: 'too big'},
+  {name: 'Width', lowLabel: 'too narrow', highLabel: 'too wide'},
+  {name: 'Length', lowLabel: 'too short', highLabel: 'too long'},
+  {name: 'Comfort', lowLabel: 'poor', highLabel: 'great'},
+  {name: 'Quality', lowLabel: 'poor', highLabel: 'great'},
+  {name: 'Fit', lowLabel: 'poor', highLabel: 'great'}
+];
+
 const ReviewsSummary = ({ metaData, filters, filterClick, removeFilters }) => {
+  const characteristics = possibleCharacteristics.filter(c => metaData.characteristics[c.name]);
   return (
     <div className='rr-summary'>
       <div className='rr-summary-rollup'>
@@ -25,8 +36,9 @@ const ReviewsSummary = ({ metaData, filters, filterClick, removeFilters }) => {
         <BarGraph filterClick={ filterClick } star={ 1 } ratings={ metaData.ratings }/>
       </div>
       <div className='rr-percentage-recommended'>{calculatePercentage(metaData)}% of reviews recommend this product</div>
-      <div className='rr-scale-component'>scale from 1-5</div>
-      <div className='rr-scale-component'>scale from 1-5</div>
+      {characteristics.map(c => {
+        return <Scale key={metaData.characteristics[c.name].id} name={c.name} value={metaData.characteristics[c.name].value} lowLabel={c.lowLabel} highLabel={c.highLabel} />
+      })}
     </div>
   )
 };
