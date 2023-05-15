@@ -12,7 +12,6 @@ const [viewCounter, setViewCounter] = useState(0);
 
 const containerRef = useRef(null);
 
-
 const increaseView = () => {
   setViewCounter(viewCounter + 1);
   containerRef.current.scrollLeft += 250;
@@ -23,8 +22,8 @@ const decreaseView = () => {
   containerRef.current.scrollLeft -= 250;
 }
 
+const Internal = true;
 
-// take advantage of this function to also set sale prices
 useEffect(() => {
  let isMounted = true;
  let images = {};
@@ -87,6 +86,7 @@ return (
               product={product}
               compare={compare}
               focusedItem={focusedItem}
+              Internal={Internal}
             />
           );
         }

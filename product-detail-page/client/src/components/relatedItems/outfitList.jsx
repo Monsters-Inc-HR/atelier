@@ -20,7 +20,7 @@ const Outfit = ({ userProducts, compare }) => {
     containerRef.current.scrollLeft -= 250;
   }
 
-
+  const Internal = false;
 
   return (
     <div>
@@ -28,7 +28,7 @@ const Outfit = ({ userProducts, compare }) => {
       <div className="related-container-list"
       ref={containerRef} style={{overflowX: 'scroll'}}>
         <>{userProducts.length < 1 ? <p>Add a product...</p> : userProducts.map((product, index) => {
-          return <Card key={product.id} product={product} compare={compare} />
+          return <Card key={product.id} product={product} compare={compare} Internal={Internal}/>
         })}</>
       </div>
       {viewCounter > 0 ? <button type="left-button"
