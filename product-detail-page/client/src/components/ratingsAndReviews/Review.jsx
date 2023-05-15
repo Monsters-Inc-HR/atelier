@@ -4,15 +4,15 @@ import ReviewPhotos from './ReviewPhotos.jsx';
 import { format } from 'date-fns';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
+const maxCollapsedChars = 250;
+const maxTitleChars = 60;
 
 const Review = ({ review }) => {
-  const maxCollapsedChars = 250;
-  const maxTitleChars = 60;
   const [collapsed, setCollapsed] = useState(review.body.length > maxCollapsedChars);
   const shortSummary = (review.summary.length <= maxTitleChars) ? review.summary : review.summary.slice(0, review.summary.indexOf(' ', maxTitleChars)) + '...';
   const restOfSummary = (review.summary.length <= maxTitleChars) ? null : '...' + review.summary.slice(review.summary.indexOf(' ', maxTitleChars));
   const sortedPhotos = review.photos.sort((a, b) => a.id < b.id);
-
+  const [helpfulCount, setHelpfulCount] = useState(review.helpfulness);
   return (
     <div className='rr-review'>
       <div className='rr-review-header'>
@@ -33,7 +33,7 @@ const Review = ({ review }) => {
       { review.response && <div className='rr-review-seller-response'><p className='rr-review-seller-response-title'>Seller response:</p><p>{ review.response }</p></div> }
       <div className='rr-mark-helpful'>
         {'Helpful? '}
-        <span className='rr-mark-helpful-link'>Yes ({'3'})</span>
+        <span className='rr-mark-helpful-link'>Yes ({3})</span>
         {' | '}
         <span className='rr-mark-helpful-link'>Report</span>
       </div>
