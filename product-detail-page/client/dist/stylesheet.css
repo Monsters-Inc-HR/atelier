@@ -191,12 +191,12 @@ overflow-y: scroll;
   margin: 10px;
 }
 
-.rr-full-screen-modal-image-close-container {
+.rr-full-screen-modal-close-container {
   display: flex;
   justify-content: center;
 }
 
-.rr-full-screen-modal-image-close {
+.rr-full-screen-modal-close {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -207,7 +207,7 @@ overflow-y: scroll;
   border-radius: 5px;
 }
 
-.rr-full-screen-modal-image-close > * {
+.rr-full-screen-modal-close > * {
   margin: 3px;
 }
 

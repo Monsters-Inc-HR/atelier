@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import Review from './Review.jsx';
+import ReviewsModal from './ReviewsModal.jsx';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
 
 const ReviewsList = ({ reviews, sortList }) => {
   const [displayCount, setDisplayCount] = useState(2);
+  const [addingReview, setAddingReview] = useState(false);
   return (
-    <div className='rr-reviews-list' style={{'max-height': Math.round(document.querySelector('html').clientHeight * .95)}}>
+    <div className='rr-reviews-list' style={{maxHeight: Math.round(document.querySelector('html').clientHeight * .95)}}>
       <div className='rr-review-sorter'>
         { reviews.length } reviews, <label htmlFor='rr-sort-select'>sorted by most</label>
         <select onChange={ (e) => sortList(e.target.value) } style={{display: 'inline'}} name='sort-by' id='rr-sort-select'>
@@ -19,7 +23,19 @@ const ReviewsList = ({ reviews, sortList }) => {
       </div>
       <div className='rr-reviews-list-buttons'>
         {displayCount < reviews.length && <button onClick={ () => setDisplayCount(displayCount + 2)}>MORE REVIEWS</button>}
-        <button>ADD A REVIEW  +</button>
+        {!addingReview ? <button onClick={() => setAddingReview(true)}>ADD A REVIEW  +</button> :
+          <ReviewsModal visible={ addingReview }>
+            <div className='rr-full-screen-modal-close-container'>
+              <div className='rr-full-screen-modal-close' onClick={() => setAddingReview(false)}>
+                <span>close</span><FontAwesomeIcon icon={ icon({name: 'circle-xmark', style: 'solid'}) } />
+              </div>
+            </div>
+
+            <form>
+              test
+            </form>
+          </ReviewsModal>
+        }
       </div>
     </div>
   );
