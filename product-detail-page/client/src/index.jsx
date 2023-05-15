@@ -8,6 +8,6 @@ const root = document.createElement("div");
 root.setAttribute("id", "root");
 document.body.appendChild(root);
 
-render(<StrictMode><App/></StrictMode>, root);
+render(<App/>, root);
 
 

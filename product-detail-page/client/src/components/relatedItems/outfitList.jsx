@@ -4,7 +4,8 @@ import { useState, useRef } from 'react';
 
 
 
-const Outfit = ({ userProducts}) => {
+const Outfit = ({ userProducts }) => {
+
 
   const [viewCounter, setViewCounter] = useState(0);
 
@@ -20,7 +21,7 @@ const Outfit = ({ userProducts}) => {
     containerRef.current.scrollLeft -= 250;
   }
 
-  console.log('userProducts', userProducts);
+
 
   const Internal = false;
 
