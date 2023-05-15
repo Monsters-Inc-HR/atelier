@@ -97,8 +97,9 @@ overflow-y: scroll;
 
 .qa-questions-and-answers {
   border-style: solid;
-  border-color: grey;
+  border-color: rgb(135, 135, 135);
 }
+
 
 .qa-question-entry {
   font-weight: bold;
