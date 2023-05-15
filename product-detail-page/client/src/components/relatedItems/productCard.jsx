@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import RelatedButton from './relatedButton.jsx';
+import DeleteButton from './deleteButton.jsx';
 import StarBar from '../ratingsAndReviews/StarBar.jsx';
 import Comparison from './comparison.jsx';
 
@@ -22,7 +23,7 @@ const Card = ({product, images, salePrice, focusedItem, Internal}) => {
     <div className="product-card">
       <img alt="product-image" className="related-product-img"
         src={images ? images[0].url : "https://tinyurl.com/2utv43j5"}/>
-       {Internal ? <RelatedButton compare={compare}/> : <button>Delete</button>}
+       {Internal ? <RelatedButton compare={compare}/> : <DeleteButton/>}
      <div className='related related-container-card'>
       <p>{product.category}</p>
       <p>{product.name}</p>
