@@ -146,7 +146,6 @@ const QuestionsAndAnswers = () => {
 
   return (
     <div className="qa-questions-and-answers">
-      <hr></hr>
       <p>Questions and Answers</p>
       {questions.length ? (
         <div>

@@ -103,7 +103,8 @@ overflow-y: scroll;
 .qa-question-entry {
   font-weight: bold;
   font-size: large;
-
+  padding: 10px;
+  box-shadow: rgb(0,0,0,0.44) 0px 5px 5px;
 }
 
 .qa-question-helpful {
@@ -114,6 +115,7 @@ overflow-y: scroll;
 
 .qa-answer-entry {
   font-size: large;
+
 }
 
 .qa-answer-entry-body {

@@ -56,9 +56,11 @@ const QuestionEntry = ({question}) => {
   }
 
 
+
   return (
     <div>
       <span >
+        <hr/>
         <div className="qa-question-entry">
           {'Q: '}
           {question.question_body}
@@ -71,12 +73,12 @@ const QuestionEntry = ({question}) => {
           </div>
         </div>
           {answers.slice(0, numOfAnswers).map((answer, index) => (
-          <AnswerEntry answer={answer} key={index} />
+          <AnswerEntry  answer={answer} key={index} />
         ))}
       </span>
 
       {answers.length ? maxAnswersDisplayed  ? (<a onClick={handleCollapseAnswersClick}>Collapse Answers</a>) : (<a onClick={handleMoreAnswersClick}>See more answers</a>) : null}
-      <hr/>
+
     </div>
   )
 }

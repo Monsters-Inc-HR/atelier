@@ -79,7 +79,7 @@ const AddAnswerModal = ({open, onClose}) => {
         <br></br><br></br>
 
       </form>
-      <input type="file" id="myFile" name="filename" multiple="multiple" accept="image/*" />
+      <input type="file" id="aaMyFile" name="filename" multiple="multiple" accept="image/*" />
       <button>Upload Photos</button><br></br><br></br>
       <button onClick={handleSubmit}>Submit</button>
       <button onClick={onClose}>Exit</button>
