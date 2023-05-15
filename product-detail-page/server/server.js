@@ -53,7 +53,7 @@ app.get('/styles', (req, res) => {
   .catch((err) => {
     res.send(err);
   })
-})
+});
 
 app.get('/reviews', (req, res) => {
   let paramsString = req.url.split('?')[1];
@@ -67,7 +67,7 @@ app.get('/reviews', (req, res) => {
   controller.getReviewsData(productID, page, count)
     .then(results => res.send(results))
     .catch(err => res.send(err));
-})
+});
 
 app.get('/reviews/meta', (req, res) => {
   let paramsString = req.url.split('?')[1];
@@ -76,7 +76,13 @@ app.get('/reviews/meta', (req, res) => {
   controller.getReviewsMetaData(productID)
     .then(results => res.send(results))
     .catch(err => res.send(err));
-})
+});
+
+app.put('/reviews/helpful', (req, res) => {
+  controller.markReviewHelpful(req.body.review_id)
+    .then(data => res.send(data))
+    .catch(err => res.send(err));
+});
 
 app.listen(3000, () => {
   console.log('Server listening on port 3000')
