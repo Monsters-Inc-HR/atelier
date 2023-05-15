@@ -443,12 +443,12 @@ const StylesAndCart = () => {
     }
   }
 
-//   let handleSelectStyle = function() {
-//     console.log(style.style_id)
-//     console.log('hello worlds and aliens')
-//   }
+  let handleSelectStyle = function() {
+    // console.log(style.style_id)
+    // console.log('hello worlds and aliens')
+  }
 
-  console.log(qty)
+//   console.log(qty)
   var qtyArr = []
   var num = 1
   var itemsLeft = qty

@@ -1,10 +1,10 @@
 import React from 'react';
 import Card from './productCard.jsx';
 import { useState, useEffect, useRef } from 'react';
+import Comparison from './comparison.jsx';
 
 
-
-const List =  ({products, compare, productStyles}) => {
+const List =  ({products, compare, productStyles, focusedItem}) => {
 
 const [productImages, setProductImages] = useState({});
 const [salePrices, setSalePrices] = useState({});
@@ -86,6 +86,7 @@ return (
               salePrice={salePrice}
               product={product}
               compare={compare}
+              focusedItem={focusedItem}
             />
           );
         }

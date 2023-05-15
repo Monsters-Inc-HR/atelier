@@ -3,8 +3,8 @@ import React from "react";
 const StylesImage = ({style}) => {
 
   let handleSelectStyle = function() {
-    console.log(style.style_id)
-    console.log('hello worlds and aliens')
+    // console.log(style.style_id)
+    // console.log('hello worlds and aliens')
   }
   return (
     <li>

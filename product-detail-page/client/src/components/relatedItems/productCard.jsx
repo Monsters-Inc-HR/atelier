@@ -1,9 +1,25 @@
 import React from 'react';
+import { useState } from 'react';
 import RelatedButton from './relatedButton.jsx';
 import StarBar from '../ratingsAndReviews/StarBar.jsx';
+import Comparison from './comparison.jsx';
 
-const Card = ({product, compare, images, salePrice}) => {
+const Card = ({product, images, salePrice, focusedItem}) => {
 
+  const [renderComparison, setRenderComparison] = useState(false);
+
+
+  const compare = () => {
+    if (renderComparison === false) {
+      setRenderComparison(true);
+    } else {
+      setRenderComparison(false);
+    }
+  }
+
+  const closeCompare = () => {
+    setRenderComparison(false);
+  }
 
   return (
 
@@ -19,6 +35,8 @@ const Card = ({product, compare, images, salePrice}) => {
       ${product.default_price}</p></> : <p>${product.default_price}</p>}
       <StarBar rating={3}/>
     </div>
+    {renderComparison ? <Comparison closeCompare={closeCompare}
+      productID={product.id} product={product} focusedItem={focusedItem}/> : null}
     </div>
   )
 
