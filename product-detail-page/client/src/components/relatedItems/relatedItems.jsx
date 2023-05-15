@@ -51,10 +51,11 @@ const RelatedItems = () => {
 
   }, []);
 
+
   return (
     <>
       <List products={products} productStyles={productStyles} focusedItem={focusedItem}/>
-      <Outfit userProducts={userProducts}/>
+      <Outfit userProducts={userProducts} productStyles={productStyles}/>
     </>
   );
 };
