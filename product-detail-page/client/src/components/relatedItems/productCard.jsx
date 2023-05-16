@@ -27,7 +27,7 @@ const Card = ({product, images, salePrice, focusedItem, Internal, filterUserProd
        {Internal ? <RelatedButton compare={compare}/>
        : <DeleteButton filterUserProducts={filterUserProducts} productID={productID}/>}
      <div className='related related-container-card'>
-      <p>{product.category}</p>
+      <p className="related-product-category">{product.category}</p>
       <p>{product.name}</p>
       {salePrice ? <><p style={{color: 'red'}}>${salePrice}</p>
       <p style={{textDecoration: 'line-through'}}>
