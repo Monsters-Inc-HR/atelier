@@ -76,9 +76,7 @@ const QuestionEntry = ({question}) => {
           <AnswerEntry  answer={answer} key={index} />
         ))}
       </span>
-
       {answers.length ? maxAnswersDisplayed  ? (<a onClick={handleCollapseAnswersClick}>Collapse Answers</a>) : (<a onClick={handleMoreAnswersClick}>See more answers</a>) : null}
-
     </div>
   )
 }

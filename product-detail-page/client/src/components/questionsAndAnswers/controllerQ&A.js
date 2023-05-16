@@ -2,7 +2,7 @@ const axios = require('axios');
 
 
 module.exports = {
-  getQuestions: (productID = 37315, page, count) => {
+  getQuestions: (productID, page, count) => {
     // check inputs before making the request
     //if (typeof productID !== 'number' || typeof parseInt(productID) !== 'number') productID = 37315;
     //if (page && (typeof page !== 'number' || typeof parseInt(page) !== 'number')) page = 1;

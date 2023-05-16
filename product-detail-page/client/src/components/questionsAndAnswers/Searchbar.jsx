@@ -4,11 +4,6 @@ import React, { useState } from 'react';
 const Searchbar = ({searchQuery, setSearchQuery}) => {
 
 
-
-  //const searchQuestions = (query) => {
-
-  //};
-
   const handleSearchInput = (e) => {
     if (e.target.value.length >= 3) {
       setSearchQuery(e.target.value);
@@ -16,8 +11,6 @@ const Searchbar = ({searchQuery, setSearchQuery}) => {
       setSearchQuery('');
     }
   };
-
-
 
   return (
     <div>
@@ -27,7 +20,5 @@ const Searchbar = ({searchQuery, setSearchQuery}) => {
 }
 
 
-
 export default Searchbar
 
-//style={{width: "300px"}}

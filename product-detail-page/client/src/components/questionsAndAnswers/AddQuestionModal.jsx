@@ -55,7 +55,7 @@ const AddQuestionModal = ({open, onClose, questions}) => {
       alert('You must enter the following: email')
     } else {
       //TODO handle data submission
-      //currently makes a basic question object and renders it
+      //currently makes a basic question object and adds to end of questions array
       var userQuestion = {
         "question_body": aqQuestion,
         "question_helpfulness": 0,
@@ -63,8 +63,6 @@ const AddQuestionModal = ({open, onClose, questions}) => {
         "answers": {}
       };
       questions.push(userQuestion);
-      //console.log('userQuestion', userQuestion)
-      //console.log('questions in handleSubmit', questions)
       onClose();
     }
   };

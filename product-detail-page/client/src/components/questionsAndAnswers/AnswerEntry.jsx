@@ -42,7 +42,7 @@ const AnswerEntry = ({answer}) => {
         {reported ? (<>Reported</>) : (<a onClick={handleReportClick}>Report</a>) }
 
       </div>
-      <hr/>
+
     </div>
   )
 }

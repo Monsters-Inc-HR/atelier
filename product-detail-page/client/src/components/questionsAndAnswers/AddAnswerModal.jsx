@@ -53,7 +53,7 @@ const AddAnswerModal = ({open, onClose}) => {
     } else if (aaEmail === '' || aaEmail.indexOf('@') === -1) {
       alert('You must enter the following: email')
     } else {
-      console.log(answers)
+      //console.log(answers)
       //TODO handle data submission
       onClose();
     }
@@ -91,4 +91,3 @@ const AddAnswerModal = ({open, onClose}) => {
 
 export default AddAnswerModal
 
-//<input type="file" id="myFile" name="filename">
