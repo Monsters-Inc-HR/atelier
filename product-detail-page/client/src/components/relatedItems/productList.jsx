@@ -1,17 +1,16 @@
 import React from 'react';
 import Card from './productCard.jsx';
 import { useState, useEffect, useRef } from 'react';
+import Comparison from './comparison.jsx';
 
 
-
-const List =  ({products, compare, productStyles}) => {
+const List =  ({products, compare, productStyles, focusedItem}) => {
 
 const [productImages, setProductImages] = useState({});
 const [salePrices, setSalePrices] = useState({});
 const [viewCounter, setViewCounter] = useState(0);
 
 const containerRef = useRef(null);
-
 
 const increaseView = () => {
   setViewCounter(viewCounter + 1);
@@ -23,8 +22,9 @@ const decreaseView = () => {
   containerRef.current.scrollLeft -= 250;
 }
 
+const Internal = true;
+// console.log(products);
 
-// take advantage of this function to also set sale prices
 useEffect(() => {
  let isMounted = true;
  let images = {};
@@ -86,6 +86,8 @@ return (
               salePrice={salePrice}
               product={product}
               compare={compare}
+              focusedItem={focusedItem}
+              Internal={Internal}
             />
           );
         }

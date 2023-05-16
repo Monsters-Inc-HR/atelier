@@ -76,6 +76,7 @@ width: 30%;
 height: 300px;
 top: 50%;
 left: 35%;
+z-index: 1;
 }
 
 .related-comparison-table {
@@ -97,6 +98,49 @@ overflow-y: scroll;
 /* ==============================================================
  Questions & Answers
 ================================================================*/
+
+
+.qa-questions-and-answers {
+  border-style: solid;
+  border-color: rgb(135, 135, 135);
+}
+
+
+.qa-question-entry {
+  font-weight: bold;
+  font-size: large;
+  padding: 10px;
+  box-shadow: rgb(0,0,0,0.44) 0px 5px 5px;
+}
+
+.qa-question-helpful {
+  float: right;
+  font-weight: normal;
+  font-size: normal;
+}
+
+.qa-answer-entry {
+  font-size: large;
+
+}
+
+.qa-answer-entry-body {
+  float: inline-end;
+}
+
+.qa-answer-answerer {
+  font-size: normal;
+  padding-left: 20px;
+}
+
+#qa-searchbar-input {
+  font-size: large;
+  width: 350px;
+}
+
+#aaNickname, #aaEmail, #aqNickname, #aqEmail {
+  width: 300px;
+}
 
 
 
@@ -141,33 +185,152 @@ overflow-y: scroll;
   padding: 15px;
 }
 
-.rr-star-bar {
+.rr-bar-graph {
   display: flex;
   align-items: center;
 }
 
-.rr-star-bar-text {
+.rr-bar-graph-text {
   width: 100px;
 }
 
-.rr-star-bar-100 {
+.rr-bar-graph-100 {
   display: flex;
   height: 10px;
   width: 100%;
   border: 1px solid black;
 }
 
-.rr-star-bar-positive {
+.rr-bar-graph-positive {
   background: green;
 }
 
-.rr-star-bar-negative {
+.rr-bar-graph-negative {
   background: lightgray;
 }
 
-.rr-remove-filters-link {
+.rr-reviews-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.rr-reviews-list-all-reviews {
+  overflow-y: scroll;
+  scroll-snap-type: y proximity;
+}
+
+.rr-review {
+  scroll-snap-align: start;
+}
+
+.rr-remove-filters-link, .rr-mark-helpful-link {
   text-decoration: underline;
   color: #0076d1;
+}
+
+.rr-review-photos {
+  display: flex;
+  overflow: auto;
+  justify-content: flex-start;
+}
+
+.rr-review-img {
+  width: 30%;
+  margin: 10px;
+}
+
+.rr-full-screen-modal-close-container {
+  display: flex;
+  justify-content: center;
+}
+
+.rr-full-screen-modal-close {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+  height: 30px;
+  background-color: lightgray;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+.rr-full-screen-modal-close > * {
+  margin: 3px;
+}
+
+.rr-add-review-stars {
+  display: flex;
+}
+
+.rr-add-review-row-characteristic {
+  display: flex;
+}
+
+.rr-add-review-characteristic-row-label {
+  width: 15%;
+}
+
+.rr-add-review-characteristic-row-content {
+  width: 60%
+}
+
+.rr-add-review-row-characteristic-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rr-add-review-row-characteristic-low-high-labels {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rr-review-seller-response-title {
+  font-weight: bold;
+}
+
+.rr-reviews-list-buttons {
+  display: flex;
+}
+
+.review-form-explanatory-note {
+  font-size: small;
+  font-style: italic;
+}
+
+.rr-review-photo-alert {
+  font-size: small;
+  color: orangered;
+}
+
+.rr-scale-bars-and-slider {
+  position: relative;
+}
+
+.rr-scale-slider-position {
+  position: absolute;
+  z-index: 1;
+}
+
+.rr-scale-slider {
+  position: relative;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 15px solid black;
+}
+
+.rr-scale-bar-container, .rr-scale-label-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rr-scale-bar {
+  width: 32%;
+  height: 10px;
+  background-color: lightgray;
 }
 
 /* ==============================================================

@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import List from './productList.jsx';
 import Outfit from './outfitList.jsx';
@@ -7,121 +6,67 @@ import Comparison from './comparison.jsx';
 import itemArray from './dummyData.js';
 import Controller from './controller.js';
 
-
 const RelatedItems = () => {
-
-  const [productIds, setProductIds] = useState([])
+  const [productIds, setProductIds] = useState([]);
   const [products, setProducts] = useState(itemArray);
-  const [productStyles, setProductStyles] = useState([]);
   const [userProducts, setUserProducts] = useState(itemArray);
-  const [renderComparison, setRenderComparison] = useState(false);
-
-  // build a function that sets renderComparison to true
-  const compare = () => {
-    if (renderComparison === false) {
-      setRenderComparison(true);
-    } else {
-      setRenderComparison(false);
-    }
-  }
-
-  const closeCompare = () => {
-    setRenderComparison(false);
-  }
+  const [focusedItem, setFocusedItem] = useState({});
+  const [productStyles, setProductStyles] = useState([]);
 
   useEffect(() => {
-    let isMounted = true;
-
-    const getRelatedProducts = async () => {
-      try {
-        const data = await Controller.getRelatedProducts();
-        if (isMounted) {
-          setProductIds(data);
-        }
-      } catch (err) {
+    Controller.getRelatedProducts()
+      .then((productIds) => {
+        setProductIds(productIds);
+        return Promise.all(
+          productIds.map((id) => {
+            return Promise.all([
+              Controller.getProductDetails(id),
+              Controller.getProductStyles(id)
+            ])
+            .catch((err) => {
+              console.log('Error getting details', err);
+              return null;
+            });
+          })
+        );
+      })
+      .then((products) => {
+        const productDetails = products.map(p => p[0]);
+        const productStyles = products.map(p => p[1]);
+        setProducts(productDetails);
+        setProductStyles(productStyles);
+        setUserProducts([productDetails[0]]);
+      })
+      .catch((err) => {
         console.log(err);
-      }
-    };
+      });
 
-    getRelatedProducts();
+    Controller.getProductDetails('37311')
+      .then((res) => {
+        setFocusedItem(res);
+      })
+      .catch((err) => {
+        console.log('Error fetching focused product');
+      });
 
-    return () => {
-      isMounted = false;
-    };
   }, []);
 
-
-  useEffect(() => {
-    let isMounted = true;
-    let fetchedProducts = [];
-
-    const getProducts = async () => {
-      try {
-        const stylesArray = await Promise.all(productIds.map((id) => {
-          return Controller.getProductDetails(id)
-          .catch((err) => {
-            console.log('Error getting styles', err);
-            return null;
-          });
-        }));
-
-        if (isMounted) {
-          fetchedProducts = stylesArray.filter((styles) => styles !== null);
-          setProducts(fetchedProducts);
-        }
-      } catch (err) {
-        console.log('Error getting product styles', err);
-      }
-    };
-    getProducts();
-
-    return () => {
-      isMounted = false;
-    };
-  }, [productIds]);
-
-  useEffect(() => {
-    let isMounted = true;
-    let fetchedProducts = [];
-
-    const getProducts = async () => {
-      try {
-        const stylesArray = await Promise.all(productIds.map((id) => {
-          return Controller.getProductStyles(id)
-          .catch((err) => {
-            console.log('Error getting styles', err);
-            return null;
-          });
-        }));
-
-        if (isMounted) {
-          fetchedProducts = stylesArray.filter((styles) => styles !== null);
-          setProductStyles(fetchedProducts);
-        }
-      } catch (err) {
-        console.log('Error getting product styles', err);
-      }
-    };
-    getProducts();
-
-    return () => {
-      isMounted = false;
-    };
-  }, [productIds]);
+  const filterUserProducts = (productID) => {
+    setUserProducts(userProducts.filter((product, index) => {
+       return userProducts[index].id !== productID
+    }))
+  }
 
 
   return (
     <>
-    <List products={products} productStyles={productStyles} compare={compare}/>
-    <Outfit userProducts={userProducts} compare={compare}/>
-    {renderComparison ? <Comparison closeCompare={closeCompare}/> : null}
+      <List products={products} productStyles={productStyles} focusedItem={focusedItem}/>
+      <Outfit userProducts={userProducts} productStyles={productStyles} filterUserProducts={filterUserProducts}/>
     </>
-  )
-}
-
-//comment
+  );
+};
 
 export default RelatedItems;
 
-
+// Hithere
 

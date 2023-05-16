@@ -83,6 +83,24 @@ module.exports = {
   //   return 'Sorry this function is not operational yet';
   // },
 
+  getQuestions: (productID, page, count) => {
+    if (!productID) {
+      console.log('Please enter a product id');
+    }
+    return axios({
+      method: 'get',
+      url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/qa/questions',
+      headers: { 'Authorization': process.env.API_KEY },
+      params: {
+        page: page,
+        count: count,
+        product_id: productID
+      }
+    })
+      .then(results => results.data)
+      .catch((err) => console.log("there was an error getting questions data: "))
+  },
+
   // Get the full reviews data for a specific product
   getReviewsData: (productID, page, count) => {
     if (!productID) {
@@ -116,6 +134,32 @@ module.exports = {
       }
     })
       .then(results => results.data)
-      .catch((err) => console.log("there was an error getting reviews meta data: "))
+      .catch((err) => console.log("there was an error getting reviews meta data: ", err))
   },
+
+  markReviewHelpful: (reviewID) => {
+    if (!reviewID) {
+      console.log('Please enter a review id');
+    }
+    return axios({
+      method: 'put',
+      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews/${reviewID}/helpful`,
+      headers: { 'authorization': process.env.API_KEY }
+    })
+      .then(res => res.data)
+      .catch(err => console.log("there was an error marking the review as helpful: ", err));
+  },
+
+  reportReview: (reviewID) => {
+    if (!reviewID) {
+      console.log('Please enter a review id');
+    }
+    return axios({
+      method: 'put',
+      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews/${reviewID}/report`,
+      headers: { 'authorization': process.env.API_KEY }
+    })
+      .then(res => res.data)
+      .catch(err => console.log("there was an error reporting the review: ", err));
+  }
 };
