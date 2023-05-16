@@ -34,6 +34,7 @@ const QuestionsAndAnswers = () => {
   const [questionRenderMax, setQuestionRenderMax] = useState(false);
 
   const moreAnsweredQuestionClick = () => {
+    console.log(numOfQuestions, maxNumOfQuestions, numOfQuestions<maxNumOfQuestions)
     if (numOfQuestions < maxNumOfQuestions) {
       setNumOfQuestions(numOfQuestions + 2)
     } else {

@@ -100,6 +100,11 @@ overflow-y: scroll;
   border-color: rgb(135, 135, 135);
 }
 
+.qa-question-list {
+  max-height: 90vh;
+  overflow: auto;
+}
+
 
 .qa-question-entry {
   font-weight: bold;
