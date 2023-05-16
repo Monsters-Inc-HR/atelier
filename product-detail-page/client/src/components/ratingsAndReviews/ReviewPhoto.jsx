@@ -9,8 +9,8 @@ const ReviewPhoto = ({ classToApply, url, alt }) => {
     <>
     <img className={ classToApply } src={ url } alt={ alt } onClick={() => setViewing(true)}></img>
     <ReviewsModal visible={ viewing }>
-      <div className='rr-full-screen-modal-image-close-container'>
-        <div className='rr-full-screen-modal-image-close' onClick={() => setViewing(false)}>
+      <div className='rr-full-screen-modal-close-container'>
+        <div className='rr-full-screen-modal-close' onClick={() => setViewing(false)}>
           <span>close</span><FontAwesomeIcon icon={ icon({name: 'circle-xmark', style: 'solid'}) } />
         </div>
       </div>
