@@ -211,6 +211,10 @@ overflow-y: scroll;
   margin: 3px;
 }
 
+.rr-add-review-stars {
+  display: flex;
+}
+
 .rr-review-seller-response-title {
   font-weight: bold;
 }

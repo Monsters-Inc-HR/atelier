@@ -23,8 +23,11 @@ const AddReview = ({ productID }) => {
         <h1>Write Your Review</h1>
         <h3>About </h3>
         <div className='rr-add-review-stars'>
-          <div className='rr-add-review-star'>
-            { starCount === 0 ? emptyStar : filledStar }
+          <div className='rr-add-review-star' onClick={ () => setStarCount(starCount === 1 ? 0 : 1) }>
+            { starCount >= 1 ? filledStar : emptyStar }
+          </div>
+          <div className='rr-add-review-star' onClick={ () => setStarCount(starCount === 2 ? 0 : 2) }>
+            { starCount >= 2 ? filledStar : emptyStar }
           </div>
         </div>
         <form className='rr-add-review'>
