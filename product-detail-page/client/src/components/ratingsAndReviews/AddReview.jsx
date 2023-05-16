@@ -23,16 +23,21 @@ const AddReview = ({ productID }) => {
               <legend>Do you recommend this product? </legend>
               <div>
                 <input type='radio' id='recommend-yes' value='yes' />
-                <label for='recommend-yes'>Yes</label>
+                <label htmlFor='recommend-yes'>Yes</label>
 
                 <input type='radio' id='recommend-no' value='no' />
-                <label for='recommend-no'>No</label>
+                <label htmlFor='recommend-no'>No</label>
               </div>
             </fieldset>
+            <fieldset>
+              <legend>Write your review</legend>
 
-            <label for='review-summary'>Review summary: </label>
-            <input type='text' id='review-summary' name='review-summary' placeholder='A must-buy product for anyone' size='50' required></input>
+              <label htmlFor='review-summary'>Review summary: </label>
+              <input type='text' id='review-summary' name='review-summary' placeholder='Example: A must-buy product for anyone' size='50' required></input>
 
+              <label htmlFor='review-body'>Review body: </label>
+              <textarea id='review-body' name='review-body' placeholder='Why did you like the product or not?' minlength='50' required></textarea>
+            </fieldset>
           </div>
         </form>
 
