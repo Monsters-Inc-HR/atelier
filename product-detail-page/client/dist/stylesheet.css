@@ -245,6 +245,16 @@ overflow-y: scroll;
   display: flex;
 }
 
+.review-form-explanatory-note {
+  font-size: small;
+  font-style: italic;
+}
+
+.rr-review-photo-alert {
+  font-size: small;
+  color: orangered;
+}
+
 .rr-scale-bars-and-slider {
   position: relative;
 }

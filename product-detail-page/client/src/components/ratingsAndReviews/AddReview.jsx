@@ -20,16 +20,39 @@ const staticImages = [
   'https://static.wikia.nocookie.net/pixar/images/2/26/Boo_with_costume.png/revision/latest?cb=20210422084027',
   'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7fGb6xepP8Ax-vVCLi2qq2N2_rpn7DI1bf8b6zymVDw&usqp=CAU&ec=48600112'
 ]
+const maxPhotos = 5;
 
 const AddReview = ({ productID, productName, characteristics }) => {
   const [addingReview, setAddingReview] = useState(false);
   const [starCount, setStarCount] = useState(0);
+  const [photoAlert, setPhotoAlert] = useState(false);
 
-  const submitHandler = (event) => {
-    event.preventDefault();
-    const formData = new FormData(event.target);
+  const submitHandler = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
     const reviewObj = Object.fromEntries(formData.entries());
+    reviewObj['add-review-photos'] = formData.getAll('add-review-photos');
     reviewObj.rating = starCount;
+
+    // call API here
+
+    setAddingReview(false);
+  }
+
+  const photoUpdate = (e) => {
+    let photoCount = e.target.files.length;
+    if (photoCount > maxPhotos) {
+      // if more than maxPhotos are added, replace the files in the form with a subset of the photos
+      let list = new DataTransfer();
+      for (let i = maxPhotos; i < photoCount; i++) {
+        list.items.add(e.target.files[i]);
+      }
+      e.target.files = list.files;
+      setPhotoAlert(true);
+    } else {
+      if (photoAlert) setPhotoAlert(false);
+    }
+    // render images to DOM here
   }
 
   return (
@@ -99,26 +122,29 @@ const AddReview = ({ productID, productName, characteristics }) => {
 
             <label htmlFor='add-review-summary'>Review summary: </label>
             <input type='text' id='add-review-summary' name='add-review-summary' placeholder='Example: A must-buy product for anyone' size='50' maxLength='60' required></input>
-
+            <br />
             <label htmlFor='add-review-body'>Review body: </label>
             <textarea id='add-review-body' name='add-review-body' placeholder='Why did you like the product or not?' minLength='50' required></textarea>
-
-            <label htmlFor='add-review-photos'>Add photos to your review: </label>
-            <input type='file' id='add-review-photos' name='add-review-photos' accept='image/*' multiple></input>
-
+            <br />
+            <label htmlFor='add-review-photos'>Add photos to your review:</label>
+            <input type='file' onChange={ photoUpdate } id='add-review-photos' name='add-review-photos' accept='image/*' multiple></input>
+            <div className='review-form-explanatory-note'>up to {maxPhotos} photos can be added</div>
+            <br />
+            { photoAlert && <div className='rr-review-photo-alert'>{`Note: Only your first ${maxPhotos} photos will be included with your review.`}</div>}
             <div className='rr-add-review-photo-display'></div>
 
           </fieldset>
           <fieldset>
             <legend>Your information</legend>
 
-            <label htmlFor='rr-add-review-nickname'>What is your nickname? </label>
-            <input type='text' id='rr-add-review-nickname' name='rr-add-review-nickname' placeholder='Example: jackson11' size='30' maxlength='60' required></input>
-            <div className='rr-review-form-explanatory-note'>For privacy reasons, do not use your full name or email address</div>
+            <label htmlFor='add-review-nickname'>What is your nickname? </label>
+            <input type='text' id='add-review-nickname' name='add-review-nickname' placeholder='Example: jackson11' size='30' maxLength='60' required></input>
+            <div className='review-form-explanatory-note'>For privacy reasons, do not use your full name or email address</div>
+            <br />
+            <label htmlFor='add-review-email'>What is your email? </label>
+            <input type='email' id='add-review-email' name='add-review-email' placeholder='Example: jackson11@email.com' required></input>
+            <div className='review-form-explanatory-note'>For authentication reasons, you will not be emailed</div>
 
-            <label htmlFor='rr-add-review-email'>What is your email? </label>
-            <input type='email' id='rr-add-review-email' name='rr-add-review-email' placeholder='Example: jackson11@email.com' required></input>
-            <div className='rr-review-form-explanatory-note'>For authentication reasons, you will not be emailed</div>
           </fieldset>
           <input type='submit' value='Submit review' />
         </form>
