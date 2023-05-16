@@ -55,6 +55,20 @@ app.get('/styles', (req, res) => {
   })
 });
 
+app.get('/qa/questions', (req, res) => {
+  let paramsString = req.url.split('?')[1];
+  let paramsTuples = paramsString.split('&').map(pair => pair.split('='));
+  let productID = paramsTuples.find(tuple => tuple[0] === 'product_id')[1];
+  let page = paramsTuples.find(tuple => tuple[0] === 'page');  // will be undefined if this param has not been provided
+  if (page) page = page[1];  // set page to parameter value only if it exists in the params; otherwise, leave undefined
+  let count = paramsTuples.find(tuple => tuple[0] === 'count');  // will be undefined if this param has not been provided
+  if (count) count = count[1];  // set count to parameter value only if it exists in the params; otherwise, leave undefined
+
+  controller.getQuestions(productID, page, count)
+    .then(results => res.send(results))
+    .catch(err => res.send(err));
+})
+
 app.get('/reviews', (req, res) => {
   let paramsString = req.url.split('?')[1];
   let paramsTuples = paramsString.split('&').map(pair => pair.split('='));

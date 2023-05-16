@@ -56,28 +56,31 @@ const QuestionEntry = ({question}) => {
   }
 
 
+
   return (
     <div>
-      <span>
-        <div style={{ fontWeight: 'bold', fontSize: 'large'}}>
+      <span >
+        <hr/>
+        <div className="qa-question-entry">
           {'Q: '}
           {question.question_body}
-          {' Helpful? '}
-          <a onClick={handleHelpfulQuestionClick}>Yes ({questionHelpfulness})</a>
-          {' | '}
-          <AddAnswerModal open={addAnswerModalShow} onClose={addAnswerModalClose}/>
-          <a onClick={()=>{setAddAnswerModalShow(true)}}>Add Answer</a><br></br>
+          <div className="qa-question-helpful">
+            {' Helpful? '}
+            <a onClick={handleHelpfulQuestionClick}>Yes ({questionHelpfulness})</a>
+            {' | '}
+            <AddAnswerModal open={addAnswerModalShow} onClose={addAnswerModalClose}/>
+            <a onClick={()=>{setAddAnswerModalShow(true)}}>Add Answer</a><br></br>
+          </div>
         </div>
           {answers.slice(0, numOfAnswers).map((answer, index) => (
-          <AnswerEntry answer={answer} key={index} />
+          <AnswerEntry  answer={answer} key={index} />
         ))}
       </span>
-
       {answers.length ? maxAnswersDisplayed  ? (<a onClick={handleCollapseAnswersClick}>Collapse Answers</a>) : (<a onClick={handleMoreAnswersClick}>See more answers</a>) : null}
-      <hr/>
     </div>
   )
 }
 
 export default QuestionEntry
+
 
