@@ -1,22 +1,9 @@
-html {
-  margin:    0 auto;
-  max-width: 900px;
-}
 
-#app {
-  height: 100%;
-  width: 100%;
-}
-
-.body {
-  margin: 0px;
-  margin-right: 0px;
-  padding: 0px;
-  border: 0px;
-}
 /* ==============================================================
  Related Items
 ================================================================*/
+
+/* Product List */
 
 .related {
   /* border: 1px solid black; */
@@ -31,6 +18,8 @@ html {
   height: 550px;
   width: 850px
 }
+
+/* Product Card */
 
 .product-card {
 box-shadow: 0 4px 8px rgba(0,0,0, 0.2);
@@ -83,32 +72,41 @@ justify-content: center;
   padding: 2px;
 }
 
-.related-comparison-modal {
-border: 1px solid black;
+/* Comparison Modal */
+
+.related-comparison-title {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 10px;
+  margin-left: 15px;
+}
+
+#comparison-modal {
+box-shadow: 0 4px 8px rgba(0,0,0, 0.2);
+border: 1px solid gray;
 display: block;
 position: fixed;
-background: beige;
-width: 30%;
-height: 300px;
-top: 50%;
-left: 35%;
+background: whitesmoke;
+width: 45%;
+height: 45%;
+top: 25%;
+left: 25%;
 z-index: 1;
+font-size: large;
+}
+
+#comparison-modal:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
 .related-comparison-table {
 border-collapse: collapse;
 border-spacing: 0;
 width: 100%;
+margin-left: 15px;
 overflow: hidden;
 overflow-y: scroll;
 }
-
-.related-comparison-title {
-  display: flex;
-  justify-content: center;
-  top: 0;
-}
-
 
 
 /* ==============================================================
