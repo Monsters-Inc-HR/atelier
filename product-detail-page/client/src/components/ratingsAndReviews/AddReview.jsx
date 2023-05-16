@@ -44,7 +44,7 @@ const AddReview = ({ productID, productName, characteristics }) => {
     if (photoCount > maxPhotos) {
       // if more than maxPhotos are added, replace the files in the form with a subset of the photos
       let list = new DataTransfer();
-      for (let i = maxPhotos; i < photoCount; i++) {
+      for (let i = 0; i < maxPhotos; i++) {
         list.items.add(e.target.files[i]);
       }
       e.target.files = list.files;
