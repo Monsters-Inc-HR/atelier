@@ -14,8 +14,10 @@ const ProductInfo = () => {
   }
   return (
     <div>
-      <div>* * * * *</div>
-      <a>Read all reviews</a>
+      <div className="ov-reviews">
+        <div className="ov-stars">* * * * *</div>
+        <a>Read all reviews</a>
+      </div>
       <h3>{productInfoData.category}</h3>
       <h1>{productInfoData.name}</h1>
     </div>

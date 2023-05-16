@@ -1,7 +1,8 @@
 import React, {useState} from "react";
 import StylesImage from './StylesImage.jsx';
+import ShareModal from './ShareModal.jsx';
 
-const StylesAndCart = () => {
+const StylesAndCart = ({setNewStyleImg, setMainImg, newStyle}) => {
   let stylesData = [
     {
         "style_id": 220998,
@@ -359,65 +360,65 @@ const StylesAndCart = () => {
     }
   ]
 
-  let productStylesData = {
-    "style_id": 221003,
-    "name": "Dark Grey & Black",
-    "original_price": "170.00",
-    "sale_price": null,
-    "default?": false,
-    "photos": [
-        {
-            "thumbnail_url": "https://images.unsplash.com/photo-1514866726862-0f081731e63f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
-            "url": "https://images.unsplash.com/photo-1514866726862-0f081731e63f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
-        },
-        {
-            "thumbnail_url": "https://images.unsplash.com/photo-1519689373023-dd07c7988603?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
-            "url": "https://images.unsplash.com/photo-1519689373023-dd07c7988603?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80"
-        },
-        {
-            "thumbnail_url": "https://images.unsplash.com/photo-1506932248762-69d978912b80?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
-            "url": "https://images.unsplash.com/photo-1506932248762-69d978912b80?ixlib=rb-1.2.1&auto=format&fit=crop&w=2089&q=80"
-        },
-        {
-            "thumbnail_url": "https://images.unsplash.com/photo-1535639818669-c059d2f038e6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
-            "url": "https://images.unsplash.com/photo-1535639818669-c059d2f038e6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80"
-        },
-        {
-            "thumbnail_url": "https://images.unsplash.com/photo-1498098662025-04e60a212db4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
-            "url": "https://images.unsplash.com/photo-1498098662025-04e60a212db4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
-        },
-        {
-            "thumbnail_url": "https://images.unsplash.com/photo-1421941027568-40ab08ee5592?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
-            "url": "https://images.unsplash.com/photo-1421941027568-40ab08ee5592?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1651&q=80"
-        }
-    ],
-    "skus": {
-        "1281062": {
-            "quantity": 8,
-            "size": "XS"
-        },
-        "1281063": {
-            "quantity": 16,
-            "size": "S"
-        },
-        "1281064": {
-            "quantity": 17,
-            "size": "M"
-        },
-        "1281065": {
-            "quantity": 10,
-            "size": "L"
-        },
-        "1281066": {
-            "quantity": 15,
-            "size": "XL"
-        },
-        "1281067": {
-            "quantity": 6,
-            "size": "XXL"
-        }
-    }
-}
+//   let productStylesData = {
+//     "style_id": 221003,
+//     "name": "Dark Grey & Black",
+//     "original_price": "170.00",
+//     "sale_price": null,
+//     "default?": false,
+//     "photos": [
+//         {
+//             "thumbnail_url": "https://images.unsplash.com/photo-1514866726862-0f081731e63f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
+//             "url": "https://images.unsplash.com/photo-1514866726862-0f081731e63f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
+//         },
+//         {
+//             "thumbnail_url": "https://images.unsplash.com/photo-1519689373023-dd07c7988603?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
+//             "url": "https://images.unsplash.com/photo-1519689373023-dd07c7988603?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80"
+//         },
+//         {
+//             "thumbnail_url": "https://images.unsplash.com/photo-1506932248762-69d978912b80?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
+//             "url": "https://images.unsplash.com/photo-1506932248762-69d978912b80?ixlib=rb-1.2.1&auto=format&fit=crop&w=2089&q=80"
+//         },
+//         {
+//             "thumbnail_url": "https://images.unsplash.com/photo-1535639818669-c059d2f038e6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
+//             "url": "https://images.unsplash.com/photo-1535639818669-c059d2f038e6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80"
+//         },
+//         {
+//             "thumbnail_url": "https://images.unsplash.com/photo-1498098662025-04e60a212db4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
+//             "url": "https://images.unsplash.com/photo-1498098662025-04e60a212db4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
+//         },
+//         {
+//             "thumbnail_url": "https://images.unsplash.com/photo-1421941027568-40ab08ee5592?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
+//             "url": "https://images.unsplash.com/photo-1421941027568-40ab08ee5592?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1651&q=80"
+//         }
+//     ],
+//     "skus": {
+//         "1281062": {
+//             "quantity": 8,
+//             "size": "XS"
+//         },
+//         "1281063": {
+//             "quantity": 16,
+//             "size": "S"
+//         },
+//         "1281064": {
+//             "quantity": 17,
+//             "size": "M"
+//         },
+//         "1281065": {
+//             "quantity": 10,
+//             "size": "L"
+//         },
+//         "1281066": {
+//             "quantity": 15,
+//             "size": "XL"
+//         },
+//         "1281067": {
+//             "quantity": 6,
+//             "size": "XXL"
+//         }
+//     }
+// }
 
 
 
@@ -426,29 +427,32 @@ const StylesAndCart = () => {
 
   let sizeAndQuantityData = []
 
-  for (var x in productStylesData.skus) {
-    sizeAndQuantityData.push(productStylesData.skus[x])
+  for (var x in newStyle.skus) {
+    sizeAndQuantityData.push(newStyle.skus[x])
   }
 
   const [sizeVal, setSizeVal] = useState(sizeVal)
   const [qty, setQty] = useState(qty)
-  const [selectStyle, setSelectStyle] = useState('select style')
+  const [selectStyleId, setSelectStyleId] = useState('')
+  const [chosenStyle, setChosenStyle] = useState(stylesData[0])
+  const [show, setShow] = useState(false)
 
   let handleSizeVal = function(event) {
     setSizeVal(event.target.value)
-    for (var i in productStylesData.skus) {
-      if (productStylesData.skus[i].size === event.target.value) {
-        setQty(productStylesData.skus[i].quantity)
+    for (var i in newStyle.skus) {
+      if (newStyle.skus[i].size === event.target.value) {
+        setQty(newStyle.skus[i].quantity)
       }
     }
   }
 
-//   let handleSelectStyle = function() {
-//     console.log(style.style_id)
-//     console.log('hello worlds and aliens')
-//   }
+  let handleSelectStyle = function(clickedStyle) {
+    setSelectStyleId(clickedStyle.style_id)
+    setChosenStyle(clickedStyle)
+    setNewStyleImg(clickedStyle)
+    setMainImg(clickedStyle.photos[0].thumbnail_url)
+  }
 
-  console.log(qty)
   var qtyArr = []
   var num = 1
   var itemsLeft = qty
@@ -460,6 +464,14 @@ const StylesAndCart = () => {
     qtyArr.push(num)
     num++
   }
+
+  let styleSelected;
+  stylesData.forEach((styleObj) => {
+    if (styleObj.style_id === selectStyleId) {
+        styleSelected = styleObj.name
+        // setStyleSelected(styleObj.name)
+    }
+  })
 
   // for (var i in productStylesData.skus) {
   //   if (productStylesData.skus[i].size === sizeVal) {
@@ -476,48 +488,50 @@ const StylesAndCart = () => {
   // }
 
   let price = function() {
-    if (productStylesData.sale_price === null) {
-      return productStylesData.original_price
+    if (newStyle.sale_price === null) {
+      return newStyle.original_price
     } else {
-      return productStylesData.sale_price
+      return newStyle.sale_price
     }
   }
 
-
   return (
     <div>
-      <p>Shaare to social media</p>
       <p>${price()}</p>
       <p>In STOCK/ OUT OF STOCK</p>
 
-      <p>style > selected style</p>
-      <ul>
-        {stylesData.map((style, index) => (
-          <StylesImage style={style} key={style.style_id}/>
-        ))}
-      </ul>
-      <label>
-        <select value={sizeVal} onChange={handleSizeVal}>
-          {sizeAndQuantityData.map((sizeQtyObj, index) => (
-            <option key={index} value={`${sizeQtyObj.size}`}>{`${sizeQtyObj.size}`}</option>
-          ))}
-        </select>
-        <p>{`Size selected ${sizeVal}`}</p>
-        <p>{`Qty selected ${qty}`}</p>
-      </label>
-      <label>
-        <select>
-          {qtyArr.map((item, index) => (
-            <option key={index} value={item}>{item}</option>
-          ))}
-        </select>
+      <div className="ov-style-photos-drop-downs">
+        <div>
+            <p>style > {styleSelected ? styleSelected: 'select style'}</p>
+            <ul className="ov-style-photo">
+                {stylesData.map((style, index) => (
+                <StylesImage clickHandler={handleSelectStyle} chosenStyle={chosenStyle} setChosenStyle={setChosenStyle} setSelectStyleId={setSelectStyleId} style={style} key={style.style_id}/>
+                ))}
+            </ul>
+        </div>
+        <label>
+            <select value={sizeVal} onChange={handleSizeVal}>
+            {sizeAndQuantityData.map((sizeQtyObj, index) => (
+                <option key={index} value={`${sizeQtyObj.size}`}>{`${sizeQtyObj.size}`}</option>
+            ))}
+            </select>
+            {/* <p>{`Size selected ${sizeVal}`}</p>
+            <p>{`Qty selected ${qty}`}</p> */}
+        </label>
+        <label>
+            <select>
+            {qtyArr.map((item, index) => (
+                <option key={index} value={item}>{item}</option>
+            ))}
+            </select>
+        </label>
+      </div>
 
-      </label>
       <button>ADD TO BAG</button>
-      <button>FAVORITE</button>
+      <button onClick={() => setShow(true)}>SHARE</button>
+      <ShareModal onClose={() => setShow(false)} show={show}/>
     </div>
   )
 }
-
 
 export default StylesAndCart

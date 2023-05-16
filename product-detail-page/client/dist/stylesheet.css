@@ -1,3 +1,8 @@
+.fix-margin {
+  max-width: none;
+  margin: 20px 15%;
+}
+
 
 /* ==============================================================
  Related Items
@@ -181,3 +186,111 @@ overflow-y: scroll;
 .rr-star-filled-3-4 > path {
   clip-path: inset(0 35% 0 0);
 }
+
+
+
+/* =================================================================================
+ overview
+====================================================================================*/
+.ov-top-container {
+  display: flex;
+}
+
+.ov-info-style-container {
+  grid-template-areas:
+    'info'
+    'styles-and-cart';
+}
+
+.ov-main-photo-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 65%;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(218, 218, 218);
+  margin-right: 25px;
+}
+
+.styles-img {
+  float: left;
+  width:  100px;
+  height: 100px;
+  object-fit: cover;
+  flex-basis: 25%;
+}
+
+/* .ov-info-style-container {
+  display: flex;
+  flex-direction: column;
+} */
+
+.ov-reviews {
+  display: flex;
+}
+
+.ov-style-photos-drop-downs {
+  flex-direction: column;
+}
+
+.ov-style-photo {
+  display: flex;
+  list-style-type: none;
+  flex-wrap: wrap;
+}
+
+.ov-no-list-dot {
+  list-style-type: none;
+}
+
+.main-img {
+  z-index: 1;
+}
+
+.thumbnail-img {
+  width:  60px;
+  height: 60px;
+  object-fit: cover;
+}
+
+.thumbnails {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 2;
+
+}
+
+.ov-selected {
+  border-width: 2px;
+  border-style: solid;
+  border-color: rgb(207, 14, 14);
+}
+
+.ov-share-modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ov-share-modal-body {
+  padding: 100px;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+}
+
+/* .ov-container {
+  display: flex;
+  flex-wrap: wrap;
+} */
+
+/* .ov-style-img-item {
+  flex-basis: 25%;
+} */
