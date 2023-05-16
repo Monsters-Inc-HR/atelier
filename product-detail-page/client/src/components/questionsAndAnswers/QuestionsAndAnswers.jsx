@@ -3,9 +3,9 @@ import Searchbar from "./Searchbar.jsx";
 import QuestionList from "./QuestionList.jsx";
 import AddQuestionModal from "./AddQuestionModal.jsx";
 import AddAnswerModal from "./AddAnswerModal.jsx";
-//import { getQuestions } from "product-detail-page/server/controller.js";
+import { getQuestions } from "./controllerQ&A.js";
 
-var apiQuestData = {
+var dummyQuestions = {
   "product_id": "37315",
   "results": [
       {
@@ -92,22 +92,28 @@ var apiQuestData = {
   ]
 }
 
-//need to know the current product displayed to know which questions to display
-
 const QuestionsAndAnswers = () => {
 
-  let productID2 = 37315;
+  const productID2 = 37315;
 
-  const [questions2, setQuestions2] = useState({})
+  const [questionsAPI, setQuestionsAPI] = useState([]);
 
-  // useEffect(() => {
-  //   getQuestions(productID2)
-  //     .then(questData => {
-  //       //console.log(questData);
-  //       //setQuestions2(questData);
-  //     })
-  //     .catch(err => console.log('there was an error getting the questions data ', err));
-  // }, []);
+  var questions = dummyQuestions.results;
+
+  useEffect(() => {
+    getQuestions(productID2)
+      .then(questData => {
+        console.log('questData in questionsandanswers ', questData.results);
+        var questions = questData.results
+        //sorts the array of question objects in order of helpfulness from high to low
+        questions = questions.sort((a,b) => (b.question_helpfulness - a.question_helpfulness ));
+
+
+        setQuestionsAPI(questions);
+
+      })
+      .catch(err => console.log('there was an error getting the questions data ', err));
+  }, [productID2]);
   //productID
 
   //sets default number of questions to display at 2
@@ -115,15 +121,9 @@ const QuestionsAndAnswers = () => {
 
   const [searchQuery, setSearchQuery] = useState('');
 
-  //questions = questions.results;
-
-  var questions = apiQuestData.results;
-
-  //sorts the array of question objects in order of helpfulness from high to low
-  questions = questions.sort((a,b) => (b.question_helpfulness - a.question_helpfulness ));
 
   //toggle for testing purposes when array of questions is empty
-  //questions = [];
+  questions = [];
   const [questionRenderMax, setQuestionRenderMax] = useState(false);
 
   var maxNumOfQuestions = questions.length;
@@ -147,15 +147,16 @@ const QuestionsAndAnswers = () => {
   return (
     <div className="qa-questions-and-answers">
       <p>Questions and Answers</p>
-      {questions.length ? (
+      {questionsAPI.length? (
         <div>
           <Searchbar searchQuery={searchQuery} setSearchQuery={setSearchQuery}/><br></br>
-          <QuestionList questions={questions} numOfQuestions={numOfQuestions} searchQuery={searchQuery} />
-          { (questions.length <= 2 || !questionRenderMax) ? null : <button onClick={moreAnsweredQuestionClick}>More Answered Questions</button>}
+          <QuestionList questions={questionsAPI} numOfQuestions={numOfQuestions} searchQuery={searchQuery} />
+          { (questionsAPI.length <= 2 || !questionRenderMax) ? null : <button onClick={moreAnsweredQuestionClick}>More Answered Questions</button>}
         </div>
       ) : null }
-      <AddQuestionModal open={addQuestionModalShow} onClose={addQuestionModalClose} questions={questions}/>
-      <button onClick={()=>{setAddQuestionModalShow(true)}}>Add a question</button>
+      {questionsAPI? ( <div><AddQuestionModal open={addQuestionModalShow} onClose={addQuestionModalClose} questions={questionsAPI}/>
+      <button onClick={()=>{setAddQuestionModalShow(true)}}>Add a question</button></div> ) : null}
+
     </div>
     )
 

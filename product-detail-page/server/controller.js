@@ -89,7 +89,7 @@ module.exports = {
     }
     return axios({
       method: 'get',
-      url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/questions',
+      url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/qa/questions',
       headers: { 'Authorization': process.env.API_KEY },
       params: {
         page: page,

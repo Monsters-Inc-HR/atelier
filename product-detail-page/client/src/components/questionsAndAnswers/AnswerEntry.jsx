@@ -40,8 +40,9 @@ const AnswerEntry = ({answer}) => {
         <a onClick={handleHelpfulAnswerClick}>Yes ({answerHelpfulness})</a>
         {' | '}
         {reported ? (<>Reported</>) : (<a onClick={handleReportClick}>Report</a>) }
-      </div>
 
+      </div>
+      <hr/>
     </div>
   )
 }

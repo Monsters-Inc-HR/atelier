@@ -4,11 +4,11 @@ import QuestionsAndAnswers from "./QuestionsAndAnswers.jsx";
 
 const QuestionList = ({questions, numOfQuestions, searchQuery}) => {
 
-
+  console.log('questions in questionlist', questions);
 
   return (
     <div>
-      {questions.slice(0, numOfQuestions).filter((question)=>{ return question.question_body.toLowerCase().includes(searchQuery.toLowerCase())}).map((question, index) => (
+      {questions.slice(0, numOfQuestions).filter((question)=>{ return question.question_body.includes(searchQuery.toLowerCase())}).map((question, index) => (
       <QuestionEntry
         question={question}
         key={index}
@@ -21,4 +21,4 @@ const QuestionList = ({questions, numOfQuestions, searchQuery}) => {
 export default QuestionList
 
 
-
+//toLowerCase()
