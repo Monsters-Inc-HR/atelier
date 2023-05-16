@@ -31,8 +31,8 @@ const Card = ({product, images, salePrice, focusedItem, Internal, filterUserProd
       <strong className="related-product-name">{product.name}</strong>
       {salePrice ? <div className="related-sale-price"><p style={{color: 'red', marginRight: '5px'}}>${salePrice}</p>
       <p style={{textDecoration: 'line-through'}}>
-      ${product.default_price}</p></div> : <p className="related-price">${product.default_price}</p>}
-      <StarBar rating={3}/>
+      ${product.default_price}</p></div> : <p className="related">${product.default_price}</p>}
+      <div className="related"><StarBar rating={3}/></div>
     </div>
     {renderComparison ? <Comparison closeCompare={closeCompare}
       productID={product.id} product={product} focusedItem={focusedItem}/> : null}
