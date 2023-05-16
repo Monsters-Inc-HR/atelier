@@ -64,21 +64,21 @@ const AddReview = ({ productID, productName, characteristics }) => {
               const lowerName = charName.toLowerCase();
               return (
                 <div className='rr-add-review-row-characteristic'>
-                  <div className='rr-add-review-row-characteristic-selection'>
-                    { 'chosen value here' }
+                  <div className='rr-add-review-characteristic-row-label'>
+                    <label htmlFor={`${lowerName}`}>{ `${charName}: ` }</label>
                   </div>
-                  <div className='rr-add-review-row-characteristic-buttons'>
-                    <label className='rr-add-review-characteristic-label' htmlFor={`${lowerName}`}>{ `${charName}: ` }</label>
-
-                    <input type='radio' name={`${lowerName}`} id={`${lowerName}-0`} value='0' />
-                    <label htmlFor={`${lowerName}-0`}>0</label>
-
-                    <input type='radio' name={`${lowerName}`} id={`${lowerName}-1`} value='1' />
-                    <label htmlFor={`${lowerName}-1`}>1</label>
-                  </div>
-                  <div className='rr-add-review-row-characteristic-low-high-labels'>
-                    <div className='rr-add-review-row-characteristic-low-label'>{``}</div>
-                    <div className='rr-add-review-row-characteristic-high-label'>{``}</div>
+                  <div className='rr-add-review-characteristic-row-content'>
+                    <div className='rr-add-review-row-characteristic-selection'>
+                      {  }
+                    </div>
+                    <div className='rr-add-review-row-characteristic-buttons'>
+                      <input type='radio' name={`${lowerName}`} id={`${lowerName}-0`} value='0' />
+                      <input type='radio' name={`${lowerName}`} id={`${lowerName}-1`} value='1' />
+                    </div>
+                    <div className='rr-add-review-row-characteristic-low-high-labels'>
+                      <div className='rr-add-review-row-characteristic-low-label'>{`${characteristicLabels[charName][1]}`}</div>
+                      <div className='rr-add-review-row-characteristic-high-label'>{`${characteristicLabels[charName][5]}`}</div>
+                    </div>
                   </div>
                 </div>
               )

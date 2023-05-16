@@ -215,6 +215,28 @@ overflow-y: scroll;
   display: flex;
 }
 
+.rr-add-review-row-characteristic {
+  display: flex;
+}
+
+.rr-add-review-characteristic-row-label {
+  width: 15%;
+}
+
+.rr-add-review-characteristic-row-content {
+  width: 60%
+}
+
+.rr-add-review-row-characteristic-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rr-add-review-row-characteristic-low-high-labels {
+  display: flex;
+  justify-content: space-between;
+}
+
 .rr-review-seller-response-title {
   font-weight: bold;
 }
