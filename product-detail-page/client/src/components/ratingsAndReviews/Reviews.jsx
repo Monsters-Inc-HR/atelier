@@ -61,7 +61,7 @@ const Reviews = () => {
           otherwise, the subcomponents will cause errors
         */}
         {reviewsMetaData && <ReviewsSummary metaData={ reviewsMetaData } filters={ filters } filterClick={ filterClick } removeFilters={ removeFilters }/>}
-        {reviewsList && <ReviewsList reviews={ reviewsList } sortList={ sortList } />}
+        {reviewsList && <ReviewsList reviews={ reviewsList } sortList={ sortList } productID={ productID }/>}
       </div>
     </div>
   )

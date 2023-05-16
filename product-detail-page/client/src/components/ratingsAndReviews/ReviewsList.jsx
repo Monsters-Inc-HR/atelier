@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Review from './Review.jsx';
-import ReviewsModal from './ReviewsModal.jsx';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
+import AddReview from './AddReview.jsx';
 
-const ReviewsList = ({ reviews, sortList }) => {
+const ReviewsList = ({ reviews, sortList, productID }) => {
   const [displayCount, setDisplayCount] = useState(2);
   const [addingReview, setAddingReview] = useState(false);
   return (
@@ -23,6 +21,7 @@ const ReviewsList = ({ reviews, sortList }) => {
       </div>
       <div className='rr-reviews-list-buttons'>
         {displayCount < reviews.length && <button onClick={ () => setDisplayCount(displayCount + 2)}>MORE REVIEWS</button>}
+        <AddReview productID={ productID} />
       </div>
     </div>
   );

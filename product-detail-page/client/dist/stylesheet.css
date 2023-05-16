@@ -215,6 +215,10 @@ overflow-y: scroll;
   font-weight: bold;
 }
 
+.rr-reviews-list-buttons {
+  display: flex;
+}
+
 .rr-scale-bars-and-slider {
   position: relative;
 }
