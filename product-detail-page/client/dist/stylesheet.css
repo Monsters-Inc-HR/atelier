@@ -13,21 +13,13 @@
   flex-direction: row;
   justify-content: space-between;
   overflow: hidden;
-
 }
-
-/* .related-container-list::-webkit-scrollbar { display: hidden !important }; */
-
-/* .related-container-card {
-  padding: 25px 25px;
-  font-size: small;
-} */
 
 .product-card {
 box-shadow: 0 4px 8px rgba(0,0,0, 0.2);
 transition: 0.3s;
 height: 400px;
-width: 300px;
+width: 400px;
 position: relative;
 margin: 10px;
 font-size: small;
@@ -37,7 +29,8 @@ justify-content: center;
 
 .related-product-img {
   width: 100%;
-  height: auto;
+  height: 66%;
+  object-fit: cover;
   }
 
 .product-card:hover {
