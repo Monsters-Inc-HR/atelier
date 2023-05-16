@@ -5,20 +5,19 @@
 
 import React from 'react';
 import { render, fireEvent, waitFor } from '@testing-library/react';
-import RelatedButton from '../relatedButton.jsx';
+import RelatedItems from '../relatedItems.jsx';
 
-describe('Should render related button component', () => {
-  test('renders Button component', async () => {
+describe('Should render related items component', () => {
+  test('renders related items component', async () => {
     const compareMock = jest.fn();
 
-    const { container, getByText } = render(<RelatedButton />);
+    const { container, getByText } = render(<RelatedItems />);
 
     expect(container).toMatchSnapshot();
 
-    fireEvent.click(getByText('⭐'));
 
     await waitFor(() => {
-      // expect(compareMock).toHaveBeenCalled();
+
     });
   });
 });

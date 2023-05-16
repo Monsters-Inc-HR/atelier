@@ -5,17 +5,17 @@
 
 import React from 'react';
 import { render, fireEvent, waitFor } from '@testing-library/react';
-import RelatedButton from '../relatedButton.jsx';
+import DeleteButton from '../deleteButton.jsx';
 
-describe('Should render related button component', () => {
+describe('Should render delete button component', () => {
   test('renders Button component', async () => {
     const compareMock = jest.fn();
 
-    const { container, getByText } = render(<RelatedButton />);
+    const { container, getByText } = render(<DeleteButton />);
 
     expect(container).toMatchSnapshot();
 
-    fireEvent.click(getByText('⭐'));
+    fireEvent.click(getByText('❌'));
 
     await waitFor(() => {
       // expect(compareMock).toHaveBeenCalled();

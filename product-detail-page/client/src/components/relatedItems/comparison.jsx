@@ -1,32 +1,14 @@
 import React from 'react';
-// import { useState, useEffect } from 'react';
 import itemArray from './dummyData.js';
 import _, { map } from 'underscore';
 
-/*
-This component will need the product details of two products
-and display their information side to side depending on wether
-or not they share features. Refer to diagram for details
-*/
 
 const Comparison = ({closeCompare, focusedItem, product, productID}) => {
 
-  // console.log('product', product);
-  // console.log('focusedItem', focusedItem);
 
 const handleClick = (e) => {
   closeCompare();
 }
-
-// const compareFeatures = {
-//     left: focusedItem.features,
-//     right: product.features,
-//     length:
-//         focusedItem.features.length > product.features.length ?
-//         focusedItem.features.length : product.features.length
-//     };
-
-// const compareFeatures;
 
 const renderTable = () => {
   let compareFeatures = {};
