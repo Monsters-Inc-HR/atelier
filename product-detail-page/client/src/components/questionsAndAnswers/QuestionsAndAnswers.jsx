@@ -94,9 +94,10 @@ var dummyQuestions = {
 
 const QuestionsAndAnswers = () => {
 
-  const productID2 = 37315;
+  const productID2 = 37330;
 
   const [questionsAPI, setQuestionsAPI] = useState([]);
+  const [maxNumOfQuestions, setMaxNumOfQuestions] = useState(0);
 
   var questions = dummyQuestions.results;
 
@@ -108,7 +109,8 @@ const QuestionsAndAnswers = () => {
         //sorts the array of question objects in order of helpfulness from high to low
         questions = questions.sort((a,b) => (b.question_helpfulness - a.question_helpfulness ));
 
-
+        console.log('questions.length ', questions.length)
+        setMaxNumOfQuestions(questions.length);
         setQuestionsAPI(questions);
 
       })
@@ -121,12 +123,9 @@ const QuestionsAndAnswers = () => {
 
   const [searchQuery, setSearchQuery] = useState('');
 
-
-  //toggle for testing purposes when array of questions is empty
-  questions = [];
   const [questionRenderMax, setQuestionRenderMax] = useState(false);
 
-  var maxNumOfQuestions = questions.length;
+  //var maxNumOfQuestions = questions.length;
 
   const moreAnsweredQuestionClick = () => {
     if (numOfQuestions < maxNumOfQuestions) {
@@ -151,17 +150,16 @@ const QuestionsAndAnswers = () => {
         <div>
           <Searchbar searchQuery={searchQuery} setSearchQuery={setSearchQuery}/><br></br>
           <QuestionList questions={questionsAPI} numOfQuestions={numOfQuestions} searchQuery={searchQuery} />
-          { (questionsAPI.length <= 2 || !questionRenderMax) ? null : <button onClick={moreAnsweredQuestionClick}>More Answered Questions</button>}
+          { (questionsAPI.length < 2 || numOfQuestions >= maxNumOfQuestions) ? null : <button onClick={moreAnsweredQuestionClick}>More Answered Questions</button>}
         </div>
       ) : null }
-      {questionsAPI? ( <div><AddQuestionModal open={addQuestionModalShow} onClose={addQuestionModalClose} questions={questionsAPI}/>
-      <button onClick={()=>{setAddQuestionModalShow(true)}}>Add a question</button></div> ) : null}
-
+      <div><AddQuestionModal open={addQuestionModalShow} onClose={addQuestionModalClose} questions={questionsAPI}/>
+      <button onClick={()=>{setAddQuestionModalShow(true)}}>Add a question</button></div>
     </div>
+
     )
 
 }
-
 
 export default QuestionsAndAnswers
 
