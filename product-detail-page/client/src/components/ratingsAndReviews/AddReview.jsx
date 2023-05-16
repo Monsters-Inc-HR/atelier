@@ -3,7 +3,7 @@ import ReviewsModal from './ReviewsModal.jsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
 
-const starPositions = [1, 2, 3, 4, 5];
+const positions = [1, 2, 3, 4, 5];
 const starsExplanation = ['', 'Poor', 'Fair', 'Average', 'Good', 'Great!'];
 const characteristicLabels = {
   'Size': ['', 'A size too small', '½ a size too small', 'Perfect', '½ a size too big', 'A size too wide'],
@@ -37,7 +37,7 @@ const AddReview = ({ productID, productName, characteristics }) => {
           <fieldset>
             <legend>Overall rating</legend>
             <div className='rr-add-review-stars'>
-              { starPositions.map(pos => {
+              { positions.map(pos => {
                   return (
                     <div key={pos} className='rr-add-review-star' onClick={ () => setStarCount(starCount === pos ? 0 : pos) }>
                       { starCount >= pos ? filledStar : emptyStar }
@@ -72,8 +72,7 @@ const AddReview = ({ productID, productName, characteristics }) => {
                       {  }
                     </div>
                     <div className='rr-add-review-row-characteristic-buttons'>
-                      <input type='radio' name={`${lowerName}`} id={`${lowerName}-0`} value='0' />
-                      <input type='radio' name={`${lowerName}`} id={`${lowerName}-1`} value='1' />
+                      { positions.map(p => <input key={p} type='radio' name={`${lowerName}`} id={`${lowerName}-${p}`} value={`${p}`} />) }
                     </div>
                     <div className='rr-add-review-row-characteristic-low-high-labels'>
                       <div className='rr-add-review-row-characteristic-low-label'>{`${characteristicLabels[charName][1]}`}</div>
