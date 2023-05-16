@@ -23,19 +23,6 @@ const ReviewsList = ({ reviews, sortList }) => {
       </div>
       <div className='rr-reviews-list-buttons'>
         {displayCount < reviews.length && <button onClick={ () => setDisplayCount(displayCount + 2)}>MORE REVIEWS</button>}
-        {!addingReview ? <button onClick={() => setAddingReview(true)}>ADD A REVIEW  +</button> :
-          <ReviewsModal visible={ addingReview }>
-            <div className='rr-full-screen-modal-close-container'>
-              <div className='rr-full-screen-modal-close' onClick={() => setAddingReview(false)}>
-                <span>close</span><FontAwesomeIcon icon={ icon({name: 'circle-xmark', style: 'solid'}) } />
-              </div>
-            </div>
-
-            <form>
-              test
-            </form>
-          </ReviewsModal>
-        }
       </div>
     </div>
   );
