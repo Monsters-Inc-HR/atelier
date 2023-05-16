@@ -83,6 +83,24 @@ module.exports = {
   //   return 'Sorry this function is not operational yet';
   // },
 
+  getQuestions: (productID, page, count) => {
+    if (!productID) {
+      console.log('Please enter a product id');
+    }
+    return axios({
+      method: 'get',
+      url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/qa/questions',
+      headers: { 'Authorization': process.env.API_KEY },
+      params: {
+        page: page,
+        count: count,
+        product_id: productID
+      }
+    })
+      .then(results => results.data)
+      .catch((err) => console.log("there was an error getting questions data: "))
+  },
+
   // Get the full reviews data for a specific product
   getReviewsData: (productID, page, count) => {
     if (!productID) {
