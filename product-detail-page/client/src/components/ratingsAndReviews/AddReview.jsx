@@ -3,14 +3,23 @@ import ReviewsModal from './ReviewsModal.jsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
 
+const starPositions = [1, 2, 3, 4, 5];
+const starsExplanation = ['', 'Poor', 'Fair', 'Average', 'Good', 'Great!'];
+const characteristicLabels = {
+  'Size': ['', 'A size too small', '½ a size too small', 'Perfect', '½ a size too big', 'A size too wide'],
+  'Width': ['', 'Too narrow', 'Slightly narrow', 'Perfect', 'Slightly wide', 'Too wide'],
+  'Comfort': ['', 'Uncomfortable', 'Slightly uncomfortable', 'OK', 'Comfortable', 'Perfect'],
+  'Quality': ['', 'Poor', 'Below average', 'What I expected', 'Pretty great', 'Perfect'],
+  'Length': ['', 'Runs short', 'Runs slightly short', 'Perfect', 'Runs slightly long', 'Runs long'],
+  'Fit': ['', 'Runs tight', 'Runs slightly tight', 'Perfect', 'Runs slightly big', 'Runs big']
+};
+const emptyStar = (<FontAwesomeIcon icon={ icon({name: 'star', style: 'regular'}) } />);
+const filledStar = (<FontAwesomeIcon icon={ icon({name: 'star', style: 'solid'}) } />);
+
 const AddReview = ({ productID, productName, characteristics }) => {
   const [addingReview, setAddingReview] = useState(false);
   const [photoCount, setPhotoCount] = useState(0);
   const [starCount, setStarCount] = useState(0);
-  const starPositions = [1, 2, 3, 4, 5];
-  const starsExplanation = ['', 'Poor', 'Fair', 'Average', 'Good', 'Great!'];
-  const emptyStar = (<FontAwesomeIcon icon={ icon({name: 'star', style: 'regular'}) } />);
-  const filledStar = (<FontAwesomeIcon icon={ icon({name: 'star', style: 'solid'}) } />);
 
   return (
     <div>
@@ -38,7 +47,6 @@ const AddReview = ({ productID, productName, characteristics }) => {
               }
               <div className='rr-add-review-overall-explanatory-note'>{ starCount > 0 && starsExplanation[starCount] }</div>
             </div>
-
           </fieldset>
           <fieldset>
             <legend>Do you recommend this product?</legend>
@@ -52,13 +60,29 @@ const AddReview = ({ productID, productName, characteristics }) => {
           </fieldset>
           <fieldset>
             <legend>Characteristics</legend>
-            <div>
-              <input type='radio' id='recommend-yes' value='yes' />
-              <label htmlFor='recommend-yes'>Yes</label>
+            { characteristics.map(charName => {
+              const lowerName = charName.toLowerCase();
+              return (
+                <div className='rr-add-review-row-characteristic'>
+                  <div className='rr-add-review-row-characteristic-selection'>
+                    { 'chosen value here' }
+                  </div>
+                  <div className='rr-add-review-row-characteristic-buttons'>
+                    <label className='rr-add-review-characteristic-label' htmlFor={`${lowerName}`}>{ `${charName}: ` }</label>
 
-              <input type='radio' id='recommend-no' value='no' />
-              <label htmlFor='recommend-no'>No</label>
-            </div>
+                    <input type='radio' name={`${lowerName}`} id={`${lowerName}-0`} value='0' />
+                    <label htmlFor={`${lowerName}-0`}>0</label>
+
+                    <input type='radio' name={`${lowerName}`} id={`${lowerName}-1`} value='1' />
+                    <label htmlFor={`${lowerName}-1`}>1</label>
+                  </div>
+                  <div className='rr-add-review-row-characteristic-low-high-labels'>
+                    <div className='rr-add-review-row-characteristic-low-label'>{``}</div>
+                    <div className='rr-add-review-row-characteristic-high-label'>{``}</div>
+                  </div>
+                </div>
+              )
+            })}
           </fieldset>
           <fieldset>
             <legend>Write your review</legend>
