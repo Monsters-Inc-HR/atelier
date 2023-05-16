@@ -32,11 +32,26 @@ const AddReview = ({ productID }) => {
             <fieldset>
               <legend>Write your review</legend>
 
-              <label htmlFor='review-summary'>Review summary: </label>
-              <input type='text' id='review-summary' name='review-summary' placeholder='Example: A must-buy product for anyone' size='50' required></input>
+              <label htmlFor='rr-add-review-summary'>Review summary: </label>
+              <input type='text' id='rr-add-review-summary' name='rr-add-review-summary' placeholder='Example: A must-buy product for anyone' size='50' maxlength='60' required></input>
 
-              <label htmlFor='review-body'>Review body: </label>
-              <textarea id='review-body' name='review-body' placeholder='Why did you like the product or not?' minlength='50' required></textarea>
+              <label htmlFor='rr-add-review-body'>Review body: </label>
+              <textarea id='rr-add-review-body' name='rr-add-review-body' placeholder='Why did you like the product or not?' minlength='50' required></textarea>
+
+              <label htmlFor='rr-add-review-photos'>Add a photo to your review: </label>
+              <input type='file' id='rr-add-review-photos' name='rrr-add-review-photos' accept='image/*' multiple></input>
+
+            </fieldset>
+            <fieldset>
+              <legend>Your information</legend>
+
+              <label htmlFor='rr-add-review-nickname'>What is your nickname? </label>
+              <input type='text' id='rr-add-review-nickname' name='rr-add-review-nickname' placeholder='Example: jackson11' size='30' maxlength='60' required></input>
+              <span className='rr-review-form-explanatory-note'>For privacy reasons, do not use your full name or email address</span>
+
+              <label htmlFor='rr-add-review-email'>What is your email? </label>
+              <input type='email' id='rr-add-review-email' name='rr-add-review-email' placeholder='Example: jackson11@email.com' required></input>
+              <span className='rr-review-form-explanatory-note'>For authentication reasons, you will not be emailed</span>
             </fieldset>
           </div>
         </form>
