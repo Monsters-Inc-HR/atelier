@@ -9,10 +9,10 @@ const App = () => {
 
   return (
     <div>
-      <Overview />
-      <RelatedItems/>
-      <QuestionsAndAnswers/>
-      <Reviews />
+      <Overview data-testid="overview" />
+      <RelatedItems data-testid="related-items"/>
+      <QuestionsAndAnswers data-testid="questions-and-answers"/>
+      <Reviews data-testid="reviews"/>
     </div>
   )
 }
