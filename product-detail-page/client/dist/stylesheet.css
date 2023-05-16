@@ -95,6 +95,49 @@ overflow-y: scroll;
 ================================================================*/
 
 
+.qa-questions-and-answers {
+  border-style: solid;
+  border-color: rgb(135, 135, 135);
+}
+
+
+.qa-question-entry {
+  font-weight: bold;
+  font-size: large;
+  padding: 10px;
+  box-shadow: rgb(0,0,0,0.44) 0px 5px 5px;
+}
+
+.qa-question-helpful {
+  float: right;
+  font-weight: normal;
+  font-size: normal;
+}
+
+.qa-answer-entry {
+  font-size: large;
+
+}
+
+.qa-answer-entry-body {
+  float: inline-end;
+}
+
+.qa-answer-answerer {
+  font-size: normal;
+  padding-left: 20px;
+}
+
+#qa-searchbar-input {
+  font-size: large;
+  width: 350px;
+}
+
+#aaNickname, #aaEmail, #aqNickname, #aqEmail {
+  width: 300px;
+}
+
+
 
 
 /* ==============================================================
@@ -161,6 +204,20 @@ overflow-y: scroll;
   background: lightgray;
 }
 
+.rr-reviews-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.rr-reviews-list-all-reviews {
+  overflow-y: scroll;
+  scroll-snap-type: y proximity;
+}
+
+.rr-review {
+  scroll-snap-align: start;
+}
+
 .rr-remove-filters-link, .rr-mark-helpful-link {
   text-decoration: underline;
   color: #0076d1;
@@ -177,12 +234,12 @@ overflow-y: scroll;
   margin: 10px;
 }
 
-.rr-full-screen-modal-image-close-container {
+.rr-full-screen-modal-close-container {
   display: flex;
   justify-content: center;
 }
 
-.rr-full-screen-modal-image-close {
+.rr-full-screen-modal-close {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -193,12 +250,52 @@ overflow-y: scroll;
   border-radius: 5px;
 }
 
-.rr-full-screen-modal-image-close > * {
+.rr-full-screen-modal-close > * {
   margin: 3px;
+}
+
+.rr-add-review-stars {
+  display: flex;
+}
+
+.rr-add-review-row-characteristic {
+  display: flex;
+}
+
+.rr-add-review-characteristic-row-label {
+  width: 15%;
+}
+
+.rr-add-review-characteristic-row-content {
+  width: 60%
+}
+
+.rr-add-review-row-characteristic-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rr-add-review-row-characteristic-low-high-labels {
+  display: flex;
+  justify-content: space-between;
 }
 
 .rr-review-seller-response-title {
   font-weight: bold;
+}
+
+.rr-reviews-list-buttons {
+  display: flex;
+}
+
+.review-form-explanatory-note {
+  font-size: small;
+  font-style: italic;
+}
+
+.rr-review-photo-alert {
+  font-size: small;
+  color: orangered;
 }
 
 .rr-scale-bars-and-slider {
