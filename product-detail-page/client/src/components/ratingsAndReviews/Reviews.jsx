@@ -7,6 +7,7 @@ import { getPageOfReviews, getReviewsMetaData } from './controllerReviews.js';
 
 const Reviews = () => {
   const productID = 37311;
+  const productName = 'sunglasses';
   const [reviewsMetaData, setReviewsMetaData] = useState(undefined);  // no data to display until it is fetched
   const [reviewsData, setReviewsData] = useState({});
   const defaultSort = 'relevant';  // relevant is the default sort option
@@ -61,7 +62,7 @@ const Reviews = () => {
           otherwise, the subcomponents will cause errors
         */}
         {reviewsMetaData && <ReviewsSummary metaData={ reviewsMetaData } filters={ filters } filterClick={ filterClick } removeFilters={ removeFilters }/>}
-        {reviewsList && <ReviewsList reviews={ reviewsList } sortList={ sortList } productID={ productID }/>}
+        {reviewsList && <ReviewsList reviews={ reviewsList } sortList={ sortList } productID={ productID } productName={ productName } characteristics={ Object.keys(reviewsMetaData.characteristics) }/>}
       </div>
     </div>
   )

@@ -3,7 +3,7 @@ import ReviewsModal from './ReviewsModal.jsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
 
-const AddReview = ({ productID }) => {
+const AddReview = ({ productID, productName, characteristics }) => {
   const [addingReview, setAddingReview] = useState(false);
   const [photoCount, setPhotoCount] = useState(0);
   const [starCount, setStarCount] = useState(0);
@@ -22,8 +22,7 @@ const AddReview = ({ productID }) => {
           </div>
         </div>
         <h1>Write Your Review</h1>
-        <h3>About </h3>
-
+        <h3>About { productName } </h3>
 
         <form className='rr-add-review'>
           <fieldset>
@@ -42,17 +41,17 @@ const AddReview = ({ productID }) => {
 
           </fieldset>
           <fieldset>
-            <legend>Do you recommend this product? </legend>
+            <legend>Do you recommend this product?</legend>
             <div>
-              <input type='radio' id='recommend-yes' value='yes' />
+              <input type='radio' name='recommend' id='recommend-yes' value='yes' />
               <label htmlFor='recommend-yes'>Yes</label>
 
-              <input type='radio' id='recommend-no' value='no' />
+              <input type='radio' name='recommend' id='recommend-no' value='no' />
               <label htmlFor='recommend-no'>No</label>
             </div>
           </fieldset>
           <fieldset>
-            <legend>Do you recommend this product? </legend>
+            <legend>Characteristics</legend>
             <div>
               <input type='radio' id='recommend-yes' value='yes' />
               <label htmlFor='recommend-yes'>Yes</label>
