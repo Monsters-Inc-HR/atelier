@@ -9,7 +9,7 @@ const axios = require('axios');
         return products.data;
       })
       .catch((err) => {
-        console.log(err);
+        console.log('Error getting related products');
       })
   },
 
