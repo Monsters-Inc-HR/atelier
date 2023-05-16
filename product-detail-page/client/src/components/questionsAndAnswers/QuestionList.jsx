@@ -19,4 +19,3 @@ const QuestionList = ({questions, numOfQuestions, searchQuery}) => {
 export default QuestionList
 
 
-
