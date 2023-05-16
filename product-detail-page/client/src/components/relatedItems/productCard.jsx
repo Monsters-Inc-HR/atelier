@@ -28,10 +28,10 @@ const Card = ({product, images, salePrice, focusedItem, Internal, filterUserProd
        : <DeleteButton filterUserProducts={filterUserProducts} productID={productID}/>}
      <div className='related related-container-card'>
       <p className="related-product-category">{product.category}</p>
-      <p>{product.name}</p>
-      {salePrice ? <><p style={{color: 'red'}}>${salePrice}</p>
+      <strong className="related-product-name">{product.name}</strong>
+      {salePrice ? <div className="related-sale-price"><p style={{color: 'red', marginRight: '5px'}}>${salePrice}</p>
       <p style={{textDecoration: 'line-through'}}>
-      ${product.default_price}</p></> : <p>${product.default_price}</p>}
+      ${product.default_price}</p></div> : <p className="related-price">${product.default_price}</p>}
       <StarBar rating={3}/>
     </div>
     {renderComparison ? <Comparison closeCompare={closeCompare}
