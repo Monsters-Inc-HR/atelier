@@ -20,7 +20,7 @@ const AddReview = ({ productID }) => {
         <form className='rr-add-review'>
           <div className='rr-form-field'>
             <fieldset>
-              <legend>Do you recommend this product?</legend>
+              <legend>Do you recommend this product? </legend>
               <div>
                 <input type='radio' id='recommend-yes' value='yes' />
                 <label for='recommend-yes'>Yes</label>
@@ -29,6 +29,10 @@ const AddReview = ({ productID }) => {
                 <label for='recommend-no'>No</label>
               </div>
             </fieldset>
+
+            <label for='review-summary'>Review summary: </label>
+            <input type='text' id='review-summary' name='review-summary' placeholder='A must-buy product for anyone' size='50' required></input>
+
           </div>
         </form>
 
