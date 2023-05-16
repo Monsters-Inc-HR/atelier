@@ -15,11 +15,22 @@ const characteristicLabels = {
 };
 const emptyStar = (<FontAwesomeIcon icon={ icon({name: 'star', style: 'regular'}) } />);
 const filledStar = (<FontAwesomeIcon icon={ icon({name: 'star', style: 'solid'}) } />);
+const staticImages = [
+  'https://static.wikia.nocookie.net/disney/images/6/69/Profile_-_Roz.jpeg/revision/latest?cb=20190313152404',
+  'https://static.wikia.nocookie.net/pixar/images/2/26/Boo_with_costume.png/revision/latest?cb=20210422084027',
+  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7fGb6xepP8Ax-vVCLi2qq2N2_rpn7DI1bf8b6zymVDw&usqp=CAU&ec=48600112'
+]
 
 const AddReview = ({ productID, productName, characteristics }) => {
   const [addingReview, setAddingReview] = useState(false);
-  const [photoCount, setPhotoCount] = useState(0);
   const [starCount, setStarCount] = useState(0);
+
+  const submitHandler = (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const reviewObj = Object.fromEntries(formData.entries());
+    reviewObj.rating = starCount;
+  }
 
   return (
     <div>
@@ -33,7 +44,7 @@ const AddReview = ({ productID, productName, characteristics }) => {
         <h1>Write Your Review</h1>
         <h3>About { productName } </h3>
 
-        <form className='rr-add-review'>
+        <form className='rr-add-review' method='post' onSubmit={ submitHandler }>
           <fieldset>
             <legend>Overall rating</legend>
             <div className='rr-add-review-stars'>
@@ -86,14 +97,16 @@ const AddReview = ({ productID, productName, characteristics }) => {
           <fieldset>
             <legend>Write your review</legend>
 
-            <label htmlFor='rr-add-review-summary'>Review summary: </label>
-            <input type='text' id='rr-add-review-summary' name='rr-add-review-summary' placeholder='Example: A must-buy product for anyone' size='50' maxLength='60' required></input>
+            <label htmlFor='add-review-summary'>Review summary: </label>
+            <input type='text' id='add-review-summary' name='add-review-summary' placeholder='Example: A must-buy product for anyone' size='50' maxLength='60' required></input>
 
-            <label htmlFor='rr-add-review-body'>Review body: </label>
-            <textarea id='rr-add-review-body' name='rr-add-review-body' placeholder='Why did you like the product or not?' minLength='50' required></textarea>
+            <label htmlFor='add-review-body'>Review body: </label>
+            <textarea id='add-review-body' name='add-review-body' placeholder='Why did you like the product or not?' minLength='50' required></textarea>
 
-            <label htmlFor='rr-add-review-photos'>Add a photo to your review: </label>
-            <input type='file' id='rr-add-review-photos' name='rrr-add-review-photos' accept='image/*' multiple></input>
+            <label htmlFor='add-review-photos'>Add photos to your review: </label>
+            <input type='file' id='add-review-photos' name='add-review-photos' accept='image/*' multiple></input>
+
+            <div className='rr-add-review-photo-display'></div>
 
           </fieldset>
           <fieldset>
@@ -101,14 +114,14 @@ const AddReview = ({ productID, productName, characteristics }) => {
 
             <label htmlFor='rr-add-review-nickname'>What is your nickname? </label>
             <input type='text' id='rr-add-review-nickname' name='rr-add-review-nickname' placeholder='Example: jackson11' size='30' maxlength='60' required></input>
-            <span className='rr-review-form-explanatory-note'>For privacy reasons, do not use your full name or email address</span>
+            <div className='rr-review-form-explanatory-note'>For privacy reasons, do not use your full name or email address</div>
 
             <label htmlFor='rr-add-review-email'>What is your email? </label>
             <input type='email' id='rr-add-review-email' name='rr-add-review-email' placeholder='Example: jackson11@email.com' required></input>
-            <span className='rr-review-form-explanatory-note'>For authentication reasons, you will not be emailed</span>
+            <div className='rr-review-form-explanatory-note'>For authentication reasons, you will not be emailed</div>
           </fieldset>
+          <input type='submit' value='Submit review' />
         </form>
-
       </ReviewsModal>
     }
     </div>
