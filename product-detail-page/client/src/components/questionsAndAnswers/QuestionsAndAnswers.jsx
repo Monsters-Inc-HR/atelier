@@ -5,6 +5,8 @@ import AddQuestionModal from "./AddQuestionModal.jsx";
 import AddAnswerModal from "./AddAnswerModal.jsx";
 import { getQuestions } from "./controllerQ&A.js";
 
+const qaUserClickData = [];
+
 const QuestionsAndAnswers = ( { productID, productName }) => {
 
 
@@ -43,10 +45,18 @@ const QuestionsAndAnswers = ( { productID, productName }) => {
     setAddQuestionModalShow(false)
   }
 
-  console.log('num ', numOfQuestions, '.length', questionsAPI.length)
+  const handleQAWidgetClick = (e) => {
+    var userData = {
+      element: e.target,
+      time: Date.now(),
+      widget: 'Q&A'
+    }
+    qaUserClickData.push(userData);
+    console.log(qaUserClickData);
+  }
 
   return (
-    <div className="qa-questions-and-answers">
+    <div className="qa-questions-and-answers" onClick={(e) => handleQAWidgetClick(e)}>
       <p>Questions and Answers</p>
       {questionsAPI.length? (
         <div>

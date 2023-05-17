@@ -50,7 +50,6 @@ justify-content: center;
 }
 
 .related-container-card {
-
   position: relative;
   display: flex;
   justify-content: center;
@@ -108,12 +107,9 @@ overflow-y: scroll;
 
 .qa-questions-and-answers-buttons {
   padding: 10px;
-  padding-top: 10px;
 }
 
-#qa-questions-and-answers-maq {
-  padding-top: 10px;
-}
+
 
 .qa-question-list {
   max-height: 90vh;
@@ -125,6 +121,7 @@ overflow-y: scroll;
   font-weight: bold;
   font-size: large;
   padding: 10px;
+  overflow: auto;
   box-shadow: rgb(0,0,0,0.44) 0px 5px 5px;
 }
 
