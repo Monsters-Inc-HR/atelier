@@ -19,6 +19,8 @@
 .related-container-list {
   display: flex;
   flex-direction: row;
+  align-items: stretch;
+  justify-content: space-between;
   overflow: hidden;
   height: 650px;
   width: 100%;
