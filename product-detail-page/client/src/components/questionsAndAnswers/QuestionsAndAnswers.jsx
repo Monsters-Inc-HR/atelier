@@ -9,7 +9,6 @@ const QuestionsAndAnswers = ( { productID, productName }) => {
 
 
   const [questionsAPI, setQuestionsAPI] = useState([]);
-  const [maxNumOfQuestions, setMaxNumOfQuestions] = useState(0);
 
   useEffect(() => {
     getQuestions(productID)
@@ -17,7 +16,7 @@ const QuestionsAndAnswers = ( { productID, productName }) => {
         var questions = questData.results
         //sorts the array of question objects in order of helpfulness from high to low
         questions = questions.sort((a,b) => (b.question_helpfulness - a.question_helpfulness ));
-        setMaxNumOfQuestions(questions.length);
+        //setMaxNumOfQuestions(questions.length);
         setQuestionsAPI(questions);
 
       })
@@ -29,14 +28,11 @@ const QuestionsAndAnswers = ( { productID, productName }) => {
 
   const [searchQuery, setSearchQuery] = useState('');
 
-  const [questionRenderMax, setQuestionRenderMax] = useState(false);
-
   const moreAnsweredQuestionClick = () => {
-    console.log(numOfQuestions, maxNumOfQuestions, numOfQuestions<maxNumOfQuestions)
-    if (numOfQuestions < maxNumOfQuestions) {
+    console.log('more answered questions clicked')
+    //numOfQuestions < maxNumOfQuestions
+    if (numOfQuestions < questionsAPI.length) {
       setNumOfQuestions(numOfQuestions + 2)
-    } else {
-      setQuestionRenderMax(true);
     }
   };
 
@@ -47,6 +43,8 @@ const QuestionsAndAnswers = ( { productID, productName }) => {
     setAddQuestionModalShow(false)
   }
 
+  console.log('num ', numOfQuestions, '.length', questionsAPI.length)
+
   return (
     <div className="qa-questions-and-answers">
       <p>Questions and Answers</p>
@@ -54,7 +52,7 @@ const QuestionsAndAnswers = ( { productID, productName }) => {
         <div>
           <Searchbar searchQuery={searchQuery} setSearchQuery={setSearchQuery}/><br></br>
           <QuestionList questions={questionsAPI} numOfQuestions={numOfQuestions} searchQuery={searchQuery} productName={productName} />
-          { (questionsAPI.length < 2 || numOfQuestions >= maxNumOfQuestions) ? null : <button onClick={moreAnsweredQuestionClick}>More Answered Questions</button>}
+          { (numOfQuestions < questionsAPI.length) ? <button onClick={moreAnsweredQuestionClick}>More Answered Questions</button> : null }
         </div>
       ) : null }
       <div><AddQuestionModal open={addQuestionModalShow} onClose={addQuestionModalClose} questions={questionsAPI} productName={productName} />
@@ -65,6 +63,8 @@ const QuestionsAndAnswers = ( { productID, productName }) => {
 }
 
 export default QuestionsAndAnswers
+
+
 
 
 
