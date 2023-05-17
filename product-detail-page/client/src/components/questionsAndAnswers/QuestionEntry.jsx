@@ -72,7 +72,8 @@ const QuestionEntry = ({question, productName}) => {
             <AddAnswerModal open={addAnswerModalShow} onClose={addAnswerModalClose} productName={productName} question={question}/>
             <a onClick={()=>{setAddAnswerModalShow(true)}}>Add Answer</a><br></br>
           </div>
-        </div>
+          </div>
+
           {answers.slice(0, numOfAnswers).map((answer, index) => (
           <AnswerEntry  answer={answer} key={index} />
         ))}

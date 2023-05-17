@@ -103,6 +103,16 @@ overflow-y: scroll;
 .qa-questions-and-answers {
   border-style: solid;
   border-color: rgb(135, 135, 135);
+  width: 80%;
+}
+
+.qa-questions-and-answers-buttons {
+  padding: 10px;
+  padding-top: 10px;
+}
+
+#qa-questions-and-answers-maq {
+  padding-top: 10px;
 }
 
 .qa-question-list {
@@ -119,7 +129,7 @@ overflow-y: scroll;
 }
 
 .qa-question-helpful {
-  float: right;
+  float:right;
   font-weight: normal;
   font-size: normal;
 }

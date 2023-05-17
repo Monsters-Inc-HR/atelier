@@ -11,7 +11,7 @@ const QuestionsAndAnswers = ( { productID, productName }) => {
   const [questionsAPI, setQuestionsAPI] = useState([]);
 
   useEffect(() => {
-    getQuestions(productID)
+    getQuestions(37330)
       .then(questData => {
         var questions = questData.results
         //sorts the array of question objects in order of helpfulness from high to low
@@ -52,12 +52,13 @@ const QuestionsAndAnswers = ( { productID, productName }) => {
         <div>
           <Searchbar searchQuery={searchQuery} setSearchQuery={setSearchQuery}/><br></br>
           <QuestionList questions={questionsAPI} numOfQuestions={numOfQuestions} searchQuery={searchQuery} productName={productName} />
-          { (numOfQuestions < questionsAPI.length) ? <button onClick={moreAnsweredQuestionClick}>More Answered Questions</button> : null }
         </div>
       ) : null }
-      <div><AddQuestionModal open={addQuestionModalShow} onClose={addQuestionModalClose} questions={questionsAPI} productName={productName} />
-      <button onClick={()=>{setAddQuestionModalShow(true)}}>Add a question</button></div>
-    </div>
+      <div className="qa-questions-and-answers-buttons">
+        { (numOfQuestions < questionsAPI.length) ? <button onClick={moreAnsweredQuestionClick}>More Answered Questions</button> : null }
+        <AddQuestionModal open={addQuestionModalShow} onClose={addQuestionModalClose} questions={questionsAPI} productName={productName} />
+        <button onClick={()=>{setAddQuestionModalShow(true)}}>Add a question</button></div>
+      </div>
     )
 
 }
