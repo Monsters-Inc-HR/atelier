@@ -3,7 +3,8 @@ import AnswerEntry from './AnswerEntry.jsx';
 import AddAnswerModal from "./AddAnswerModal.jsx";
 
 
-const QuestionEntry = ({question}) => {
+const QuestionEntry = ({question, productName}) => {
+
 
   //converts object of answers to an array of answers
   //individual answer objects still have an id property
@@ -68,7 +69,7 @@ const QuestionEntry = ({question}) => {
             {' Helpful? '}
             <a onClick={handleHelpfulQuestionClick}>Yes ({questionHelpfulness})</a>
             {' | '}
-            <AddAnswerModal open={addAnswerModalShow} onClose={addAnswerModalClose}/>
+            <AddAnswerModal open={addAnswerModalShow} onClose={addAnswerModalClose} productName={productName} question={question}/>
             <a onClick={()=>{setAddAnswerModalShow(true)}}>Add Answer</a><br></br>
           </div>
         </div>

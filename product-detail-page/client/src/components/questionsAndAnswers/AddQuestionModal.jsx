@@ -23,7 +23,7 @@ const OVERLAY_STYLES = {
 }
 
 
-const AddQuestionModal = ({open, onClose, questions}) => {
+const AddQuestionModal = ({open, onClose, questions, productName}) => {
 
   if (!open) {
     return (null);
@@ -73,7 +73,7 @@ const AddQuestionModal = ({open, onClose, questions}) => {
     <div style={MODAL_STYLES}>
       <form>
         <h2>Ask Your Question</h2>
-        <h3>About the **product name**</h3>
+        <h3>About the {productName}</h3>
         <br></br>
         <label>Your Question*</label>
         <textarea type="text" id="aqQuestion" maxLength="1000" onChange={aqQuestionChange}></textarea><br></br>

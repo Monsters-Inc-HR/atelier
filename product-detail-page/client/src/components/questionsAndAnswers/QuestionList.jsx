@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import QuestionEntry from './QuestionEntry.jsx';
 import QuestionsAndAnswers from "./QuestionsAndAnswers.jsx";
 
-const QuestionList = ({questions, numOfQuestions, searchQuery}) => {
+const QuestionList = ({questions, numOfQuestions, searchQuery, productName}) => {
+
 
   return (
     <div className="qa-question-list">
@@ -10,6 +11,7 @@ const QuestionList = ({questions, numOfQuestions, searchQuery}) => {
       <QuestionEntry
         question={question}
         key={index}
+        productName={productName}
       />
       ))}
     </div>
