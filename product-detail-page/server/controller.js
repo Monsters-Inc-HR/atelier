@@ -170,7 +170,7 @@ module.exports = {
       params: data,
       headers: { 'authorization': process.env.API_KEY }
     })
-      .then(res => res.data)
+      .then(res => res.status)
       .catch(err => console.log("there was an error posting the review: ", err));
   }
 };

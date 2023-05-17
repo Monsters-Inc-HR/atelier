@@ -51,6 +51,7 @@ module.exports = {
 
   submitReview: (newReviewData) => {
     return axios.post('http://localhost:3000/reviews', newReviewData)
+      .then(res => console.log('status for post: ', res))
       .catch(err => console.log("there was an error posting the review"));
   }
 };
