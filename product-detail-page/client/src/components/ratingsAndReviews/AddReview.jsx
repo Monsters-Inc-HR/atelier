@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ReviewsModal from './ReviewsModal.jsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
+import { submitReview } from './controllerReviews.js';
 
 const positions = [1, 2, 3, 4, 5];
 const starsExplanation = ['', 'Poor', 'Fair', 'Average', 'Good', 'Great!'];
@@ -34,8 +35,7 @@ const AddReview = ({ productID, productName, characteristics }) => {
     reviewObj['add-review-photos'] = formData.getAll('add-review-photos');
     reviewObj.rating = starCount;
 
-    // call API here
-
+    submitReview(reviewObj);
     setAddingReview(false);
   }
 

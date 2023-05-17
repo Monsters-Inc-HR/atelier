@@ -104,6 +104,10 @@ app.put('/reviews/report', (req, res) => {
     .catch(err => res.send(err));
 });
 
+app.post('/reviews', (req, res) => {
+  console.log(req.body);
+})
+
 app.listen(3000, () => {
   console.log('Server listening on port 3000')
 });

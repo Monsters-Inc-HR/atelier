@@ -49,8 +49,8 @@ module.exports = {
       );
   },
 
-  submitReview: (data) => {
-    return axios.post('http://localhost:3000/reviews', data)
+  submitReview: (newReviewData) => {
+    return axios.post('http://localhost:3000/reviews', newReviewData)
       .catch(err => console.log("there was an error posting the review"));
   }
 };

@@ -161,5 +161,16 @@ module.exports = {
     })
       .then(res => res.data)
       .catch(err => console.log("there was an error reporting the review: ", err));
+  },
+
+  postReview: (data) => {
+    return axios({
+      method: 'post',
+      url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews',
+      params: data,
+      headers: { 'authorization': process.env.API_KEY }
+    })
+      .then(res => res.data)
+      .catch(err => console.log("there was an error posting the review: ", err));
   }
 };
