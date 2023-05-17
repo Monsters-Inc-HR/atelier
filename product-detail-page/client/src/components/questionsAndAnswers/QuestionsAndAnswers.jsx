@@ -59,7 +59,7 @@ const QuestionsAndAnswers = () => {
           { (questionsAPI.length < 2 || numOfQuestions >= maxNumOfQuestions) ? null : <button onClick={moreAnsweredQuestionClick}>More Answered Questions</button>}
         </div>
       ) : null }
-      <div><AddQuestionModal open={addQuestionModalShow} onClose={addQuestionModalClose} questions={questionsAPI}/>
+      <div><AddQuestionModal open={addQuestionModalShow} onClose={addQuestionModalClose} questions={questionsAPI} />
       <button onClick={()=>{setAddQuestionModalShow(true)}}>Add a question</button></div>
     </div>
     )
