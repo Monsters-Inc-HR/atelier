@@ -24,10 +24,10 @@ const staticImages = [
 const maxPhotos = 5;
 
 const AddReview = ({ productID, productName, characteristics }) => {
+  console.log(characteristics);
   const [addingReview, setAddingReview] = useState(false);
   const [starCount, setStarCount] = useState(0);
   const [photoAlert, setPhotoAlert] = useState(false);
-
   const submitHandler = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
