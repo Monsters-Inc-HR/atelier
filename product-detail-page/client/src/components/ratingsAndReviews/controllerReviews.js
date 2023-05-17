@@ -47,5 +47,10 @@ module.exports = {
     return axios.put(`http://localhost:3000/reviews/${update}`,
         {'review_id': reviewID}
       );
+  },
+
+  submitReview: (data) => {
+    return axios.post('http://localhost:3000/reviews', data)
+      .catch(err => console.log("there was an error posting the review"));
   }
 };
