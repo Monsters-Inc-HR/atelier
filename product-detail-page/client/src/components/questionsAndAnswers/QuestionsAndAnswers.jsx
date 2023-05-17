@@ -31,8 +31,6 @@ const QuestionsAndAnswers = ( { productID, productName }) => {
   const [searchQuery, setSearchQuery] = useState('');
 
   const moreAnsweredQuestionClick = () => {
-    console.log('more answered questions clicked')
-    //numOfQuestions < maxNumOfQuestions
     if (numOfQuestions < questionsAPI.length) {
       setNumOfQuestions(numOfQuestions + 2)
     }
