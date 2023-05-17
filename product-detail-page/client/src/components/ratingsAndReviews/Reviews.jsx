@@ -5,9 +5,7 @@ import sortReviews from '../../lib/sortReviews.js';
 import inferTotalPossibleReviews from '../../lib/inferTotalPossibleReviews.js';
 import { getPageOfReviews, getReviewsMetaData } from './controllerReviews.js';
 
-const Reviews = () => {
-  const productID = 37311;
-  const productName = 'sunglasses';
+const Reviews = ({ productID, productName }) => {
   const [reviewsMetaData, setReviewsMetaData] = useState(undefined);  // no data to display until it is fetched
   const [reviewsData, setReviewsData] = useState({});
   const defaultSort = 'relevant';  // relevant is the default sort option
