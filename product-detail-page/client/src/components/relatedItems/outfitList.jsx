@@ -1,7 +1,8 @@
 import React from 'react';
 import Card from './productCard.jsx';
 import { useState, useRef, useEffect } from 'react';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 
 
 const Outfit = ({ userProducts, productStyles, filterUserProducts }) => {
@@ -91,15 +92,11 @@ const Outfit = ({ userProducts, productStyles, filterUserProducts }) => {
         }) : <h4>Add a product...</h4> }
       </div>
       {viewCounter > 0 ? (
-        <button className="left-button" onClick={decreaseView}>
-          Left
-        </button>
-      ) : null}
-      {viewCounter < userProducts.length ? (
-        <button className="right-button" onClick={increaseView}>
-          Right
-        </button>
-      ) : null}
+      <FontAwesomeIcon icon={faChevronLeft} className="left-button" onClick={decreaseView}/>
+    ) : null}
+    {viewCounter < userProducts.length ? (
+      <FontAwesomeIcon icon={faChevronRight} className="right-button" onClick={increaseView}/>
+    ) : null}
     </div>
   );
 }

@@ -2,6 +2,8 @@ import React from 'react';
 import Card from './productCard.jsx';
 import { useState, useEffect, useRef } from 'react';
 import Comparison from './comparison.jsx';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 
 
 const List =  ({products, compare, productStyles, focusedItem}) => {
@@ -68,13 +70,13 @@ useEffect(() => {
 
 
 return (
-  <div>
+  <div id="related-items">
+  <div >
     <h4>Related Items</h4>
     <div
       className="related-container-list"
       ref={containerRef}
-      style={{ overflowX: 'scroll' }}
-    >
+      style={{ overflowX: 'scroll' }}>
       {products.map((product) => {
         if (product) {
           let images = productImages[product.id];
@@ -93,17 +95,14 @@ return (
         }
       })}
     </div>
-    {viewCounter > 0 ? (
-      <button className="left-button" onClick={decreaseView}>
-        Left
-      </button>
+  </div>
+     {viewCounter > 0 ? (
+      <FontAwesomeIcon icon={faChevronLeft} className="left-button" onClick={decreaseView}/>
     ) : null}
     {viewCounter < products.length ? (
-      <button className="right-button" onClick={increaseView}>
-        Right
-      </button>
+      <FontAwesomeIcon icon={faChevronRight} className="right-button" onClick={increaseView}/>
     ) : null}
-  </div>
+    </div>
 );
 
     };

@@ -59,9 +59,9 @@ const renderTable = () => {
 
 
   return (
-    <div onClick={handleClick} className="related-comparison-modal">
+    <div onClick={handleClick} id="comparison-modal">
       <section>
-      <h5 className="related-comparison-title">Comparing</h5>
+      <p className="related-comparison-title">Comparing</p>
       <table className="related-comparison-table">
         <thead>
           <tr>
