@@ -10,6 +10,12 @@
 
 /* Product List */
 
+* {
+  box-sizing: border-box;
+  scrollbar-color: transparent transparent;
+  scrollbar-width: 0px;
+}
+
 .related {
   /* border: 1px solid black; */
   margin: 5px, 0, 0, 0;
@@ -19,11 +25,26 @@
 .related-container-list {
   display: flex;
   flex-direction: row;
-  align-items: stretch;
-  justify-content: space-between;
+  /* align-items: stretch; */
+  /* justify-content: space-between; */
   overflow: hidden;
+  /* flex-flow: nowrap; */
   height: 650px;
   width: 100%;
+  transition: transform 1s ease-in-out;
+}
+
+*::-webkit-scrollbar {
+  width: 0;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: transparent;
+  border: none;
 }
 
 /* Product Card */
@@ -32,17 +53,19 @@
 box-shadow: 0 4px 8px rgba(0,0,0, 0.2);
 transition: 0.3s;
 height: 600px;
-width: 450px;
-position: relative;
+min-width: 450px;
 margin: 10px;
 top: 10px;
 left: 10px;
 font-size: small;
 justify-content: center;
+transition: transform 0.3s ease-in-out;
 }
 
 .product-card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  transform: translateY(-5px);
+
 }
 
 .related-product-img {

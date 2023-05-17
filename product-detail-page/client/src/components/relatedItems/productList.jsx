@@ -68,13 +68,12 @@ useEffect(() => {
 
 
 return (
-  <div>
+  <section>
     <h4>Related Items</h4>
     <div
       className="related-container-list"
       ref={containerRef}
-      style={{ overflowX: 'scroll' }}
-    >
+      style={{ overflowX: 'scroll' }}>
       {products.map((product) => {
         if (product) {
           let images = productImages[product.id];
@@ -103,7 +102,7 @@ return (
         Right
       </button>
     ) : null}
-  </div>
+  </section>
 );
 
     };
