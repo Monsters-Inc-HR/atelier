@@ -16,10 +16,14 @@ const App = () => {
       .catch(err => console.log("there was an error getting the product data in the App"));
   }, [productID]);
 
+  const updateMain = (productID) => {
+    setProductID(productID);
+  }
+
   return (
     <div>
       <Overview />
-      <RelatedItems/>
+      <RelatedItems productID={productID} updateMain={updateMain} />
       <QuestionsAndAnswers/>
       <Reviews productID={ productID } productName={ productInfo && productInfo.name }/>
     </div>

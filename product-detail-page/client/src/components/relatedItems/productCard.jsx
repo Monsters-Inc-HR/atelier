@@ -5,7 +5,7 @@ import DeleteButton from './deleteButton.jsx';
 import StarBar from '../ratingsAndReviews/StarBar.jsx';
 import Comparison from './comparison.jsx';
 
-const Card = ({product, images, salePrice, focusedItem, Internal, filterUserProducts}) => {
+const Card = ({product, images, salePrice, focusedItem, Internal, filterUserProducts, updateMain}) => {
 
   const [renderComparison, setRenderComparison] = useState(false);
 
@@ -19,9 +19,13 @@ const Card = ({product, images, salePrice, focusedItem, Internal, filterUserProd
 
   const productID = product.id;
 
+  const handleClick = () => {
+    updateMain(productID);
+  }
+
   return (
 
-    <div className="product-card">
+    <div className="product-card" onClick={handleClick}>
       <img alt="product-image" className="related-product-img"
         src={images ? images[0].url : "https://tinyurl.com/2utv43j5"}/>
        {Internal ? <RelatedButton compare={compare}/>

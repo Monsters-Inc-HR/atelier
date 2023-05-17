@@ -6,15 +6,18 @@ import Comparison from './comparison.jsx';
 import itemArray from './dummyData.js';
 import Controller from './controller.js';
 
-const RelatedItems = () => {
+const RelatedItems = ({ productID, updateMain }) => {
+
   const [productIds, setProductIds] = useState([]);
   const [products, setProducts] = useState(itemArray);
   const [userProducts, setUserProducts] = useState(itemArray);
   const [focusedItem, setFocusedItem] = useState({});
   const [productStyles, setProductStyles] = useState([]);
 
+  console.log('Main product id:', productID);
+
   useEffect(() => {
-    Controller.getRelatedProducts()
+    Controller.getRelatedProducts(productID)
       .then((productIds) => {
         setProductIds(productIds);
         return Promise.all(
@@ -60,7 +63,7 @@ const RelatedItems = () => {
 
   return (
     <>
-      <List products={products} productStyles={productStyles} focusedItem={focusedItem}/>
+      <List products={products} productStyles={productStyles} focusedItem={focusedItem} updateMain={updateMain}/>
       <Outfit userProducts={userProducts} productStyles={productStyles} filterUserProducts={filterUserProducts}/>
     </>
   );

@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import Comparison from './comparison.jsx';
 
 
-const List =  ({products, compare, productStyles, focusedItem}) => {
+const List =  ({products, compare, productStyles, focusedItem, updateMain}) => {
 
 const [productImages, setProductImages] = useState({});
 const [salePrices, setSalePrices] = useState({});
@@ -88,6 +88,7 @@ return (
               compare={compare}
               focusedItem={focusedItem}
               Internal={Internal}
+              updateMain={updateMain}
             />
           );
         }
