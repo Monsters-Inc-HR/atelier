@@ -106,7 +106,7 @@ app.put('/reviews/report', (req, res) => {
 
 app.post('/reviews', (req, res) => {
   controller.postReview(req.body)
-    .then(status => res.sendStatus(status))
+    .then(response => res.send(response))
     .catch(err => res.send(err));
 })
 

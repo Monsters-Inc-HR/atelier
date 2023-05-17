@@ -38,7 +38,8 @@ const AddReview = ({ productID, productName, characteristics }) => {
     review.rating = starCount;
     review.summary = formObj['add-review-summary'];
     review.body = formObj['add-review-body'];
-    review.recommend = formObj.recommend;
+    console.log(typeof review.body)
+    review.recommend = formObj.recommend === 'yes';
     review.name = formObj['add-review-nickname'];
     review.email = formObj['add-review-email'];
     const photos = [];

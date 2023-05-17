@@ -164,13 +164,13 @@ module.exports = {
   },
 
   postReview: (data) => {
+    console.log(data);
     return axios({
       method: 'post',
       url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews',
-      params: data,
+      data: data,
       headers: { 'authorization': process.env.API_KEY }
     })
-      .then(res => res.status)
       .catch(err => console.log("there was an error posting the review: ", err));
   }
 };
