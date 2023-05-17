@@ -77,8 +77,9 @@ app.get('/reviews', (req, res) => {
   if (page) page = page[1];  // set page to parameter value only if it exists in the params; otherwise, leave undefined
   let count = paramsTuples.find(tuple => tuple[0] === 'count');  // will be undefined if this param has not been provided
   if (count) count = count[1];  // set count to parameter value only if it exists in the params; otherwise, leave undefined
+  let sort = paramsTuples.find(tuple => tuple[0] === 'sort');
 
-  controller.getReviewsData(productID, page, count)
+  controller.getReviewsData(productID, page, count, sort)
     .then(results => res.send(results))
     .catch(err => res.send(err));
 });

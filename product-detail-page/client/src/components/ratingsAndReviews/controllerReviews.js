@@ -12,7 +12,8 @@ module.exports = {
       params: {
         'product_id': productID,
         'page': page,
-        'count': count
+        'count': count,
+        'sort': sort
       }
     })
     .then((reviews) => {

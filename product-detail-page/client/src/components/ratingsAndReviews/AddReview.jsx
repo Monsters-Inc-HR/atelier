@@ -17,13 +17,12 @@ const characteristicLabels = {
 const emptyStar = (<FontAwesomeIcon icon={ icon({name: 'star', style: 'regular'}) } />);
 const filledStar = (<FontAwesomeIcon icon={ icon({name: 'star', style: 'solid'}) } />);
 const fakeImagesUrls = [
-  'https://static.wikia.nocookie.net/disney/images/6/69/Profile_-_Roz.jpeg/revision/latest?cb=20190313152404',
-  'https://static.wikia.nocookie.net/pixar/images/2/26/Boo_with_costume.png/revision/latest?cb=20210422084027',
+  'https://media.cnn.com/api/v1/images/stellar/prod/200906155336-04-thompson-farm-sunflowers.jpg?q=x_2,y_112,h_898,w_1596,c_crop/h_540,w_960/f_webp',
   'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7fGb6xepP8Ax-vVCLi2qq2N2_rpn7DI1bf8b6zymVDw&usqp=CAU&ec=48600112'
 ];
 const maxPhotos = 5;
 
-const AddReview = ({ productID, productName, characteristics }) => {
+const AddReview = ({ productID, productName, characteristics, retrieveFreshReviews }) => {
   const [addingReview, setAddingReview] = useState(false);
   const [starCount, setStarCount] = useState(0);
   const [photoAlert, setPhotoAlert] = useState(false);
@@ -47,13 +46,13 @@ const AddReview = ({ productID, productName, characteristics }) => {
       photos.push(fakeImagesUrls[indexToPush]);
     }
     review.photos = photos;
-    review.characteristics = Object.assign(characteristics);
-    for (let c in review.characteristics) {
-      review.characteristics[c].value = Number.parseInt(formObj[c]);
+    review.characteristics = {};
+    for (let c in characteristics) {
+      let id = characteristics[c].id;
+      review.characteristics[id] = Number.parseInt(formObj[c]);
     }
-    console.log(formObj);
-    console.log(review);
-    submitReview(review);
+    submitReview(review)
+      .then(() => retrieveFreshReviews());
     setAddingReview(false);
   }
 
