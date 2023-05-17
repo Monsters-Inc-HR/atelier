@@ -3,13 +3,13 @@ const axios = require('axios');
 
 
   module.exports = {
-    getRelatedProducts: (productID = '37311') => {
+    getRelatedProducts: (productID = '37318') => {
       return axios(`http://localhost:3000/relatedProducts?id=${productID}`)
       .then((products) => {
         return products.data;
       })
       .catch((err) => {
-        console.log(err);
+        console.log('Error getting related products');
       })
   },
 

@@ -1,4 +1,6 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 const DeleteButton = ({userProducts, filterUserProducts, productID}) => {
 
@@ -9,9 +11,9 @@ const handleClick = (e) => {
 // console.log(userProducts);
 
   return (
-    <button className="related-compare-button" onClick={handleClick}>
-      ❌
-    </button>
+      <FontAwesomeIcon icon={faXmark}
+      className="related-compare-button" onClick={handleClick}
+      style={{color: 'red'}}/>
   )
 
 }
