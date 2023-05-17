@@ -16,26 +16,44 @@ const characteristicLabels = {
 };
 const emptyStar = (<FontAwesomeIcon icon={ icon({name: 'star', style: 'regular'}) } />);
 const filledStar = (<FontAwesomeIcon icon={ icon({name: 'star', style: 'solid'}) } />);
-const staticImages = [
+const fakeImagesUrls = [
   'https://static.wikia.nocookie.net/disney/images/6/69/Profile_-_Roz.jpeg/revision/latest?cb=20190313152404',
   'https://static.wikia.nocookie.net/pixar/images/2/26/Boo_with_costume.png/revision/latest?cb=20210422084027',
   'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7fGb6xepP8Ax-vVCLi2qq2N2_rpn7DI1bf8b6zymVDw&usqp=CAU&ec=48600112'
-]
+];
 const maxPhotos = 5;
 
 const AddReview = ({ productID, productName, characteristics }) => {
-  console.log(characteristics);
   const [addingReview, setAddingReview] = useState(false);
   const [starCount, setStarCount] = useState(0);
   const [photoAlert, setPhotoAlert] = useState(false);
+
   const submitHandler = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
-    const reviewObj = Object.fromEntries(formData.entries());
-    reviewObj['add-review-photos'] = formData.getAll('add-review-photos');
-    reviewObj.rating = starCount;
-
-    submitReview(reviewObj);
+    const numOfPhotos = formData.getAll('add-review-photos').length;
+    const formObj = Object.fromEntries(formData.entries());
+    const review = {};
+    review.product_id = productID;
+    review.rating = starCount;
+    review.summary = formObj['add-review-summary'];
+    review.body = formObj['add-review-body'];
+    review.recommend = formObj.recommend;
+    review.name = formObj['add-review-nickname'];
+    review.email = formObj['add-review-email'];
+    const photos = [];
+    for (var p = 0; p < numOfPhotos; p++) {
+      const indexToPush = p % fakeImagesUrls.length;
+      photos.push(fakeImagesUrls[indexToPush]);
+    }
+    review.photos = photos;
+    review.characteristics = Object.assign(characteristics);
+    for (let c in review.characteristics) {
+      review.characteristics[c].value = formObj[c];
+    }
+    console.log(formObj);
+    console.log(review);
+    submitReview(review);
     setAddingReview(false);
   }
 
@@ -94,7 +112,7 @@ const AddReview = ({ productID, productName, characteristics }) => {
           </fieldset>
           <fieldset>
             <legend>Characteristics</legend>
-            { characteristics.map(charName => {
+            { Object.keys(characteristics).map(charName => {
               const lowerName = charName.toLowerCase();
               return (
                 <div className='rr-add-review-row-characteristic'>
@@ -106,7 +124,7 @@ const AddReview = ({ productID, productName, characteristics }) => {
                       {  }
                     </div>
                     <div className='rr-add-review-row-characteristic-buttons'>
-                      { positions.map(p => <input key={p} type='radio' name={`${lowerName}`} id={`${lowerName}-${p}`} value={`${p}`} />) }
+                      { positions.map(p => <input key={p} type='radio' name={`${charName}`} id={`${lowerName}-${p}`} value={`${p}`} />) }
                     </div>
                     <div className='rr-add-review-row-characteristic-low-high-labels'>
                       <div className='rr-add-review-row-characteristic-low-label'>{`${characteristicLabels[charName][1]}`}</div>
