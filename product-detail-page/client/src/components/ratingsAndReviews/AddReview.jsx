@@ -38,7 +38,6 @@ const AddReview = ({ productID, productName, characteristics }) => {
     review.rating = starCount;
     review.summary = formObj['add-review-summary'];
     review.body = formObj['add-review-body'];
-    console.log(typeof review.body)
     review.recommend = formObj.recommend === 'yes';
     review.name = formObj['add-review-nickname'];
     review.email = formObj['add-review-email'];
@@ -50,7 +49,7 @@ const AddReview = ({ productID, productName, characteristics }) => {
     review.photos = photos;
     review.characteristics = Object.assign(characteristics);
     for (let c in review.characteristics) {
-      review.characteristics[c].value = formObj[c];
+      review.characteristics[c].value = Number.parseInt(formObj[c]);
     }
     console.log(formObj);
     console.log(review);
