@@ -622,8 +622,15 @@ overflow-y: scroll;
   letter-spacing: 2px;
 }
 
+.search-full {
+  display: flex;
+  padding-right: 30px;
+}
+
 .search {
-  margin: 20px;
+  padding-top: 10px;
+  padding-right: 10px;
+  width: 160px;
   font-size: large;
 }
 

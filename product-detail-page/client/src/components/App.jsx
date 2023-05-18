@@ -85,8 +85,11 @@ const App = () => {
       <div className='title-bar'>
         <div className='logo-and-navigation'>
           <div className='logo'>{ siteName }</div>
-          <div className='search'>
-            __________________ <FontAwesomeIcon icon={ icon({name: 'magnifying-glass', style: 'solid'}) } />
+          <div className='search-full'>
+            <div className='search'>
+              <hr/>
+            </div>
+            <FontAwesomeIcon icon={ icon({name: 'magnifying-glass', style: 'solid'}) } />
           </div>
         </div>
         <div className='site-wide-announcement'>{ siteWideAnnouncement }</div>
