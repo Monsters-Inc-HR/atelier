@@ -24,8 +24,6 @@ module.exports = {
   },
 
   getReviewsMetaData: (productID = 37311) => {
-    // check inputs before making the request
-    if (typeof productID !== 'number' || typeof parseInt(productID) !== 'number') productID = 37311;
     return axios.get('http://localhost:3000/reviews/meta', {
       params: {
         'product_id': productID,
