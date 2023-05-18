@@ -49,4 +49,3 @@ const AnswerEntry = ({answer}) => {
 
 export default AnswerEntry
 
-//className="qa-answer-entry"

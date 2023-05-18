@@ -102,7 +102,7 @@ module.exports = {
   },
 
   // Get the full reviews data for a specific product
-  getReviewsData: (productID, page, count) => {
+  getReviewsData: (productID, page, count, sort) => {
     if (!productID) {
       console.log('Please enter a product id');
     }
@@ -113,7 +113,8 @@ module.exports = {
       params: {
         page: page,
         count: count,
-        product_id: productID
+        product_id: productID,
+        sort: sort
       }
     })
       .then(results => results.data)
@@ -161,5 +162,15 @@ module.exports = {
     })
       .then(res => res.data)
       .catch(err => console.log("there was an error reporting the review: ", err));
+  },
+
+  postReview: (data) => {
+    return axios({
+      method: 'post',
+      url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe/reviews',
+      data: data,
+      headers: { 'authorization': process.env.API_KEY }
+    })
+      .catch(err => console.log("there was an error posting the review: ", err));
   }
 };

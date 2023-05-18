@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ReviewsModal from './ReviewsModal.jsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
+import { submitReview } from './controllerReviews.js';
 
 const positions = [1, 2, 3, 4, 5];
 const starsExplanation = ['', 'Poor', 'Fair', 'Average', 'Good', 'Great!'];
@@ -15,14 +16,13 @@ const characteristicLabels = {
 };
 const emptyStar = (<FontAwesomeIcon icon={ icon({name: 'star', style: 'regular'}) } />);
 const filledStar = (<FontAwesomeIcon icon={ icon({name: 'star', style: 'solid'}) } />);
-const staticImages = [
-  'https://static.wikia.nocookie.net/disney/images/6/69/Profile_-_Roz.jpeg/revision/latest?cb=20190313152404',
-  'https://static.wikia.nocookie.net/pixar/images/2/26/Boo_with_costume.png/revision/latest?cb=20210422084027',
+const fakeImagesUrls = [
+  'https://media.cnn.com/api/v1/images/stellar/prod/200906155336-04-thompson-farm-sunflowers.jpg?q=x_2,y_112,h_898,w_1596,c_crop/h_540,w_960/f_webp',
   'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7fGb6xepP8Ax-vVCLi2qq2N2_rpn7DI1bf8b6zymVDw&usqp=CAU&ec=48600112'
-]
+];
 const maxPhotos = 5;
 
-const AddReview = ({ productID, productName, characteristics }) => {
+const AddReview = ({ productID, productName, characteristics, retrieveFreshReviews }) => {
   const [addingReview, setAddingReview] = useState(false);
   const [starCount, setStarCount] = useState(0);
   const [photoAlert, setPhotoAlert] = useState(false);
@@ -30,12 +30,29 @@ const AddReview = ({ productID, productName, characteristics }) => {
   const submitHandler = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
-    const reviewObj = Object.fromEntries(formData.entries());
-    reviewObj['add-review-photos'] = formData.getAll('add-review-photos');
-    reviewObj.rating = starCount;
-
-    // call API here
-
+    const numOfPhotos = formData.getAll('add-review-photos').length;
+    const formObj = Object.fromEntries(formData.entries());
+    const review = {};
+    review.product_id = productID;
+    review.rating = starCount;
+    review.summary = formObj['add-review-summary'];
+    review.body = formObj['add-review-body'];
+    review.recommend = formObj.recommend === 'yes';
+    review.name = formObj['add-review-nickname'];
+    review.email = formObj['add-review-email'];
+    const photos = [];
+    for (var p = 0; p < numOfPhotos; p++) {
+      const indexToPush = p % fakeImagesUrls.length;
+      photos.push(fakeImagesUrls[indexToPush]);
+    }
+    review.photos = photos;
+    review.characteristics = {};
+    for (let c in characteristics) {
+      let id = characteristics[c].id;
+      review.characteristics[id] = Number.parseInt(formObj[c]);
+    }
+    submitReview(review)
+      .then(() => retrieveFreshReviews());
     setAddingReview(false);
   }
 
@@ -94,7 +111,7 @@ const AddReview = ({ productID, productName, characteristics }) => {
           </fieldset>
           <fieldset>
             <legend>Characteristics</legend>
-            { characteristics.map(charName => {
+            { Object.keys(characteristics).map(charName => {
               const lowerName = charName.toLowerCase();
               return (
                 <div className='rr-add-review-row-characteristic'>
@@ -106,7 +123,7 @@ const AddReview = ({ productID, productName, characteristics }) => {
                       {  }
                     </div>
                     <div className='rr-add-review-row-characteristic-buttons'>
-                      { positions.map(p => <input key={p} type='radio' name={`${lowerName}`} id={`${lowerName}-${p}`} value={`${p}`} />) }
+                      { positions.map(p => <input key={p} type='radio' name={`${charName}`} id={`${lowerName}-${p}`} value={`${p}`} />) }
                     </div>
                     <div className='rr-add-review-row-characteristic-low-high-labels'>
                       <div className='rr-add-review-row-characteristic-low-label'>{`${characteristicLabels[charName][1]}`}</div>
