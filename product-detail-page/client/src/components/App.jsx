@@ -25,6 +25,7 @@ const App = () => {
     setProducts([]);
     setUserProducts([]);
     setProductIds([]);
+    setProductStyles([]);
 
     Controller.getProductDetails(productID)
       .then((res) => {
