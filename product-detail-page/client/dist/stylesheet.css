@@ -1,6 +1,6 @@
 .fix-margin {
   max-width: none;
-  margin: 20px 15%;
+  margin: 0 15% 20px 15%;
 }
 
 
@@ -576,3 +576,37 @@ overflow-y: scroll;
 /* .ov-style-img-item {
   flex-basis: 25%;
 } */
+
+
+.title-bar {
+  height: 160px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo-and-navigation {
+  height: 120px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: lightslategray;
+  color: white;
+}
+
+.logo {
+  margin: 20px;
+  font-size: xx-large;
+}
+
+.search {
+  margin: 20px;
+  font-size: large;
+}
+
+.site-wide-announcement {
+  margin: 25px auto;
+  color: rgb(114, 112, 112);
+}
