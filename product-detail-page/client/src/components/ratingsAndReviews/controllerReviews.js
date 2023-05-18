@@ -12,8 +12,7 @@ module.exports = {
       params: {
         'product_id': productID,
         'page': page,
-        'count': count,
-        'sort': sort
+        'count': count
       }
     })
     .then((reviews) => {
@@ -48,11 +47,5 @@ module.exports = {
     return axios.put(`http://localhost:3000/reviews/${update}`,
         {'review_id': reviewID}
       );
-  },
-
-  submitReview: (newReviewData) => {
-    return axios.post('http://localhost:3000/reviews', newReviewData)
-      .then(res => console.log('status for post: ', res))
-      .catch(err => console.log("there was an error posting the review"));
   }
 };

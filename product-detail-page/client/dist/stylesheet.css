@@ -182,13 +182,14 @@ overflow-y: scroll;
 
 
 .qa-questions-and-answers {
-  border-style: solid;
-  border-color: rgb(135, 135, 135);
-  border-radius: 10px;
+
   padding-left: 10px;
   padding-right: 10px;
-  width: 80%;
-  box-shadow: rgb(0,0,0,0.44) 0px 5px 5px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+
 }
 
 .qa-questions-and-answers-buttons {
@@ -237,8 +238,23 @@ overflow-y: scroll;
   width: 350px;
 }
 
+#qa-seeMoreAnswers {
+  padding-left: 10px;
+  padding-top: 5px;
+}
+
 #aaNickname, #aaEmail, #aqNickname, #aqEmail {
   width: 300px;
+}
+
+.qa-aam-header {
+  width: 450px;
+  overflow: auto;
+}
+
+.qa-aq-header {
+  width: 450px;
+  overflow: auto;
 }
 
 
