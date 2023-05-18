@@ -184,7 +184,11 @@ overflow-y: scroll;
 .qa-questions-and-answers {
   border-style: solid;
   border-color: rgb(135, 135, 135);
+  border-radius: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
   width: 80%;
+  box-shadow: rgb(0,0,0,0.44) 0px 5px 5px;
 }
 
 .qa-questions-and-answers-buttons {
@@ -215,6 +219,7 @@ overflow-y: scroll;
 
 .qa-answer-entry {
   font-size: large;
+  padding-left: 10px;
 
 }
 
