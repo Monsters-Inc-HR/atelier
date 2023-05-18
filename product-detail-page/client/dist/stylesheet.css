@@ -216,7 +216,8 @@ position: relative;
   display: flex;
   justify-content: flex-start;
   margin-top: 10px;
-  margin-left: 15px;
+  margin-left: 20px;
+  padding-left: 2px;
 }
 
 #comparison-modal {
@@ -227,9 +228,9 @@ display: block;
 position: fixed;
 background: whitesmoke;
 width: 45%;
-height: 45%;
+height: 25%;
 top: 25%;
-left: 25%;
+left: 30%;
 z-index: 2;
 font-size: large;
 }
@@ -241,10 +242,26 @@ font-size: large;
 .related-comparison-table {
 border-collapse: collapse;
 border-spacing: 0;
-width: 100%;
+width: 95%;
 margin-left: 15px;
 overflow: hidden;
 overflow-y: scroll;
+}
+
+td {
+  padding: 0;
+  margin-left: 5px;
+}
+
+th {
+  font-size: 17px;
+  font-weight: 400;
+  letter-spacing: .5px;
+}
+
+tr {
+  background-color: #f9f6f8;
+  margin-left: 5px;
 }
 
 
