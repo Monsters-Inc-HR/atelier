@@ -17,26 +17,6 @@ const Reviews = ({ productID, productName }) => {
     setReviewAdded(reviewAdded + 1);
   }
 
-  const REVIEWS_PER_PAGE = 10;
-  const [page, setPage] = useState(1);
-  const [maxNumReviews, setMaxNumReviews] = useState(undefined);
-
-  useEffect(() => {
-    getReviewsMetaData(productID)
-      .then(metaData => {
-        setReviewsMetaData(metaData);
-        let max = inferTotalPossibleReviews(metaData);
-        setMaxNumReviews(max);
-      })
-    getPageOfReviews(productID, page, REVIEWS_PER_PAGE, sortBy)
-      .then(data => {
-        setReviewsData(data);
-        setReviewsList(filters.length === 0 ? data.results : data.results.filter(review => filters.includes(review.rating)));
-      })
-      .catch(err => console.log(err));
-    return () => setPage(1);
-  }, [productID]);
-
   useEffect(() => {
     getReviewsMetaData(productID)
       .then(metaData => {
@@ -84,7 +64,7 @@ const Reviews = ({ productID, productName }) => {
           otherwise, the subcomponents will cause errors
         */}
         {reviewsMetaData && <ReviewsSummary metaData={ reviewsMetaData } filters={ filters } filterClick={ filterClick } removeFilters={ removeFilters }/>}
-        {reviewsList && <ReviewsList reviews={ reviewsList } sortList={ sortList } productID={ productID } productName={ productName } characteristics={ reviewsMetaData.characteristics } retrieveFreshReviews={ retrieveFreshReviews } />}
+        {reviewsList && <ReviewsList reviews={ reviewsList } sortList={ sortList } productID={ productID } productName={ productName } characteristics={ reviewsMetaData && reviewsMetaData.characteristics } retrieveFreshReviews={ retrieveFreshReviews } />}
       </div>
     </div>
   )
