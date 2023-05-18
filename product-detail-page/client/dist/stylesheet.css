@@ -306,6 +306,12 @@ overflow-y: scroll;
 .rr-reviews-list {
   display: flex;
   flex-direction: column;
+  margin-left: 50px;
+}
+
+.rr-review-sorter {
+  font-weight: bold;
+  font-size: larger;
 }
 
 .rr-reviews-list-all-reviews {
@@ -315,6 +321,15 @@ overflow-y: scroll;
 
 .rr-review {
   scroll-snap-align: start;
+  margin: 30px 0;
+}
+
+.rr-review-header {
+  margin-bottom: 15px;
+}
+
+.rr-review-summary {
+  font-size: large;
 }
 
 .rr-remove-filters-link, .rr-mark-helpful-link {
@@ -331,6 +346,10 @@ overflow-y: scroll;
 .rr-review-img {
   width: 30%;
   margin: 10px;
+}
+
+.rr-mark-helpful {
+  margin-bottom: 20px;
 }
 
 .rr-full-screen-modal-close-container {

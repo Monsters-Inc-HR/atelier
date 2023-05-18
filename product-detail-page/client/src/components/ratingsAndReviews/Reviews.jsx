@@ -4,31 +4,49 @@ import ReviewsList from './ReviewsList.jsx';
 import sortReviews from '../../lib/sortReviews.js';
 import inferTotalPossibleReviews from '../../lib/inferTotalPossibleReviews.js';
 import { getPageOfReviews, getReviewsMetaData } from './controllerReviews.js';
+const defaultSort = 'relevant';  // relevant is the default sort option
 
 const Reviews = ({ productID, productName }) => {
   const [reviewsMetaData, setReviewsMetaData] = useState(undefined);  // no data to display until it is fetched
   const [reviewsData, setReviewsData] = useState({});
-  const defaultSort = 'relevant';  // relevant is the default sort option
   const [filters, setFilters] = useState([]);  // empty array means no filters will be applied
   const [sortBy, setSortBy] = useState(defaultSort);
   const [reviewsList, setReviewsList] = useState(undefined);  // no data to display until it is fetched
   const [reviewAdded, setReviewAdded] = useState(0);  // track when a review is added, so that new reviews data can be pulled
   const retrieveFreshReviews = () => {
-    console.log('retrieve new data');
     setReviewAdded(reviewAdded + 1);
   }
 
+  const REVIEWS_PER_PAGE = 10;
+  const [page, setPage] = useState(1);
+  const [maxNumReviews, setMaxNumReviews] = useState(undefined);
+
   useEffect(() => {
-    console.log('now');
+    getReviewsMetaData(productID)
+      .then(metaData => {
+        setReviewsMetaData(metaData);
+        let max = inferTotalPossibleReviews(metaData);
+        setMaxNumReviews(max);
+      })
+    getPageOfReviews(productID, page, REVIEWS_PER_PAGE, sortBy)
+      .then(data => {
+        setReviewsData(data);
+        setReviewsList(filters.length === 0 ? data.results : data.results.filter(review => filters.includes(review.rating)));
+      })
+      .catch(err => console.log(err));
+    return () => setPage(1);
+  }, [productID]);
+
+  useEffect(() => {
     getReviewsMetaData(productID)
       .then(metaData => {
         setReviewsMetaData(metaData);
         return inferTotalPossibleReviews(metaData);
       })
-      .then(totalReviewsCount => getPageOfReviews(productID, 1, totalReviewsCount, sortBy))
+      .then(totalReviewsCount => getPageOfReviews(productID, 1, totalReviewsCount, defaultSort))
       .then(data => {
         setReviewsData(data);
-        setReviewsList(data.results);
+        setReviewsList(filters.length === 0 ? data.results : data.results.filter(review => filters.includes(review.rating)));
       })
       .catch(err => console.log('there was an error getting the reviews-related data. msg: ', err));
   }, [productID, reviewAdded]);
