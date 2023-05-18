@@ -269,35 +269,22 @@ overflow-y: scroll;
 }
 
 .rr-summary {
-  width: 25%;
+  width: 30%;
   padding: 5px 5px 5px 0;
 }
 
-.rr-reviews-list {
-  width: 75%;
-  padding: 5px;
+.rr-number-of-stars {
+  font-size: xxx-large;
+  margin-right: 10px;
 }
 
 .rr-summary-rollup {
   display: flex;
+  align-items: center;
 }
 
-.rr-review {
-  margin-top: 10px;
-}
-
-.rr-review-header {
-  display: flex;
-  justify-content: space-between;
-}
-
-.rr-review-summary {
-  font-weight: 700;
-}
-
-.rr-review-seller-response {
-  background: lightgray;
-  padding: 15px;
+.rr-filter-list {
+  margin: 5px 0 30px 0;
 }
 
 .rr-bar-graph {
@@ -324,22 +311,6 @@ overflow-y: scroll;
   background: lightgray;
 }
 
-.rr-reviews-list {
-  display: flex;
-  flex-direction: column;
-  margin-left: 50px;
-}
-
-.rr-review-sorter {
-  font-weight: bold;
-  font-size: larger;
-}
-
-.rr-reviews-list-all-reviews {
-  overflow-y: scroll;
-  scroll-snap-type: y proximity;
-}
-
 .rr-review {
   scroll-snap-align: start;
   margin: 30px 0;
@@ -347,10 +318,53 @@ overflow-y: scroll;
 
 .rr-review-header {
   margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .rr-review-summary {
   font-size: large;
+  font-weight: 700;
+}
+
+.rr-review-show-more {
+  margin-left: 40%;
+  margin-right: 40%;
+  width: auto;
+  height: auto;
+  font-size: x-small;
+}
+
+.rr-percentage-recommended {
+  font-size: smaller;
+}
+
+.rr-reviews-list {
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
+  width: 75%;
+  padding: 5px;
+}
+
+.rr-review-sorter {
+  font-weight: bold;
+  font-size: larger;
+}
+
+.rr-selector {
+  margin-left: 7px;
+}
+
+.rr-reviews-list-all-reviews {
+  overflow-y: scroll;
+  scroll-snap-type: y proximity;
+}
+
+.rr-review-seller-response {
+  background: lightgray;
+  margin-top: 10px;
+  padding: 15px;
 }
 
 .rr-remove-filters-link, .rr-mark-helpful-link {
@@ -435,6 +449,10 @@ overflow-y: scroll;
 .rr-review-photo-alert {
   font-size: small;
   color: orangered;
+}
+
+.rr-scale {
+  margin-top: 10px;
 }
 
 .rr-scale-bars-and-slider {
@@ -600,7 +618,7 @@ overflow-y: scroll;
 
 
 .title-bar {
-  height: 160px;
+  height: 180px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -618,12 +636,22 @@ overflow-y: scroll;
 }
 
 .logo {
-  margin: 20px;
+  margin: 20px 30px;
   font-size: xx-large;
+  font-style: oblique;
+  font-weight: 200;
+  letter-spacing: 2px;
+}
+
+.search-full {
+  display: flex;
+  padding-right: 30px;
 }
 
 .search {
-  margin: 20px;
+  padding-top: 10px;
+  padding-right: 10px;
+  width: 160px;
   font-size: large;
 }
 
