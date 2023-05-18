@@ -261,24 +261,6 @@ overflow-y: scroll;
   display: flex;
 }
 
-.rr-review {
-  margin-top: 10px;
-}
-
-.rr-review-header {
-  display: flex;
-  justify-content: space-between;
-}
-
-.rr-review-summary {
-  font-weight: 700;
-}
-
-.rr-review-seller-response {
-  background: lightgray;
-  padding: 15px;
-}
-
 .rr-bar-graph {
   display: flex;
   align-items: center;
@@ -319,6 +301,13 @@ overflow-y: scroll;
   scroll-snap-type: y proximity;
 }
 
+.rr-review-seller-response {
+  background: lightgray;
+  margin-top: 10px;
+  padding: 15px;
+}
+
+
 .rr-review {
   scroll-snap-align: start;
   margin: 30px 0;
@@ -326,10 +315,13 @@ overflow-y: scroll;
 
 .rr-review-header {
   margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .rr-review-summary {
   font-size: large;
+  font-weight: 700;
 }
 
 .rr-remove-filters-link, .rr-mark-helpful-link {
