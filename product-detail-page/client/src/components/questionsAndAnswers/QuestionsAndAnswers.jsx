@@ -50,7 +50,7 @@ const QuestionsAndAnswers = ( { productID, productName }) => {
       widget: 'Q&A'
     }
     qaUserClickData.push(userData);
-    console.log(qaUserClickData);
+    //console.log(qaUserClickData);
   }
 
   return (
