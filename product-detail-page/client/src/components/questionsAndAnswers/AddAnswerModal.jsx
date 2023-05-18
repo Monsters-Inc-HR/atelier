@@ -64,8 +64,10 @@ const AddAnswerModal = ({open, onClose, question, productName}) => {
     <div style={OVERLAY_STYLES}>
     <div style={MODAL_STYLES}>
       <form>
-        <h2>Submit your Answer</h2>
-        <h3>{productName} : {question.question_body}</h3>
+        <div className="qa-aam-header">
+          <h2>Submit your Answer</h2>
+          <h3 >{productName} : {question.question_body}</h3>
+        </div>
         <br></br>
         <label>Your Answer*</label>
         <textarea type="text" id="aaAnswer" maxLength="1000" onChange={aaAnswerChange}></textarea>

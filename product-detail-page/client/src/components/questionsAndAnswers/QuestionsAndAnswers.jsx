@@ -13,7 +13,7 @@ const QuestionsAndAnswers = ( { productID, productName }) => {
   const [questionsAPI, setQuestionsAPI] = useState([]);
 
   useEffect(() => {
-    getQuestions(37330)
+    getQuestions(productID)
       .then(questData => {
         var questions = questData.results
         //sorts the array of question objects in order of helpfulness from high to low
@@ -50,7 +50,7 @@ const QuestionsAndAnswers = ( { productID, productName }) => {
       widget: 'Q&A'
     }
     qaUserClickData.push(userData);
-    console.log(qaUserClickData);
+    //console.log(qaUserClickData);
   }
 
   return (
