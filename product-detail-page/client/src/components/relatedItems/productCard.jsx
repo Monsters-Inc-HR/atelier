@@ -33,9 +33,11 @@ const Card = ({product, images, salePrice, focusedItem, Internal, filterUserProd
      <div className='related related-container-card'>
       <p className="related-product-category">{product.category}</p>
       <strong className="related-product-name">{product.name}</strong>
-      {salePrice ? <div clasName="related-sale-price"><p style={{color: 'red', marginRight: '5px'}}>${salePrice}</p>
-      <p style={{textDecoration: 'line-through'}}>
-      ${product.default_price}</p></div> : <p>${product.default_price}</p>}
+
+      {salePrice ? <div className="related-sale-price"><span className="related-price" style={{color: 'red', marginRight: '5px'}}>${salePrice}</span>
+      <span style={{textDecoration: 'line-through'}}>
+      ${product.default_price}</span></div> : <div className="related-price"><span >${product.default_price}</span></div>}
+
       <div className="related"><StarBar rating={3}/></div>
     </div>
     {renderComparison ? <Comparison closeCompare={closeCompare}
