@@ -19,7 +19,7 @@ const Card = ({product, images, salePrice, focusedItem, Internal, filterUserProd
 
   const productID = product.id;
 
-  const handleClick = () => {
+  const handleCardImageClick = () => {
     updateMain(productID.toString());
   }
 
@@ -29,13 +29,15 @@ const Card = ({product, images, salePrice, focusedItem, Internal, filterUserProd
       {Internal ? <RelatedButton compare={compare}/>
        : <DeleteButton filterUserProducts={filterUserProducts} productID={productID}/>}
       <img alt="product-image" className="related-product-img"
-        src={images ? images[0].url : "https://tinyurl.com/2utv43j5"} onClick={handleClick}/>
+        src={images ? images[0].url : "https://tinyurl.com/2utv43j5"} onClick={handleCardImageClick}/>
      <div className='related related-container-card'>
       <p className="related-product-category">{product.category}</p>
       <strong className="related-product-name">{product.name}</strong>
-      {salePrice ? <div className="related-sale-price"><p style={{color: 'red', marginRight: '5px'}}>${salePrice}</p>
-      <p style={{textDecoration: 'line-through'}}>
-      ${product.default_price}</p></div> : <p className="related">${product.default_price}</p>}
+
+      {salePrice ? <div className="related-sale-price"><span className="related-price" style={{color: 'red', marginRight: '5px'}}>${salePrice}</span>
+      <span style={{textDecoration: 'line-through'}}>
+      ${product.default_price}</span></div> : <div className="related-price"><span >${product.default_price}</span></div>}
+
       <div className="related"><StarBar rating={3}/></div>
     </div>
     {renderComparison ? <Comparison closeCompare={closeCompare}
