@@ -10,5 +10,4 @@ const StylesImage = ({style, chosenStyle, clickHandler}) => {
   )
 }
 
-
 export default StylesImage
