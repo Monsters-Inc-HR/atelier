@@ -54,6 +54,11 @@ p {
   letter-spacing: .2px;
 }
 
+.site-wide-announcement {
+  font-size: 17px;
+  font-weight: 300;
+}
+
 /* ==============================================================
  Related Items
 ================================================================*/
@@ -122,18 +127,22 @@ position: relative;
   width: 100%;
   height: 66%;
   object-fit: cover;
-  }
+}
 
 .related-product-category {
   margin: 0;
   padding-left: 5px;
+  font-weight: 300;
+  font-size: 16px;
+  letter-spacing: .3px;
 }
 
 .related-product-name {
   margin-top: 10px;
   padding-left: 5px;
-  font-size: large;
+  font-size: 22;
   font-weight: 400;
+  letter-spacing: .7px;
 }
 
 .related-sale-price {
@@ -300,12 +309,7 @@ overflow-y: scroll;
 }
 
 .rr-summary {
-<<<<<<< HEAD
-
-  width: 25%;
-=======
   width: 30%;
->>>>>>> ad9f6817416d5db8bbb0a9fe39057ceaee03445a
   padding: 5px 5px 5px 0;
 }
 
@@ -676,10 +680,12 @@ overflow-y: scroll;
 
 .logo {
   margin: 20px 30px;
-  font-size: xx-large;
-  font-style: oblique;
-  font-weight: 200;
   letter-spacing: 2px;
+  font-size: 43px;
+  font-weight: 100;
+  letter-spacing: 2px;
+  color: black;
+  font-style: normal;
 }
 
 .search-full {
