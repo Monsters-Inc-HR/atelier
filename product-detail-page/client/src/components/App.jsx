@@ -4,10 +4,10 @@ import Reviews from './ratingsAndReviews/reviews.jsx';
 import QuestionsAndAnswers from './questionsAndAnswers/QuestionsAndAnswers.jsx';
 import Overview from './overview/Overview.jsx';
 import { getProductDetails } from './relatedItems/controller.js';
-const defaultProductID = 37311;
+
 
 const App = () => {
-  const [productID, setProductID] = useState(defaultProductID);
+  const [productID, setProductID] = useState('37311');
   const [productInfo, setProductInfo] = useState(undefined);
 
   useEffect(() => {
@@ -17,12 +17,16 @@ const App = () => {
   }, [productID]);
 
 
+  const updateMain = (productID) => {
+    setProductID(productID);
+  }
+
 
   return (
     <div>
       <Overview />
-      <RelatedItems/>
-      <QuestionsAndAnswers productID={ productID } productName={ productInfo && productInfo.name } />
+      <RelatedItems productID={productID} updateMain={updateMain} setProductID={setProductID}/>
+      <QuestionsAndAnswers productID={ productID } productName={ productInfo && productInfo.name }/>
       <Reviews productID={ productID } productName={ productInfo && productInfo.name }/>
     </div>
   )

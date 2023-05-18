@@ -6,15 +6,21 @@ import Comparison from './comparison.jsx';
 import itemArray from './dummyData.js';
 import Controller from './controller.js';
 
-const RelatedItems = () => {
+const RelatedItems = ({ productID, updateMain }) => {
+
   const [productIds, setProductIds] = useState([]);
-  const [products, setProducts] = useState(itemArray);
-  const [userProducts, setUserProducts] = useState(itemArray);
+  const [products, setProducts] = useState([]);
+  const [userProducts, setUserProducts] = useState([]);
   const [focusedItem, setFocusedItem] = useState({});
   const [productStyles, setProductStyles] = useState([]);
 
+
   useEffect(() => {
-    Controller.getRelatedProducts()
+    setProducts([]);
+    setUserProducts([]);
+    setProductIds([]);
+
+    Controller.getRelatedProducts(productID)
       .then((productIds) => {
         setProductIds(productIds);
         return Promise.all(
@@ -49,7 +55,9 @@ const RelatedItems = () => {
         console.log('Error fetching focused product');
       });
 
-  }, []);
+  }, [productID]);
+
+  // console.log(productID);
 
   const filterUserProducts = (productID) => {
     setUserProducts(userProducts.filter((product, index) => {
@@ -60,7 +68,7 @@ const RelatedItems = () => {
 
   return (
     <>
-      <List products={products} productStyles={productStyles} focusedItem={focusedItem}/>
+      <List products={products} productStyles={productStyles} focusedItem={focusedItem} updateMain={updateMain}/>
       <Outfit userProducts={userProducts} productStyles={productStyles} filterUserProducts={filterUserProducts}/>
     </>
   );
