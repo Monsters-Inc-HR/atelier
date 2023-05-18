@@ -194,6 +194,18 @@ overflow-y: scroll;
   background-color: #9c8087;
   border-style: solid;
   border-color: rgb(135, 135, 135);
+  width: 80%;
+}
+
+.qa-questions-and-answers-buttons {
+  padding: 10px;
+}
+
+
+
+.qa-question-list {
+  max-height: 90vh;
+  overflow: auto;
 }
 
 
@@ -202,12 +214,17 @@ overflow-y: scroll;
   font-weight: bold;
   font-size: large;
   padding: 10px;
+  overflow: auto;
   box-shadow: rgb(0,0,0,0.44) 0px 5px 5px;
 }
 
 .qa-question-helpful {
+<<<<<<< HEAD
   background-color: #9c8087;
   float: right;
+=======
+  float:right;
+>>>>>>> 81940958f2a640e4320b0d7d0898b506f8902928
   font-weight: normal;
   font-size: normal;
 }

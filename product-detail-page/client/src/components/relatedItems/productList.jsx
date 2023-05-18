@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 
 
-const List =  ({products, compare, productStyles, focusedItem}) => {
+const List =  ({products, compare, productStyles, focusedItem, updateMain}) => {
 
 const [productImages, setProductImages] = useState({});
 const [salePrices, setSalePrices] = useState({});
@@ -90,6 +90,7 @@ return (
               compare={compare}
               focusedItem={focusedItem}
               Internal={Internal}
+              updateMain={updateMain}
             />
           );
         }
