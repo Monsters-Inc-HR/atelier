@@ -243,6 +243,11 @@ overflow-y: scroll;
  Ratings & Reviews
 ================================================================*/
 
+.ratings-and-reviews {
+  width: 85%;
+  margin: 30px auto 0;
+}
+
 .rr-content {
   display: flex;
 }
@@ -307,11 +312,12 @@ overflow-y: scroll;
 }
 
 .rr-review-show-more {
+  padding: 5px;
   margin-left: 40%;
   margin-right: 40%;
-  width: auto;
+  width: 20%;
   height: auto;
-  font-size: x-small;
+  font-size: small;
 }
 
 .rr-percentage-recommended {
