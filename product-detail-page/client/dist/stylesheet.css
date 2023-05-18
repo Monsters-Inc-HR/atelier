@@ -6,7 +6,7 @@
 
 .fix-margin {
   max-width: none;
-  margin: 20px 15%;
+  margin: 0 15% 20px 15%;
 }
 
 body {
@@ -265,36 +265,27 @@ overflow-y: scroll;
 }
 
 .rr-summary {
+<<<<<<< HEAD
 
   width: 25%;
+=======
+  width: 30%;
+>>>>>>> ad9f6817416d5db8bbb0a9fe39057ceaee03445a
   padding: 5px 5px 5px 0;
 }
 
-.rr-reviews-list {
-  width: 75%;
-  padding: 5px;
+.rr-number-of-stars {
+  font-size: xxx-large;
+  margin-right: 10px;
 }
 
 .rr-summary-rollup {
   display: flex;
+  align-items: center;
 }
 
-.rr-review {
-  margin-top: 10px;
-}
-
-.rr-review-header {
-  display: flex;
-  justify-content: space-between;
-}
-
-.rr-review-summary {
-  font-weight: 700;
-}
-
-.rr-review-seller-response {
-  background: lightgray;
-  padding: 15px;
+.rr-filter-list {
+  margin: 5px 0 30px 0;
 }
 
 .rr-bar-graph {
@@ -321,10 +312,40 @@ overflow-y: scroll;
   background: lightgray;
 }
 
+.rr-review {
+  scroll-snap-align: start;
+  margin: 30px 0;
+}
+
+.rr-review-header {
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.rr-review-summary {
+  font-size: large;
+  font-weight: 700;
+}
+
+.rr-review-show-more {
+  margin-left: 40%;
+  margin-right: 40%;
+  width: auto;
+  height: auto;
+  font-size: x-small;
+}
+
+.rr-percentage-recommended {
+  font-size: smaller;
+}
+
 .rr-reviews-list {
   display: flex;
   flex-direction: column;
   margin-left: 50px;
+  width: 75%;
+  padding: 5px;
 }
 
 .rr-review-sorter {
@@ -337,17 +358,10 @@ overflow-y: scroll;
   scroll-snap-type: y proximity;
 }
 
-.rr-review {
-  scroll-snap-align: start;
-  margin: 30px 0;
-}
-
-.rr-review-header {
-  margin-bottom: 15px;
-}
-
-.rr-review-summary {
-  font-size: large;
+.rr-review-seller-response {
+  background: lightgray;
+  margin-top: 10px;
+  padding: 15px;
 }
 
 .rr-remove-filters-link, .rr-mark-helpful-link {
@@ -432,6 +446,10 @@ overflow-y: scroll;
 .rr-review-photo-alert {
   font-size: small;
   color: orangered;
+}
+
+.rr-scale {
+  margin-top: 10px;
 }
 
 .rr-scale-bars-and-slider {
@@ -597,3 +615,37 @@ overflow-y: scroll;
 /* .ov-style-img-item {
   flex-basis: 25%;
 } */
+
+
+.title-bar {
+  height: 160px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo-and-navigation {
+  height: 120px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: lightslategray;
+  color: white;
+}
+
+.logo {
+  margin: 20px;
+  font-size: xx-large;
+}
+
+.search {
+  margin: 20px;
+  font-size: large;
+}
+
+.site-wide-announcement {
+  margin: 25px auto;
+  color: rgb(114, 112, 112);
+}

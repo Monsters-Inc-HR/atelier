@@ -467,7 +467,6 @@ const Overview = () => {
   console.log('new style', newStyle)
   return (
     <div>
-      <div>site-wide announcement message! - Sale/Discount Offer - new product highlight</div>
       <div className="ov-top-container">
         <div className="ov-main-photo-container">
           <ImageGallery pickedImg={pickedImg} setPickedImg={setPickedImg} setMainImg={setMainImg} mainImg={mainImg} newStyle={newStyle}/>

@@ -5,6 +5,11 @@ import QuestionsAndAnswers from './questionsAndAnswers/QuestionsAndAnswers.jsx';
 import Overview from './overview/Overview.jsx';
 import { getProductDetails } from './relatedItems/controller.js';
 import Controller from './relatedItems/controller.js';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
+
+const siteName = 'BUY BUY BUY';
+const siteWideAnnouncement = '20% off all winter styles  -  Check out new season styles  -  New fabrics are here!';
 
 
 const App = () => {
@@ -22,9 +27,6 @@ const App = () => {
       .then(data => setProductInfo(data))
       .catch(err => console.log("there was an error getting the product data in the App"));
   }, [productID]);
-
-
-
 
   useEffect(() => {
     setProducts([]);
@@ -74,14 +76,21 @@ const App = () => {
     }))
   }
 
-
   const updateMain = (productID) => {
     setProductID(productID);
   }
 
-
   return (
     <div>
+      <div className='title-bar'>
+        <div className='logo-and-navigation'>
+          <div className='logo'>{ siteName }</div>
+          <div className='search'>
+            __________________ <FontAwesomeIcon icon={ icon({name: 'magnifying-glass', style: 'solid'}) } />
+          </div>
+        </div>
+        <div className='site-wide-announcement'>{ siteWideAnnouncement }</div>
+      </div>
       <Overview />
       <RelatedItems productID={productID}
       updateMain={updateMain} setProductID={setProductID}
