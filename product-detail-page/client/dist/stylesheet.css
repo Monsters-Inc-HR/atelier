@@ -320,6 +320,10 @@ overflow-y: scroll;
   font-size: small;
 }
 
+.rr-review-recommended {
+  margin: 10px 0;
+}
+
 .rr-percentage-recommended {
   font-size: smaller;
 }
