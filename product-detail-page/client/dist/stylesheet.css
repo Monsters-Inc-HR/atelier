@@ -331,6 +331,10 @@ overflow-y: scroll;
   font-size: larger;
 }
 
+.rr-selector {
+  margin-left: 7px;
+}
+
 .rr-reviews-list-all-reviews {
   overflow-y: scroll;
   scroll-snap-type: y proximity;
