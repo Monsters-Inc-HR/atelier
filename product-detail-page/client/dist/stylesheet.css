@@ -219,12 +219,7 @@ overflow-y: scroll;
 }
 
 .qa-question-helpful {
-<<<<<<< HEAD
-  background-color: #9c8087;
-  float: right;
-=======
   float:right;
->>>>>>> 81940958f2a640e4320b0d7d0898b506f8902928
   font-weight: normal;
   font-size: normal;
 }

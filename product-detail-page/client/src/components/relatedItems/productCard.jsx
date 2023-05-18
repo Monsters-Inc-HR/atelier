@@ -19,7 +19,7 @@ const Card = ({product, images, salePrice, focusedItem, Internal, filterUserProd
 
   const productID = product.id;
 
-  const handleClick = () => {
+  const handleCardImageClick = () => {
     updateMain(productID.toString());
   }
 
@@ -29,7 +29,7 @@ const Card = ({product, images, salePrice, focusedItem, Internal, filterUserProd
       {Internal ? <RelatedButton compare={compare}/>
        : <DeleteButton filterUserProducts={filterUserProducts} productID={productID}/>}
       <img alt="product-image" className="related-product-img"
-        src={images ? images[0].url : "https://tinyurl.com/2utv43j5"} onClick={handleClick}/>
+        src={images ? images[0].url : "https://tinyurl.com/2utv43j5"} onClick={handleCardImageClick}/>
      <div className='related related-container-card'>
       <p className="related-product-category">{product.category}</p>
       <strong className="related-product-name">{product.name}</strong>
