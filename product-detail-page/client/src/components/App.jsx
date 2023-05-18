@@ -60,8 +60,9 @@ const App = () => {
         console.log(err);
       });
 
-    Controller.getProductDetails('37311')
+    Controller.getProductDetails('37330')
       .then((res) => {
+        console.log('im running');
         setFocusedItem(res);
       })
       .catch((err) => {
