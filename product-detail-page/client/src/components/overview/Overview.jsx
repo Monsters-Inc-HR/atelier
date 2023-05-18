@@ -462,18 +462,19 @@ const Overview = () => {
   }
 
   const [newStyle, setNewStyleImg] = useState(stylesData[0])
-  const [mainImg, setMainImg] = useState(newStyle.photos[0].thumbnail_url)
+  const [mainImg, setMainImg] = useState(newStyle.photos[0])
+  const [pickedImg, setPickedImg] = useState(newStyle.photos[0])
   console.log('new style', newStyle)
   return (
     <div>
       <div>site-wide announcement message! - Sale/Discount Offer - new product highlight</div>
       <div className="ov-top-container">
         <div className="ov-main-photo-container">
-          <ImageGallery setMainImg={setMainImg} mainImg={mainImg} newStyle={newStyle}/>
+          <ImageGallery pickedImg={pickedImg} setPickedImg={setPickedImg} setMainImg={setMainImg} mainImg={mainImg} newStyle={newStyle}/>
         </div>
         <div className="ov-info-style-container">
           <ProductInfo />
-          <StylesAndCart newStyle={newStyle} setMainImg={setMainImg} setNewStyleImg={setNewStyleImg}/>
+          <StylesAndCart setPickedImg={setPickedImg} stylesData={stylesData} newStyle={newStyle} setMainImg={setMainImg} setNewStyleImg={setNewStyleImg}/>
         </div>
       </div>
       <div>
