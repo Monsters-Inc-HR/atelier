@@ -6,8 +6,8 @@ const MODAL_STYLES = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  backgroundColor: '#237687',
-  color: 'white',
+  backgroundColor: 'white',
+  color: 'black',
   padding: '50px',
   zIndex: 1000
 }
@@ -22,7 +22,7 @@ const OVERLAY_STYLES = {
   zIndex: 1000
 }
 
-const AddAnswerModal = ({open, onClose}) => {
+const AddAnswerModal = ({open, onClose, question, productName}) => {
 
   if (!open) {
     return (null);
@@ -65,7 +65,7 @@ const AddAnswerModal = ({open, onClose}) => {
     <div style={MODAL_STYLES}>
       <form>
         <h2>Submit your Answer</h2>
-        <h3>**Product Name : Question Body**</h3>
+        <h3>{productName} : {question.question_body}</h3>
         <br></br>
         <label>Your Answer*</label>
         <textarea type="text" id="aaAnswer" maxLength="1000" onChange={aaAnswerChange}></textarea>

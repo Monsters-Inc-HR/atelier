@@ -16,11 +16,13 @@ const App = () => {
       .catch(err => console.log("there was an error getting the product data in the App"));
   }, [productID]);
 
+
+
   return (
     <div>
       <Overview />
       <RelatedItems/>
-      <QuestionsAndAnswers/>
+      <QuestionsAndAnswers productID={ productID } productName={ productInfo && productInfo.name } />
       <Reviews productID={ productID } productName={ productInfo && productInfo.name }/>
     </div>
   )
