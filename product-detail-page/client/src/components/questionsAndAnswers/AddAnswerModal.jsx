@@ -65,8 +65,8 @@ const AddAnswerModal = ({open, onClose, question, productName}) => {
     <div style={MODAL_STYLES}>
       <form>
         <div className="qa-aam-header">
-        <h2>Submit your Answer</h2>
-        <h3 >{productName} : {question.question_body}</h3>
+          <h2>Submit your Answer</h2>
+          <h3 >{productName} : {question.question_body}</h3>
         </div>
         <br></br>
         <label>Your Answer*</label>
