@@ -3,7 +3,6 @@ import RelatedItems from './relatedItems/relatedItems.jsx';
 import Reviews from './ratingsAndReviews/reviews.jsx';
 import QuestionsAndAnswers from './questionsAndAnswers/QuestionsAndAnswers.jsx';
 import Overview from './overview/Overview.jsx';
-import { getProductDetails } from './relatedItems/controller.js';
 import Controller from './relatedItems/controller.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
@@ -23,15 +22,18 @@ const App = () => {
   const [productStyles, setProductStyles] = useState([]);
 
   useEffect(() => {
-    getProductDetails(productID)
-      .then(data => setProductInfo(data))
-      .catch(err => console.log("there was an error getting the product data in the App"));
-  }, [productID]);
-
-  useEffect(() => {
     setProducts([]);
     setUserProducts([]);
     setProductIds([]);
+
+    Controller.getProductDetails(productID)
+      .then((res) => {
+        setProductInfo(res)
+        setFocusedItem(res);
+      })
+      .catch((err) => {
+        console.log('Error fetching focused product');
+      });
 
     Controller.getRelatedProducts(productID)
       .then((productIds) => {
@@ -60,14 +62,6 @@ const App = () => {
         console.log(err);
       });
 
-    Controller.getProductDetails('37311')
-      .then((res) => {
-        setFocusedItem(res);
-      })
-      .catch((err) => {
-        console.log('Error fetching focused product');
-      });
-
   }, [productID]);
 
   const filterUserProducts = (productID) => {
@@ -82,6 +76,7 @@ const App = () => {
 
   return (
     <div>
+      { console.log(productID) }
       <div className='title-bar'>
         <div className='logo-and-navigation'>
           <div className='logo'>{ siteName }</div>
