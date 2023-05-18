@@ -271,13 +271,10 @@ tr {
 
 
 .qa-questions-and-answers {
-
-  padding-left: 10px;
-  padding-right: 10px;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 60%;
+  width: 75%;
 }
 
 .qa-questions-and-answers-buttons {
@@ -355,7 +352,7 @@ tr {
 ================================================================*/
 
 .ratings-and-reviews {
-  width: 85%;
+  width: 75%;
   margin: 30px auto 0;
 }
 
