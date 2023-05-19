@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import StylesImage from './StylesImage.jsx';
 import ShareModal from './ShareModal.jsx';
 
-const StylesAndCart = ({setNewStyleImg, setMainImg, newStyle, stylesData, setPickedImg}) => {
+const StylesAndCart = ({chosenStyle, setChosenStyle, setNewStyleImg, setMainImg, newStyle, stylesData, setPickedImg}) => {
 
   let sizeAndQuantityData = []
 
@@ -13,7 +13,6 @@ const StylesAndCart = ({setNewStyleImg, setMainImg, newStyle, stylesData, setPic
   const [sizeVal, setSizeVal] = useState(sizeVal)
   const [qty, setQty] = useState(qty)
   const [selectStyleId, setSelectStyleId] = useState('')
-  const [chosenStyle, setChosenStyle] = useState(stylesData[0])
   const [show, setShow] = useState(false)
 
   let handleSizeVal = function(event) {
@@ -76,7 +75,8 @@ const StylesAndCart = ({setNewStyleImg, setMainImg, newStyle, stylesData, setPic
             </ul>
         </div>
         <label>
-            <select value={sizeVal} onChange={handleSizeVal}>
+            <select defaultValue="size" value={sizeVal} onChange={handleSizeVal}>
+            <option value="size" disabled>Select Size</option>
             {sizeAndQuantityData.map((sizeQtyObj, index) => (
                 <option key={index} value={`${sizeQtyObj.size}`}>{`${sizeQtyObj.size}`}</option>
             ))}
@@ -85,7 +85,8 @@ const StylesAndCart = ({setNewStyleImg, setMainImg, newStyle, stylesData, setPic
             <p>{`Qty selected ${qty}`}</p> */}
         </label>
         <label>
-            <select>
+            <select defaultValue="qty">
+              <option value="qty" disabled>Select Quantity</option>
             {qtyArr.map((item, index) => (
                 <option key={index} value={item}>{item}</option>
             ))}

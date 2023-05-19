@@ -9,6 +9,7 @@ import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
 
 const siteName = 'Atelier';
 const siteWideAnnouncement = '20% off all winter styles  -  Check out new season styles  -  New fabrics are here!';
+import {dummyStyles, dummyInfo} from './overview/dummyData.js';
 
 
 const App = () => {
@@ -20,6 +21,13 @@ const App = () => {
   const [userProducts, setUserProducts] = useState([]);
   const [focusedItem, setFocusedItem] = useState({});
   const [productStyles, setProductStyles] = useState([]);
+  const [stylesData, setStylesData] = useState(dummyStyles)
+  const [productInfoData, setProductInfoData] = useState(dummyInfo)
+  const [newStyle, setNewStyleImg] = useState(stylesData[0])
+  const [mainImg, setMainImg] = useState(newStyle.photos[0])
+  const [pickedImg, setPickedImg] = useState(newStyle.photos[0])
+  const [chosenStyle, setChosenStyle] = useState(stylesData[0])
+
 
   useEffect(() => {
     setProducts([]);
@@ -29,8 +37,9 @@ const App = () => {
 
     Controller.getProductDetails(productID)
       .then((res) => {
-        setProductInfo(res)
+        setProductInfo(res);
         setFocusedItem(res);
+        setProductInfoData(res);
       })
       .catch((err) => {
         console.log('Error fetching focused product');
@@ -63,7 +72,19 @@ const App = () => {
         console.log(err);
       });
 
+      // overview
+      Controller.getProductStyles(productID)
+      .then((data) => {
+        setStylesData(data.results)
+        setNewStyleImg(data.results[0])
+        setMainImg(data.results[0].photos[0])
+      })
+      .catch((err) => {
+        console.log('this is an error', err)
+      })
+
   }, [productID]);
+
 
   const filterUserProducts = (productID) => {
     setUserProducts(userProducts.filter((product, index) => {
@@ -90,13 +111,21 @@ const App = () => {
         </div>
         <div className='site-wide-announcement'>{ siteWideAnnouncement }</div>
       </div>
-      <Overview />
-      <RelatedItems productID={productID}
-      updateMain={updateMain} setProductID={setProductID}
+      <Overview
+        stylesData={stylesData} setStylesData={setStylesData}
+        chosenStyle={chosenStyle} setChosenStyle={setChosenStyle}
+        newStyle={newStyle} setNewStyleImg={setNewStyleImg}
+        mainImg={mainImg} setMainImg={setMainImg}
+        pickedImg={pickedImg} setPickedImg={setPickedImg}
+        productInfoData={productInfoData}/>
+      <RelatedItems
+        setProductInfoData={setProductInfoData}
+        setPickedImg={setPickedImg} productID={productID}
+        updateMain={updateMain} setProductID={setProductID}
         productInfo={productInfo} productIds={productIds}
         products={products} userProducts={userProducts}
         focusedItem={focusedItem} productStyles={productStyles}
-        filterUserProducts={filterUserProducts}/>
+        setChosenStyle={setChosenStyle} filterUserProducts={filterUserProducts}/>
       <QuestionsAndAnswers productID={ productID } productName={ productInfo && productInfo.name }/>
       <Reviews productID={ productID } productName={ productInfo && productInfo.name }/>
     </div>
@@ -104,3 +133,6 @@ const App = () => {
 }
 
 export default App;
+
+
+

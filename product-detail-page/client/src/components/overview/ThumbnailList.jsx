@@ -5,7 +5,9 @@ const ThumbnailList = ({photoObj, setMainImg, pickedImg, clickHandler}) => {
   let handleMainImg = function() {
     setMainImg(photoObj)
     // setMainImg(photoObj.thumbnail_url)
+
   }
+  // console.log('picked', pickedImg.thumbnail_url, 'mapped', photoObj.thumbnail_url)
 
   return (
     <li onClick={() => clickHandler(photoObj)}>

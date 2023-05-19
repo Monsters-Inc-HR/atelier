@@ -6,7 +6,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 
 
-const List =  ({products, compare, productStyles, focusedItem, updateMain}) => {
+const List =  ({setProductInfoData, setChosenStyle, setPickedImg, products, compare, productStyles, focusedItem, updateMain}) => {
+  // console.log('productstyles', productStyles)
 
 const [productImages, setProductImages] = useState({});
 const [salePrices, setSalePrices] = useState({});
@@ -83,6 +84,9 @@ return (
           let salePrice = salePrices[product.id];
           return (
             <Card
+              setProductInfoData={setProductInfoData}
+              setChosenStyle={setChosenStyle}
+              setPickedImg={setPickedImg}
               key={product.id}
               images={images}
               salePrice={salePrice}
