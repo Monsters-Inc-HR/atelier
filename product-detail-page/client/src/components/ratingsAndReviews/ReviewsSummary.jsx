@@ -25,10 +25,10 @@ const ReviewsSummary = ({ metaData, filters, filterClick, removeFilters }) => {
       </div>
       <div className='rr-filter-list'>
         {filters.length > 0 &&
-        <div>
-          <div className='rr-filter-message'>Filtering for {makeFilterMessage(filters)} reviews<div>
+        (<div className='rr-filter-message-container'>
+          <div className='rr-filter-message'>Filtering for {makeFilterMessage(filters)} reviews</div>
           <div className='rr-remove-filters-link' onClick={ removeFilters }>remove filters</div>
-        </div>
+        </div>)
         }
         <BarGraph filterClick={ filterClick } star={ 5 } ratings={ metaData.ratings }/>
         <BarGraph filterClick={ filterClick } star={ 4 } ratings={ metaData.ratings }/>
