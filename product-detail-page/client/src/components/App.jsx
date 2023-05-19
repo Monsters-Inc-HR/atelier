@@ -29,14 +29,6 @@ const App = () => {
   const [chosenStyle, setChosenStyle] = useState(stylesData[0])
 
 
-
-  // useEffect(() => {
-  //   getProductDetails(productID)
-  //     .then(data => setProductInfo(data))
-  //     .catch(err => console.log("there was an error getting the product data in the App"));
-  // }, [productID]);
-
-
   useEffect(() => {
     setProducts([]);
     setUserProducts([]);
@@ -45,8 +37,9 @@ const App = () => {
 
     Controller.getProductDetails(productID)
       .then((res) => {
-        setProductInfo(res)
+        setProductInfo(res);
         setFocusedItem(res);
+        setProductInfoData(res);
       })
       .catch((err) => {
         console.log('Error fetching focused product');
@@ -79,53 +72,18 @@ const App = () => {
         console.log(err);
       });
 
+      // overview
+      Controller.getProductStyles(productID)
+      .then((data) => {
+        setStylesData(data.results)
+        setNewStyleImg(data.results[0])
+        setMainImg(data.results[0].photos[0])
+      })
+      .catch((err) => {
+        console.log('this is an error', err)
+      })
+
   }, [productID]);
-
-
-  useEffect(() => {
-    Controller.getProductStyles(productID)
-      .then((data) => {
-        setStylesData(data.results)
-        setNewStyleImg(data.results[0])
-        setMainImg(data.results[0].photos[0])
-      })
-      .catch((err) => {
-        console.log('this is an error', err)
-      })
-  },[productID])
-
-  useEffect(() => {
-    Controller.getProductDetails(productID)
-      .then((res) => {
-        setProductInfoData(res);
-      })
-      .catch((err) => {
-        console.log('Error fetching focused product', err);
-      });
-  },[productID])
-
-
-  useEffect(() => {
-    Controller.getProductStyles(productID)
-      .then((data) => {
-        setStylesData(data.results)
-        setNewStyleImg(data.results[0])
-        setMainImg(data.results[0].photos[0])
-      })
-      .catch((err) => {
-        console.log('this is an error', err)
-      })
-  },[productID])
-
-  useEffect(() => {
-    Controller.getProductDetails(productID)
-      .then((res) => {
-        setProductInfoData(res);
-      })
-      .catch((err) => {
-        console.log('Error fetching focused product', err);
-      });
-  },[productID])
 
 
   const filterUserProducts = (productID) => {
