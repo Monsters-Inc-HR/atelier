@@ -4,7 +4,7 @@ const axios = require('axios');
 
   module.exports = {
     getRelatedProducts: (productID = '37318') => {
-      return axios(`http://localhost:3000/relatedProducts?id=${productID}`)
+      return axios(`/relatedProducts?id=${productID}`)
       .then((products) => {
         return products.data;
       })
@@ -14,7 +14,7 @@ const axios = require('axios');
   },
 
   getProductStyles: (productID) => {
-    return axios(`http://localhost:3000/styles?id=${productID}`)
+    return axios(`/styles?id=${productID}`)
     .then((product) => {
       return product.data;
     })
@@ -24,7 +24,7 @@ const axios = require('axios');
   },
 
   getProductDetails: (productID) => {
-    return axios(`http://localhost:3000/productDetails?id=${productID}`)
+    return axios(`/productDetails?id=${productID}`)
     .then((product) => {
       return product.data;
     })

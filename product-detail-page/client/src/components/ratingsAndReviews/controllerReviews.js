@@ -7,7 +7,7 @@ module.exports = {
     if (count && (typeof count !== 'number' || typeof parseInt(count) !== 'number')) count = 5;
     if (sort !== 'relevant' && sort !== 'helpful' && sort !== 'recent') sort = 'relevant';
 
-    return axios.get('http://localhost:3000/reviews', {
+    return axios.get('/reviews', {
       params: {
         'product_id': productID,
         'page': page,
@@ -24,7 +24,7 @@ module.exports = {
   },
 
   getReviewsMetaData: (productID = 37311) => {
-    return axios.get('http://localhost:3000/reviews/meta', {
+    return axios.get('/reviews/meta', {
       params: {
         'product_id': productID,
       }
@@ -42,13 +42,13 @@ module.exports = {
       console.log("you need to provide a review id to be able to mark it as helpful");
       return undefined;
     }
-    return axios.put(`http://localhost:3000/reviews/${update}`,
+    return axios.put(`/reviews/${update}`,
         {'review_id': reviewID}
       );
   },
 
   submitReview: (newReviewData) => {
-    return axios.post('http://localhost:3000/reviews', newReviewData)
+    return axios.post('/reviews', newReviewData)
       .then(res => console.log('status for post: ', res))
       .catch(err => console.log("there was an error posting the review"));
   }

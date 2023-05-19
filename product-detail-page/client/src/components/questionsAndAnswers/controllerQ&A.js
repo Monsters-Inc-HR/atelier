@@ -8,7 +8,7 @@ module.exports = {
     if (count && (typeof count !== 'number' || typeof parseInt(count) !== 'number')) count = 5;
 
 
-    return axios.get('http://localhost:3000/qa/questions', {
+    return axios.get('/qa/questions', {
       params: {
         'product_id': productID,
         'page': page,
