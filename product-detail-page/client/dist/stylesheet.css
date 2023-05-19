@@ -605,19 +605,16 @@ tr {
  overview
 ====================================================================================*/
 .ov-top-container {
-
   display: flex;
 }
 
 .ov-info-style-container {
-
   grid-template-areas:
     'info'
     'styles-and-cart';
 }
 
 .ov-main-photo-container {
-
   position: relative;
   display: flex;
   justify-content: center;
@@ -636,11 +633,6 @@ tr {
   flex-basis: 25%;
   margin: 2px;
 }
-
-/* .ov-info-style-container {
-  display: flex;
-  flex-direction: column;
-} */
 
 .ov-reviews {
   display: flex;
@@ -714,6 +706,25 @@ tr {
  .ov-share-modal-body {
   background-color: white;
  }
+
+ .ov-Thumbnail-li {
+    display: none;
+  }
+
+  .ov-Thumbnail-li:nth-child(-n+6){
+    display: list-item;
+  }
+
+  .ov-img-photo {
+    height: 700px;
+    width: auto;
+  }
+
+
+
+
+
+
 
 
 .title-bar {

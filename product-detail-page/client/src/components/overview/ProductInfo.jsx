@@ -1,4 +1,5 @@
 import React from "react";
+import StarBar from '../ratingsAndReviews/StarBar.jsx';
 
 const ProductInfo = ({productInfoData}) => {
   // let productInfoData = {
@@ -15,7 +16,7 @@ const ProductInfo = ({productInfoData}) => {
   return (
     <div>
       <div className="ov-reviews">
-        <div className="ov-stars">* * * * *</div>
+        <div className="ov-stars"><StarBar rating={3}/></div>
         <a>Read all reviews</a>
       </div>
       <h3>{productInfoData.category}</h3>

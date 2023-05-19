@@ -48,7 +48,6 @@ const StylesAndCart = ({chosenStyle, setChosenStyle, setNewStyleImg, setMainImg,
   stylesData.forEach((styleObj) => {
     if (styleObj.style_id === selectStyleId) {
         styleSelected = styleObj.name
-        // setStyleSelected(styleObj.name)
     }
   })
 
@@ -81,8 +80,6 @@ const StylesAndCart = ({chosenStyle, setChosenStyle, setNewStyleImg, setMainImg,
                 <option key={index} value={`${sizeQtyObj.size}`}>{`${sizeQtyObj.size}`}</option>
             ))}
             </select>
-            {/* <p>{`Size selected ${sizeVal}`}</p>
-            <p>{`Qty selected ${qty}`}</p> */}
         </label>
         <label>
             <select defaultValue="qty">
