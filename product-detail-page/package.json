@@ -1,6 +1,10 @@
 {
   "name": "product-detail-page",
   "version": "1.0.0",
+  "engines": {
+    "node": "12.22.9",
+    "npm": "8.5.1"
+  },
   "scripts": {
     "client-dev": "npx webpack --watch --mode=development",
     "server-dev": "npx nodemon --watch server server/server.js",

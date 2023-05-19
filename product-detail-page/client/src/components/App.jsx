@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import RelatedItems from './relatedItems/relatedItems.jsx';
-import Reviews from './ratingsAndReviews/reviews.jsx';
+import Reviews from './ratingsAndReviews/Reviews.jsx';
 import QuestionsAndAnswers from './questionsAndAnswers/QuestionsAndAnswers.jsx';
 import Overview from './overview/Overview.jsx';
 import Controller from './relatedItems/controller.js';
