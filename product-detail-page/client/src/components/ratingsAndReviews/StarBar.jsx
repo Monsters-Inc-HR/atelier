@@ -9,19 +9,23 @@ const StarBar = ({ rating }) => {
     fullStars += 1;
     quarterStars = 0;
   }
-
+  const makeKeyGenerator = () => {
+    let val = 0;
+    return () => (val + 1);
+  }
+  const getKey = makeKeyGenerator();
   const stars = Array(5);
-  stars.fill(<FontAwesomeIcon icon={ icon({name: 'star', style: 'solid'}) } />, 0, fullStars);  // fill from 0 up to rating index with solid stars
+  stars.fill(<FontAwesomeIcon key={ getKey() } icon={ icon({name: 'star', style: 'solid'}) } />, 0, fullStars);  // fill from 0 up to rating index with solid stars
   // if there are quarter stars, add a layered icon; otherwise, add an empty star
   stars[fullStars] = (quarterStars > 0) ? (
     <span className='fa-layers fa-fw'>
-      <FontAwesomeIcon icon={ icon({name: 'star', style: 'regular'}) } />
-      <FontAwesomeIcon className={`rr-star-filled-${quarterStars}-4`} icon={ icon({name: 'star', style: 'solid'}) } />
+      <FontAwesomeIcon key={ getKey() } icon={ icon({name: 'star', style: 'regular'}) } />
+      <FontAwesomeIcon key={ getKey() } className={`rr-star-filled-${quarterStars}-4`} icon={ icon({name: 'star', style: 'solid'}) } />
     </span>
   ) : (
-    <FontAwesomeIcon icon={ icon({name: 'star', style: 'regular'}) } />
+    <FontAwesomeIcon key={ getKey() } icon={ icon({name: 'star', style: 'regular'}) } />
   )
-  stars.fill(<FontAwesomeIcon icon={ icon({name: 'star', style: 'regular'}) } />, fullStars + 1);   // fill remaining spots with empty stars
+  stars.fill(<FontAwesomeIcon key={ getKey() } icon={ icon({name: 'star', style: 'regular'}) } />, fullStars + 1);   // fill remaining spots with empty stars
 
   return (
     <div className='rr-star-bar'>
