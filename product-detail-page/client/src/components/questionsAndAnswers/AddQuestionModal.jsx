@@ -72,8 +72,10 @@ const AddQuestionModal = ({open, onClose, questions, productName}) => {
     <div style={OVERLAY_STYLES}>
     <div style={MODAL_STYLES}>
       <form>
-        <h2>Ask Your Question</h2>
-        <h3>About the {productName}</h3>
+        <div id="qa-aq-header">
+          <h2>Ask Your Question</h2>
+          <h3>About the {productName}</h3>
+        </div>
         <br></br>
         <label>Your Question*</label>
         <textarea type="text" id="aqQuestion" maxLength="1000" onChange={aqQuestionChange}></textarea><br></br>

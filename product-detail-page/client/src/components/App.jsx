@@ -3,8 +3,12 @@ import RelatedItems from './relatedItems/relatedItems.jsx';
 import Reviews from './ratingsAndReviews/reviews.jsx';
 import QuestionsAndAnswers from './questionsAndAnswers/QuestionsAndAnswers.jsx';
 import Overview from './overview/Overview.jsx';
-import { getProductDetails } from './relatedItems/controller.js';
 import Controller from './relatedItems/controller.js';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
+
+const siteName = 'Atelier';
+const siteWideAnnouncement = '20% off all winter styles  -  Check out new season styles  -  New fabrics are here!';
 import {dummyStyles, dummyInfo} from './overview/dummyData.js';
 
 
@@ -26,17 +30,27 @@ const App = () => {
 
 
 
-  useEffect(() => {
-    getProductDetails(productID)
-      .then(data => setProductInfo(data))
-      .catch(err => console.log("there was an error getting the product data in the App"));
-  }, [productID]);
+  // useEffect(() => {
+  //   getProductDetails(productID)
+  //     .then(data => setProductInfo(data))
+  //     .catch(err => console.log("there was an error getting the product data in the App"));
+  // }, [productID]);
 
 
   useEffect(() => {
     setProducts([]);
     setUserProducts([]);
     setProductIds([]);
+    setProductStyles([]);
+
+    Controller.getProductDetails(productID)
+      .then((res) => {
+        setProductInfo(res)
+        setFocusedItem(res);
+      })
+      .catch((err) => {
+        console.log('Error fetching focused product');
+      });
 
     Controller.getRelatedProducts(productID)
       .then((productIds) => {
@@ -65,15 +79,30 @@ const App = () => {
         console.log(err);
       });
 
-    Controller.getProductDetails('37311')
-      .then((res) => {
-        setFocusedItem(res);
+  }, [productID]);
+
+
+  useEffect(() => {
+    Controller.getProductStyles(productID)
+      .then((data) => {
+        setStylesData(data.results)
+        setNewStyleImg(data.results[0])
+        setMainImg(data.results[0].photos[0])
       })
       .catch((err) => {
-        console.log('Error fetching focused product');
-      });
+        console.log('this is an error', err)
+      })
+  },[productID])
 
-  }, [productID]);
+  useEffect(() => {
+    Controller.getProductDetails(productID)
+      .then((res) => {
+        setProductInfoData(res);
+      })
+      .catch((err) => {
+        console.log('Error fetching focused product', err);
+      });
+  },[productID])
 
 
   useEffect(() => {
@@ -105,14 +134,25 @@ const App = () => {
     }))
   }
 
-
   const updateMain = (productID) => {
     setProductID(productID);
   }
 
-
   return (
     <div>
+      { console.log(productID) }
+      <div className='title-bar'>
+        <div className='logo-and-navigation'>
+          <div className='logo'>{ siteName }</div>
+          <div className='search-full'>
+            <div className='search'>
+              <hr/>
+            </div>
+            <FontAwesomeIcon icon={ icon({name: 'magnifying-glass', style: 'solid'}) } />
+          </div>
+        </div>
+        <div className='site-wide-announcement'>{ siteWideAnnouncement }</div>
+      </div>
       <Overview
         stylesData={stylesData} setStylesData={setStylesData}
         chosenStyle={chosenStyle} setChosenStyle={setChosenStyle}

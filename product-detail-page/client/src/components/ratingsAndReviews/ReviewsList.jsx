@@ -9,7 +9,7 @@ const ReviewsList = ({ reviews, sortList, productID, productName, characteristic
     <div className='rr-reviews-list' style={{maxHeight: Math.round(document.querySelector('html').clientHeight * .95)}}>
       <div className='rr-review-sorter'>
         { reviews.length } reviews, <label htmlFor='rr-sort-select'>sorted by most</label>
-        <select onChange={ (e) => sortList(e.target.value) } style={{display: 'inline'}} name='sort-by' id='rr-sort-select'>
+        <select className='rr-selector' onChange={ (e) => sortList(e.target.value) } style={{display: 'inline'}} name='sort-by' id='rr-sort-select'>
           <option value='relevant' defaultValue>relevant</option>
           <option value='helpful'>helpful</option>
           <option value='recent'>recent</option>
