@@ -8,7 +8,6 @@ const ImageGallery = ({newStyle, mainImg, setMainImg, pickedImg, setPickedImg}) 
         setPickedImg(clickedImg)
     }
 
-  console.log('newStyle', newStyle.photos[0])
   return (
     <div>
       <img className="main-img" src={mainImg.url}/>

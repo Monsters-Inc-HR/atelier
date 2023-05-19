@@ -6,9 +6,10 @@ import Comparison from './comparison.jsx';
 import itemArray from './dummyData.js';
 import Controller from './controller.js';
 
-const RelatedItems = ({ productID, updateMain, setProductID, productInfo,
+const RelatedItems = ({setProductInfoData, setChosenStyle, productID, updateMain, setProductID, productInfo,
   productIds, products, userProducts, focusedItem, productStyles,
-  filterUserProducts }) => {
+  filterUserProducts, setPickedImg}) => {
+  // console.log('products', productStyles[0])
 
   // const [productIds, setProductIds] = useState([]);
   // const [products, setProducts] = useState([]);
@@ -70,8 +71,14 @@ const RelatedItems = ({ productID, updateMain, setProductID, productInfo,
 
   return (
     <>
-      <List products={products} productStyles={productStyles} focusedItem={focusedItem} updateMain={updateMain}/>
-      <Outfit userProducts={userProducts} productStyles={productStyles} filterUserProducts={filterUserProducts}/>
+      <List
+        setProductInfoData={setProductInfoData}
+        setChosenStyle={setChosenStyle} setPickedImg={setPickedImg}
+        products={products} productStyles={productStyles}
+        focusedItem={focusedItem} updateMain={updateMain}/>
+      <Outfit
+        userProducts={userProducts} productStyles={productStyles}
+        filterUserProducts={filterUserProducts}/>
     </>
   );
 };
