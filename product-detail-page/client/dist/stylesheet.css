@@ -464,6 +464,15 @@ tr {
   padding: 15px;
 }
 
+.rr-filter-message-container {
+  margin-bottom: 5px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #efefef;
+}
+
 .rr-remove-filters-link, .rr-mark-helpful-link {
   text-decoration: underline;
   color: #0076d1;
