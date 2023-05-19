@@ -46,10 +46,10 @@ const App = () => {
       });
 
     Controller.getRelatedProducts(productID)
-      .then((productIds) => {
-        setProductIds(productIds);
+      .then((pids) => {
+        setProductIds(pids);
         return Promise.all(
-          productIds.map((id) => {
+          pids.map((id) => {
             return Promise.all([
               Controller.getProductDetails(id),
               Controller.getProductStyles(id)
