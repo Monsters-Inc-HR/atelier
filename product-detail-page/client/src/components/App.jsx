@@ -98,7 +98,6 @@ const App = () => {
 
   return (
     <div>
-      { console.log(productID) }
       <div className='title-bar'>
         <div className='logo-and-navigation'>
           <div className='logo'>{ siteName }</div>
