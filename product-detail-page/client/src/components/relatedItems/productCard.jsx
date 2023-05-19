@@ -5,7 +5,7 @@ import DeleteButton from './deleteButton.jsx';
 import StarBar from '../ratingsAndReviews/StarBar.jsx';
 import Comparison from './comparison.jsx';
 
-const Card = ({product, images, salePrice, focusedItem, Internal, filterUserProducts, updateMain}) => {
+const Card = ({setProductInfoData, setPickedImg, product, images, salePrice, focusedItem, Internal, filterUserProducts, updateMain}) => {
 
   const [renderComparison, setRenderComparison] = useState(false);
 
@@ -21,6 +21,9 @@ const Card = ({product, images, salePrice, focusedItem, Internal, filterUserProd
 
   const handleClick = () => {
     updateMain(productID.toString());
+    setPickedImg(images[0])
+    setProductInfoData(product)
+    console.log('product', product)
   }
 
   return (
