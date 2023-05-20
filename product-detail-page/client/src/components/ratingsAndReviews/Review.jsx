@@ -8,13 +8,12 @@ import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
 const maxCollapsedChars = 250;
 const maxTitleChars = 60;
 
-const Review = ({ review }) => {
-  const [collapsed, setCollapsed] = useState(review.body.length > maxCollapsedChars);
+const Review = ({ review, removeReview }) => {
   const shortSummary = (review.summary.length <= maxTitleChars) ? review.summary : review.summary.slice(0, review.summary.indexOf(' ', maxTitleChars)) + '...';
   const restOfSummary = (review.summary.length <= maxTitleChars) ? null : '...' + review.summary.slice(review.summary.indexOf(' ', maxTitleChars));
   const sortedPhotos = review.photos.sort((a, b) => a.id < b.id);
+  const [collapsed, setCollapsed] = useState(review.body.length > maxCollapsedChars);
   const [markedHelpfulAdd, setMarkedHelpfulAdd] = useState(0);
-  const [reported, setReported] = useState(false);
 
   const markHelpful = () => {
     if (markedHelpfulAdd === 0) {
@@ -24,15 +23,11 @@ const Review = ({ review }) => {
   }
 
   const report = () => {
-    if (!reported) {
-      setReported(true);
-      updateReview(review.review_id, 'report');
-    }
+    removeReview(review.review_id);
+    updateReview(review.review_id, 'report');
   }
 
   return (
-    <>
-    { !reported &&
     <div className='rr-review'>
       <div className='rr-review-header'>
         <StarBar rating={ Number.parseFloat(review.rating).toFixed(2) } />
@@ -60,8 +55,7 @@ const Review = ({ review }) => {
         <span className='rr-mark-helpful-link' onClick={ report }>Report</span>
       </div>
       <hr />
-    </div> }
-    </>
+    </div>
   );
 };
 

@@ -55,6 +55,10 @@ const Reviews = ({ productID, productName }) => {
     }
   }
 
+  const removeReview = (id) => {
+    setReviewsList(reviewsList.filter(r => r.review_id !== id));
+  }
+
   return (
     <div className='ratings-and-reviews'>
       <div className='rr-title'>RATINGS & REVIEWS</div>
@@ -64,7 +68,7 @@ const Reviews = ({ productID, productName }) => {
           otherwise, the subcomponents will cause errors
         */}
         {reviewsMetaData && <ReviewsSummary metaData={ reviewsMetaData } filters={ filters } filterClick={ filterClick } removeFilters={ removeFilters }/>}
-        {reviewsList && <ReviewsList reviews={ reviewsList } sortList={ sortList } productID={ productID } productName={ productName } characteristics={ reviewsMetaData && reviewsMetaData.characteristics } retrieveFreshReviews={ retrieveFreshReviews } />}
+        {reviewsList && <ReviewsList reviews={ reviewsList } sortList={ sortList } productID={ productID } productName={ productName } characteristics={ reviewsMetaData && reviewsMetaData.characteristics } retrieveFreshReviews={ retrieveFreshReviews } removeReview={ removeReview }/>}
       </div>
     </div>
   )

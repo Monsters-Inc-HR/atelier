@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Review from './Review.jsx';
 import AddReview from './AddReview.jsx';
 
-const ReviewsList = ({ reviews, sortList, productID, productName, characteristics, retrieveFreshReviews }) => {
+const ReviewsList = ({ reviews, sortList, productID, productName, characteristics, retrieveFreshReviews, removeReview }) => {
   const [displayCount, setDisplayCount] = useState(2);
   const [addingReview, setAddingReview] = useState(false);
   return (
@@ -17,7 +17,7 @@ const ReviewsList = ({ reviews, sortList, productID, productName, characteristic
       </div>
       <div className='rr-reviews-list-all-reviews'>
       {reviews.slice(0, displayCount)
-        .map(review => <Review key={ review.review_id } review={ review } />)}
+        .map(review => <Review key={ review.review_id } review={ review } removeReview={ removeReview }/>)}
       </div>
       <div className='rr-reviews-list-buttons'>
         {displayCount < reviews.length && <button onClick={ () => setDisplayCount(displayCount + 2)}>MORE REVIEWS</button>}
