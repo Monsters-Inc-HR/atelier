@@ -25,6 +25,7 @@ const maxPhotos = 5;
 const AddReview = ({ productID, productName, characteristics, retrieveFreshReviews }) => {
   const [addingReview, setAddingReview] = useState(false);
   const [starCount, setStarCount] = useState(0);
+  const [thumbnails, setThumbnails] = useState([]);
   const [photoAlert, setPhotoAlert] = useState(false);
 
   const submitHandler = (e) => {
@@ -69,7 +70,11 @@ const AddReview = ({ productID, productName, characteristics, retrieveFreshRevie
     } else {
       if (photoAlert) setPhotoAlert(false);
     }
-    // render images to DOM here
+    let newThumbnails = [];
+    for (let f of e.target.files) {
+      newThumbnails.push(<img key={ f.name } src={ URL.createObjectURL(f) } className='rr-review-form-photo-thumbnail'></img>);
+    }
+    setThumbnails(newThumbnails);
   }
 
   return (
@@ -120,7 +125,7 @@ const AddReview = ({ productID, productName, characteristics, retrieveFreshRevie
                   </div>
                   <div className='rr-add-review-characteristic-row-content'>
                     <div className='rr-add-review-row-characteristic-selection'>
-                      {  }
+                    <br />
                     </div>
                     <div className='rr-add-review-row-characteristic-buttons'>
                       { positions.map(p => <input key={p} type='radio' name={`${charName}`} id={`${lowerName}-${p}`} value={`${p}`} />) }
@@ -148,6 +153,9 @@ const AddReview = ({ productID, productName, characteristics, retrieveFreshRevie
             <div className='review-form-explanatory-note'>up to {maxPhotos} photos can be added</div>
             <br />
             { photoAlert && <div className='rr-review-photo-alert'>{`Note: Only your first ${maxPhotos} photos will be included with your review.`}</div>}
+            <br />
+            <div className='rr-review-form-photo-thumbnails'>{ thumbnails }</div>
+            <br />
             <div className='rr-add-review-photo-display'></div>
 
           </fieldset>
