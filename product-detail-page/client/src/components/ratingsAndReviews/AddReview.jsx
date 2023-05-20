@@ -78,9 +78,10 @@ const AddReview = ({ productID, productName, characteristics, retrieveFreshRevie
   }
 
   return (
-    <div>
+    <>
     {!addingReview ? <button onClick={ () => setAddingReview(true) }>ADD A REVIEW  +</button> :
       <ReviewsModal visible={ addingReview }>
+        <div className='rr-add-review-modal'>
         <div className='rr-full-screen-modal-close-container'>
           <div className='rr-full-screen-modal-close' onClick={() => setAddingReview(false)}>
             <span>close</span><FontAwesomeIcon icon={ icon({name: 'circle-xmark', style: 'solid'}) } />
@@ -88,7 +89,7 @@ const AddReview = ({ productID, productName, characteristics, retrieveFreshRevie
         </div>
         <h1>Write Your Review</h1>
         <h3>About { productName } </h3>
-
+        <br />
         <form className='rr-add-review' method='post' onSubmit={ submitHandler }>
           <fieldset>
             <legend>Overall rating</legend>
@@ -118,15 +119,12 @@ const AddReview = ({ productID, productName, characteristics, retrieveFreshRevie
             <legend>Characteristics</legend>
             { Object.keys(characteristics).map(charName => {
               const lowerName = charName.toLowerCase();
-              return (
+              return (<>
                 <div className='rr-add-review-row-characteristic'>
                   <div className='rr-add-review-characteristic-row-label'>
                     <label htmlFor={`${lowerName}`}>{ `${charName}: ` }</label>
                   </div>
                   <div className='rr-add-review-characteristic-row-content'>
-                    <div className='rr-add-review-row-characteristic-selection'>
-                    <br />
-                    </div>
                     <div className='rr-add-review-row-characteristic-buttons'>
                       { positions.map(p => <input key={p} type='radio' name={`${charName}`} id={`${lowerName}-${p}`} value={`${p}`} />) }
                     </div>
@@ -136,7 +134,8 @@ const AddReview = ({ productID, productName, characteristics, retrieveFreshRevie
                     </div>
                   </div>
                 </div>
-              )
+                <hr />
+              </>)
             })}
           </fieldset>
           <fieldset>
@@ -173,10 +172,10 @@ const AddReview = ({ productID, productName, characteristics, retrieveFreshRevie
           </fieldset>
           <input type='submit' value='Submit review' />
         </form>
+        </div>
       </ReviewsModal>
     }
-    </div>
-  )
+  </>)
 }
 
 export default AddReview;

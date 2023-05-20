@@ -514,6 +514,10 @@ tr {
   margin: 3px;
 }
 
+.rr-add-review-modal {
+  max-width: 500px;
+}
+
 .rr-add-review-stars {
   display: flex;
 }
@@ -523,11 +527,12 @@ tr {
 }
 
 .rr-add-review-characteristic-row-label {
-  width: 15%;
+  width: 20%;
+
 }
 
 .rr-add-review-characteristic-row-content {
-  width: 60%
+  width: 70%
 }
 
 .rr-add-review-row-characteristic-buttons {
@@ -538,6 +543,11 @@ tr {
 .rr-add-review-row-characteristic-low-high-labels {
   display: flex;
   justify-content: space-between;
+}
+
+.rr-add-review-row-characteristic-low-label, .rr-add-review-row-characteristic-high-label {
+  font-size: smaller;
+  color: #1d1d1d;
 }
 
 .rr-review-seller-response-title {
@@ -551,6 +561,18 @@ tr {
 .review-form-explanatory-note {
   font-size: small;
   font-style: italic;
+}
+
+.rr-review-form-photo-thumbnails {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.rr-review-form-photo-thumbnail {
+  width: 30%;
+  margin: 10px;
 }
 
 .rr-review-photo-alert {
