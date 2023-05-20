@@ -107,7 +107,9 @@ The Overview component is the gateway to discovering products in a captivating m
 
 ## Related Products
 
-The Related Products component enhances the user's journey by providing additional product recommendations tailored to their preferences. Leveraging advanced algorithms, it intelligently suggests related items that complement the user's current selection. By offering alternative choices and alternatives, Related Products enriches the overall shopping experience, empowering users to discover products that perfectly align with their needs and tastes.
+The primary function of this component is to navigate through main products. Every time you click on a product card the page will display it as a focused item.
+Each product card has a category, an item name and a conditionally rendered price depending on wether it’s on sale or not. It also features a Star-bar rating component that visually shows the rating of the product.
+You can click on the product’s star button to compare it’s features against the main product. This list is a carousel that flows on horizontally and the buttons also render conditionally on wether there are more items to display.
 
 ## Ratings and Reviews
 
