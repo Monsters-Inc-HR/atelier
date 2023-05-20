@@ -6,7 +6,7 @@ const ReviewsList = ({ reviews, sortList, productID, productName, characteristic
   const [displayCount, setDisplayCount] = useState(2);
   const [addingReview, setAddingReview] = useState(false);
   return (
-    <div className='rr-reviews-list' style={{maxHeight: Math.round(document.querySelector('html').clientHeight * .95)}}>
+    <div className='rr-reviews-list'>
       <div className='rr-review-sorter'>
         { reviews.length } reviews, <label htmlFor='rr-sort-select'>sorted by most</label>
         <select className='rr-selector' onChange={ (e) => sortList(e.target.value) } style={{display: 'inline'}} name='sort-by' id='rr-sort-select'>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import StarBar from './StarBar.jsx';
-import ReviewPhotos from './ReviewPhotos.jsx';
+import ReviewPhoto from './ReviewPhoto.jsx';
 import { updateReview } from './controllerReviews.js';
 import { format } from 'date-fns';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -48,7 +48,10 @@ const Review = ({ review }) => {
         </button> }
       </div>
       { review.recommend && <div className='rr-review-recommended'><FontAwesomeIcon icon={ icon({name: 'check', style: 'solid'}) } /> I recommend this product.</div> }
-      { review.photos.length > 0 && <ReviewPhotos photos={ sortedPhotos } /> }
+      { review.photos.length > 0 &&
+      (<div className='rr-review-photos'>
+        { sortedPhotos.map(p => <ReviewPhoto key={p.id} url={`${p.url}`}/>) }
+      </div>) }
       { review.response && <div className='rr-review-seller-response'><p className='rr-review-seller-response-title'>Seller response:</p><p>{ review.response }</p></div> }
       <div className='rr-mark-helpful'>
         {'Helpful? '}
