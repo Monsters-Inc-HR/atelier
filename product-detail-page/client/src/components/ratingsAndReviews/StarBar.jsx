@@ -11,20 +11,16 @@ const StarBar = ({ rating }) => {
   }
   let stars = [];
   for (let i = 0; i < 5; i++) {
-    if (i < fullStars) {
-      stars.push(<FontAwesomeIcon key={i} icon={ icon({name: 'star', style: 'solid'}) } />);
-    }
+    if (i < fullStars) stars.push(<FontAwesomeIcon key={i} icon={ icon({name: 'star', style: 'solid'}) } />);
     if (i === fullStars) {
       stars.push((quarterStars > 0) ? (
-        <span className='fa-layers fa-fw'>
-          <FontAwesomeIcon key={i+0.5} icon={ icon({name: 'star', style: 'regular'}) } />
-          <FontAwesomeIcon key={i} className={`rr-star-filled-${quarterStars}-4`} icon={ icon({name: 'star', style: 'solid'}) } />
+        <span key={i} className='fa-layers fa-fw'>
+          <FontAwesomeIcon icon={ icon({name: 'star', style: 'regular'}) } />
+          <FontAwesomeIcon className={`rr-star-filled-${quarterStars}-4`} icon={ icon({name: 'star', style: 'solid'}) } />
         </span>
         ) : (<FontAwesomeIcon key={i} icon={ icon({name: 'star', style: 'regular'}) } />)
     )};
-    if (i > fullStars) {
-      stars.push(<FontAwesomeIcon key={i} icon={ icon({name: 'star', style: 'regular'}) } />)
-    }
+    if (i > fullStars) stars.push(<FontAwesomeIcon key={i} icon={ icon({name: 'star', style: 'regular'}) } />);
   }
   return (
     <div className='rr-star-bar'>
