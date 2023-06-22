@@ -1,11 +1,6 @@
-# atelier
-Front End Capstone Project
+# Atelier Product Detail Page
 
-Thank you for providing the technologies used in your project. Based on the information you've shared, I can help you create a README for your front-end project. Here's a template you can use as a starting point:
-
-# Product Detail Page
-
-This is a front-end project for the Product Detail Page. It is designed to provide a user-friendly interface for displaying product details and related information.
+This is the front-end product detail page of a shopping application. It is designed to provide a user-friendly interface for displaying product details and related information.
 
 ## Technologies Used
 
@@ -93,13 +88,9 @@ This project is licensed under the [MIT License](LICENSE).
 
 Feel free to customize this README to suit your specific project requirements. Let me know if you need any further assistance!
 
+# More details...
 
-
-
-
-# Product Atelier
-
-Product Atelier is a cutting-edge front-end project designed to revolutionize the way users browse, explore, and interact with products. With its intuitive and visually stunning interface, Product Atelier offers a seamless shopping experience that allows customers to dive deeper into product details and make informed purchasing decisions. Let's take a closer look at its four key components:
+Let's take a closer look at the product detail page's 4 key components:
 
 ## Overview
 
@@ -120,5 +111,3 @@ Ratings and Reviews play a vital role in the decision-making process for many cu
 The Questions and Answers component encourages engagement and fosters a community around products. Users can ask questions about specific items, and knowledgeable community members or brand representatives can provide prompt and accurate responses. This interactive feature helps address concerns, clarify doubts, and build a sense of trust and camaraderie among users. With Questions and Answers, customers can make well-informed decisions and feel supported throughout their purchasing journey.
 
 Product Atelier combines these four essential components to create an immersive and comprehensive shopping experience. It empowers users to explore products, discover alternatives, gather insights from real customers, and engage with a vibrant community. Whether users are seeking inspiration or making a purchase, Product Atelier is the ultimate destination for a seamless and rewarding shopping experience.
-
-Feel free to customize this description according to your project's specific features and branding. If you have any further questions or need additional assistance, please let me know!
